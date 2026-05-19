@@ -1,0 +1,3282 @@
+{
+  "generated_at": "2026-05-20 00:56 UTC+8",
+  "best_epoch": 2,
+  "source": {
+    "project": "/home/ubuntu/ml-platform/other-projects/lica-score",
+    "data": "/home/ubuntu/ml-platform/other-projects/lica-score/data/processed/svg_data_v1",
+    "output": "/home/ubuntu/ml-platform/other-projects/lica-score/outputs/lica_score_v1_qwen_lora_cosine_v1_2048_5epoch_multigpu"
+  },
+  "epoch_metrics": [
+    {
+      "epoch": 0,
+      "train_loss": null,
+      "validation_loss": 0.7064995235866971,
+      "pairwise_accuracy": 0.5777777777777777,
+      "hit_at_1": 0.4,
+      "mrr": 0.611111111111111,
+      "mean_margin": 0.04238855573866102
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.3512110710144043,
+      "validation_loss": 0.19507486778295263,
+      "pairwise_accuracy": 0.9111111111111111,
+      "hit_at_1": 0.8,
+      "mrr": 0.888888888888889,
+      "mean_margin": 4.265200477176243
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.061656586825847626,
+      "validation_loss": 0.10788511241298693,
+      "pairwise_accuracy": 0.9555555555555556,
+      "hit_at_1": 0.8666666666666667,
+      "mrr": 0.9333333333333333,
+      "mean_margin": 5.644502019882202
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.025003544986248016,
+      "validation_loss": 0.09232435322883248,
+      "pairwise_accuracy": 0.9777777777777777,
+      "hit_at_1": 0.9333333333333333,
+      "mrr": 0.9666666666666667,
+      "mean_margin": 5.903024133046468
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.023938491940498352,
+      "validation_loss": 0.09232435322883248,
+      "pairwise_accuracy": 0.9777777777777777,
+      "hit_at_1": 0.9333333333333333,
+      "mrr": 0.9666666666666667,
+      "mean_margin": 5.903024133046468
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.02475608140230179,
+      "validation_loss": 0.09232435322883248,
+      "pairwise_accuracy": 0.9777777777777777,
+      "hit_at_1": 0.9333333333333333,
+      "mrr": 0.9666666666666667,
+      "mean_margin": 5.903024133046468
+    }
+  ],
+  "logged_metrics": [
+    {
+      "epoch": 1,
+      "train_loss": 0.3512110710144043,
+      "eval": {
+        "pairwise_accuracy": 0.9555555555555556,
+        "preference_accuracy": 0.9555555555555556,
+        "ranking_accuracy": 0.9555555555555556,
+        "group_perfect_accuracy": 0.8666666666666667,
+        "mean_margin": 3.911656713485718,
+        "hit_at_1": 0.8666666666666667,
+        "mrr": 0.9333333333333333,
+        "mean_positive_rank": 1.1333333333333333,
+        "num_pairs": 45,
+        "num_groups": 15,
+        "by_task": {
+          "text_to_svg": {
+            "pairwise_accuracy": 0.9555555555555556,
+            "preference_accuracy": 0.9555555555555556,
+            "ranking_accuracy": 0.9555555555555556,
+            "group_perfect_accuracy": 0.8666666666666667,
+            "hit_at_1": 0.8666666666666667,
+            "mrr": 0.9333333333333333,
+            "mean_positive_rank": 1.1333333333333333,
+            "num_pairs": 45,
+            "num_groups": 15
+          }
+        }
+      }
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.061656586825847626,
+      "eval": {
+        "pairwise_accuracy": 0.9777777777777777,
+        "preference_accuracy": 0.9777777777777777,
+        "ranking_accuracy": 0.9777777777777777,
+        "group_perfect_accuracy": 0.9333333333333333,
+        "mean_margin": 5.435806968477038,
+        "hit_at_1": 0.9333333333333333,
+        "mrr": 0.9666666666666667,
+        "mean_positive_rank": 1.0666666666666667,
+        "num_pairs": 45,
+        "num_groups": 15,
+        "by_task": {
+          "text_to_svg": {
+            "pairwise_accuracy": 0.9777777777777777,
+            "preference_accuracy": 0.9777777777777777,
+            "ranking_accuracy": 0.9777777777777777,
+            "group_perfect_accuracy": 0.9333333333333333,
+            "hit_at_1": 0.9333333333333333,
+            "mrr": 0.9666666666666667,
+            "mean_positive_rank": 1.0666666666666667,
+            "num_pairs": 45,
+            "num_groups": 15
+          }
+        }
+      }
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.025003544986248016,
+      "eval": {
+        "pairwise_accuracy": 0.9777777777777777,
+        "preference_accuracy": 0.9777777777777777,
+        "ranking_accuracy": 0.9777777777777777,
+        "group_perfect_accuracy": 0.9333333333333333,
+        "mean_margin": 5.707533428404067,
+        "hit_at_1": 0.9333333333333333,
+        "mrr": 0.9666666666666667,
+        "mean_positive_rank": 1.0666666666666667,
+        "num_pairs": 45,
+        "num_groups": 15,
+        "by_task": {
+          "text_to_svg": {
+            "pairwise_accuracy": 0.9777777777777777,
+            "preference_accuracy": 0.9777777777777777,
+            "ranking_accuracy": 0.9777777777777777,
+            "group_perfect_accuracy": 0.9333333333333333,
+            "hit_at_1": 0.9333333333333333,
+            "mrr": 0.9666666666666667,
+            "mean_positive_rank": 1.0666666666666667,
+            "num_pairs": 45,
+            "num_groups": 15
+          }
+        }
+      }
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.023938491940498352,
+      "eval": {
+        "pairwise_accuracy": 0.9777777777777777,
+        "preference_accuracy": 0.9777777777777777,
+        "ranking_accuracy": 0.9777777777777777,
+        "group_perfect_accuracy": 0.9333333333333333,
+        "mean_margin": 5.707533428404067,
+        "hit_at_1": 0.9333333333333333,
+        "mrr": 0.9666666666666667,
+        "mean_positive_rank": 1.0666666666666667,
+        "num_pairs": 45,
+        "num_groups": 15,
+        "by_task": {
+          "text_to_svg": {
+            "pairwise_accuracy": 0.9777777777777777,
+            "preference_accuracy": 0.9777777777777777,
+            "ranking_accuracy": 0.9777777777777777,
+            "group_perfect_accuracy": 0.9333333333333333,
+            "hit_at_1": 0.9333333333333333,
+            "mrr": 0.9666666666666667,
+            "mean_positive_rank": 1.0666666666666667,
+            "num_pairs": 45,
+            "num_groups": 15
+          }
+        }
+      }
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.02475608140230179,
+      "eval": {
+        "pairwise_accuracy": 0.9777777777777777,
+        "preference_accuracy": 0.9777777777777777,
+        "ranking_accuracy": 0.9777777777777777,
+        "group_perfect_accuracy": 0.9333333333333333,
+        "mean_margin": 5.707533428404067,
+        "hit_at_1": 0.9333333333333333,
+        "mrr": 0.9666666666666667,
+        "mean_positive_rank": 1.0666666666666667,
+        "num_pairs": 45,
+        "num_groups": 15,
+        "by_task": {
+          "text_to_svg": {
+            "pairwise_accuracy": 0.9777777777777777,
+            "preference_accuracy": 0.9777777777777777,
+            "ranking_accuracy": 0.9777777777777777,
+            "group_perfect_accuracy": 0.9333333333333333,
+            "hit_at_1": 0.9333333333333333,
+            "mrr": 0.9666666666666667,
+            "mean_positive_rank": 1.0666666666666667,
+            "num_pairs": 45,
+            "num_groups": 15
+          }
+        }
+      }
+    }
+  ],
+  "summaries": {
+    "base": {
+      "accuracy": 0.5777777777777777,
+      "correct": 26,
+      "total": 45,
+      "confusion": {
+        "true_gt_pred_gt": 26,
+        "true_gt_pred_ai": 19,
+        "predicted_ai_by_source": {
+          "gpt-5.2": 5,
+          "gemini": 8,
+          "claude": 6
+        }
+      },
+      "by_source": {
+        "claude": {
+          "correct": 9,
+          "total": 15,
+          "accuracy": 0.6
+        },
+        "gemini": {
+          "correct": 7,
+          "total": 15,
+          "accuracy": 0.4666666666666667
+        },
+        "gpt-5.2": {
+          "correct": 10,
+          "total": 15,
+          "accuracy": 0.6666666666666666
+        }
+      },
+      "rows": [
+        {
+          "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+          "ai_source": "claude",
+          "gt_score": 8.871882438659668,
+          "ai_score": 8.479320526123047,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+          "ai_source": "gemini",
+          "gt_score": 8.871882438659668,
+          "ai_score": 8.27464771270752,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+          "ai_source": "gpt-5.2",
+          "gt_score": 8.871882438659668,
+          "ai_score": 9.263887405395508,
+          "winner": "gpt-5.2",
+          "correct": false
+        },
+        {
+          "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+          "ai_source": "claude",
+          "gt_score": 9.910408020019531,
+          "ai_score": 9.36386775970459,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+          "ai_source": "gemini",
+          "gt_score": 9.910408020019531,
+          "ai_score": 9.011630058288574,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.910408020019531,
+          "ai_score": 9.013813018798828,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+          "ai_source": "claude",
+          "gt_score": 9.614044189453125,
+          "ai_score": 9.31273365020752,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+          "ai_source": "gemini",
+          "gt_score": 9.614044189453125,
+          "ai_score": 9.464395523071289,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.614044189453125,
+          "ai_score": 9.272910118103027,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+          "ai_source": "claude",
+          "gt_score": 9.046346664428711,
+          "ai_score": 8.964863777160645,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+          "ai_source": "gemini",
+          "gt_score": 9.046346664428711,
+          "ai_score": 9.11913013458252,
+          "winner": "gemini",
+          "correct": false
+        },
+        {
+          "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.046346664428711,
+          "ai_score": 8.753482818603516,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+          "ai_source": "claude",
+          "gt_score": 8.613316535949707,
+          "ai_score": 9.299803733825684,
+          "winner": "claude",
+          "correct": false
+        },
+        {
+          "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+          "ai_source": "gemini",
+          "gt_score": 8.613316535949707,
+          "ai_score": 9.600234985351562,
+          "winner": "gemini",
+          "correct": false
+        },
+        {
+          "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+          "ai_source": "gpt-5.2",
+          "gt_score": 8.613316535949707,
+          "ai_score": 9.404419898986816,
+          "winner": "gpt-5.2",
+          "correct": false
+        },
+        {
+          "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+          "ai_source": "claude",
+          "gt_score": 7.596933364868164,
+          "ai_score": 8.79419231414795,
+          "winner": "claude",
+          "correct": false
+        },
+        {
+          "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+          "ai_source": "gemini",
+          "gt_score": 7.596933364868164,
+          "ai_score": 8.397124290466309,
+          "winner": "gemini",
+          "correct": false
+        },
+        {
+          "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+          "ai_source": "gpt-5.2",
+          "gt_score": 7.596933364868164,
+          "ai_score": 8.397124290466309,
+          "winner": "gpt-5.2",
+          "correct": false
+        },
+        {
+          "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+          "ai_source": "claude",
+          "gt_score": 9.83372688293457,
+          "ai_score": 9.117825508117676,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+          "ai_source": "gemini",
+          "gt_score": 9.83372688293457,
+          "ai_score": 8.780367851257324,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.83372688293457,
+          "ai_score": 9.28853702545166,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+          "ai_source": "claude",
+          "gt_score": 9.352497100830078,
+          "ai_score": 9.314004898071289,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+          "ai_source": "gemini",
+          "gt_score": 9.352497100830078,
+          "ai_score": 9.234225273132324,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.352497100830078,
+          "ai_score": 9.298633575439453,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+          "ai_source": "claude",
+          "gt_score": 7.006667613983154,
+          "ai_score": 7.444408416748047,
+          "winner": "claude",
+          "correct": false
+        },
+        {
+          "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+          "ai_source": "gemini",
+          "gt_score": 7.006667613983154,
+          "ai_score": 7.259811878204346,
+          "winner": "gemini",
+          "correct": false
+        },
+        {
+          "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+          "ai_source": "gpt-5.2",
+          "gt_score": 7.006667613983154,
+          "ai_score": 6.966270446777344,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+          "ai_source": "claude",
+          "gt_score": 9.489973068237305,
+          "ai_score": 9.715800285339355,
+          "winner": "claude",
+          "correct": false
+        },
+        {
+          "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+          "ai_source": "gemini",
+          "gt_score": 9.489973068237305,
+          "ai_score": 9.62186336517334,
+          "winner": "gemini",
+          "correct": false
+        },
+        {
+          "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.489973068237305,
+          "ai_score": 9.605493545532227,
+          "winner": "gpt-5.2",
+          "correct": false
+        },
+        {
+          "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+          "ai_source": "claude",
+          "gt_score": 9.049884796142578,
+          "ai_score": 8.922647476196289,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+          "ai_source": "gemini",
+          "gt_score": 9.049884796142578,
+          "ai_score": 9.165478706359863,
+          "winner": "gemini",
+          "correct": false
+        },
+        {
+          "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.049884796142578,
+          "ai_score": 8.927977561950684,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+          "ai_source": "claude",
+          "gt_score": 9.386751174926758,
+          "ai_score": 9.096223831176758,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+          "ai_source": "gemini",
+          "gt_score": 9.386751174926758,
+          "ai_score": 8.96812915802002,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.386751174926758,
+          "ai_score": 9.137367248535156,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+          "ai_source": "claude",
+          "gt_score": 10.507431030273438,
+          "ai_score": 10.632015228271484,
+          "winner": "claude",
+          "correct": false
+        },
+        {
+          "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+          "ai_source": "gemini",
+          "gt_score": 10.507431030273438,
+          "ai_score": 10.701287269592285,
+          "winner": "gemini",
+          "correct": false
+        },
+        {
+          "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+          "ai_source": "gpt-5.2",
+          "gt_score": 10.507431030273438,
+          "ai_score": 10.858477592468262,
+          "winner": "gpt-5.2",
+          "correct": false
+        },
+        {
+          "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+          "ai_source": "claude",
+          "gt_score": 10.19772720336914,
+          "ai_score": 10.982100486755371,
+          "winner": "claude",
+          "correct": false
+        },
+        {
+          "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+          "ai_source": "gemini",
+          "gt_score": 10.19772720336914,
+          "ai_score": 10.450182914733887,
+          "winner": "gemini",
+          "correct": false
+        },
+        {
+          "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+          "ai_source": "gpt-5.2",
+          "gt_score": 10.19772720336914,
+          "ai_score": 9.840258598327637,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+          "ai_source": "claude",
+          "gt_score": 10.171080589294434,
+          "ai_score": 9.717512130737305,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+          "ai_source": "gemini",
+          "gt_score": 10.171080589294434,
+          "ai_score": 9.182942390441895,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+          "ai_source": "gpt-5.2",
+          "gt_score": 10.171080589294434,
+          "ai_score": 9.621102333068848,
+          "winner": "gt",
+          "correct": true
+        }
+      ]
+    },
+    "fine_tuned": {
+      "accuracy": 0.9555555555555556,
+      "correct": 43,
+      "total": 45,
+      "confusion": {
+        "true_gt_pred_gt": 43,
+        "true_gt_pred_ai": 2,
+        "predicted_ai_by_source": {
+          "gpt-5.2": 1,
+          "claude": 1
+        }
+      },
+      "by_source": {
+        "claude": {
+          "correct": 14,
+          "total": 15,
+          "accuracy": 0.9333333333333333
+        },
+        "gemini": {
+          "correct": 15,
+          "total": 15,
+          "accuracy": 1.0
+        },
+        "gpt-5.2": {
+          "correct": 14,
+          "total": 15,
+          "accuracy": 0.9333333333333333
+        }
+      },
+      "rows": [
+        {
+          "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+          "ai_source": "claude",
+          "gt_score": 11.54992389678955,
+          "ai_score": 4.5662078857421875,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+          "ai_source": "gemini",
+          "gt_score": 11.54992389678955,
+          "ai_score": 10.655034065246582,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+          "ai_source": "gpt-5.2",
+          "gt_score": 11.54992389678955,
+          "ai_score": 11.1367769241333,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+          "ai_source": "claude",
+          "gt_score": 8.495645523071289,
+          "ai_score": 2.0015311241149902,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+          "ai_source": "gemini",
+          "gt_score": 8.495645523071289,
+          "ai_score": -0.7965731620788574,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+          "ai_source": "gpt-5.2",
+          "gt_score": 8.495645523071289,
+          "ai_score": 0.2363251894712448,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+          "ai_source": "claude",
+          "gt_score": 11.358016967773438,
+          "ai_score": 6.2682390213012695,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+          "ai_source": "gemini",
+          "gt_score": 11.358016967773438,
+          "ai_score": 3.2183034420013428,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+          "ai_source": "gpt-5.2",
+          "gt_score": 11.358016967773438,
+          "ai_score": 2.0147299766540527,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+          "ai_source": "claude",
+          "gt_score": 7.867756366729736,
+          "ai_score": -0.9085057973861694,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+          "ai_source": "gemini",
+          "gt_score": 7.867756366729736,
+          "ai_score": -0.7148926854133606,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+          "ai_source": "gpt-5.2",
+          "gt_score": 7.867756366729736,
+          "ai_score": 1.545056700706482,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+          "ai_source": "claude",
+          "gt_score": 11.39419937133789,
+          "ai_score": 0.47989800572395325,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+          "ai_source": "gemini",
+          "gt_score": 11.39419937133789,
+          "ai_score": -0.21936114132404327,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+          "ai_source": "gpt-5.2",
+          "gt_score": 11.39419937133789,
+          "ai_score": 0.0992949828505516,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+          "ai_source": "claude",
+          "gt_score": 5.042140483856201,
+          "ai_score": 3.0402400493621826,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+          "ai_source": "gemini",
+          "gt_score": 5.042140483856201,
+          "ai_score": 4.09028959274292,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+          "ai_source": "gpt-5.2",
+          "gt_score": 5.042140483856201,
+          "ai_score": 4.09028959274292,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+          "ai_source": "claude",
+          "gt_score": 12.361554145812988,
+          "ai_score": 11.10270881652832,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+          "ai_source": "gemini",
+          "gt_score": 12.361554145812988,
+          "ai_score": 3.812506675720215,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+          "ai_source": "gpt-5.2",
+          "gt_score": 12.361554145812988,
+          "ai_score": 0.9053927063941956,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+          "ai_source": "claude",
+          "gt_score": 8.944426536560059,
+          "ai_score": 2.9082677364349365,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+          "ai_source": "gemini",
+          "gt_score": 8.944426536560059,
+          "ai_score": 6.441647529602051,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+          "ai_source": "gpt-5.2",
+          "gt_score": 8.944426536560059,
+          "ai_score": 2.817521095275879,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+          "ai_source": "claude",
+          "gt_score": 11.558365821838379,
+          "ai_score": 3.195195198059082,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+          "ai_source": "gemini",
+          "gt_score": 11.558365821838379,
+          "ai_score": 4.540710926055908,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+          "ai_source": "gpt-5.2",
+          "gt_score": 11.558365821838379,
+          "ai_score": 5.438854217529297,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+          "ai_source": "claude",
+          "gt_score": 9.578938484191895,
+          "ai_score": 6.2773823738098145,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+          "ai_source": "gemini",
+          "gt_score": 9.578938484191895,
+          "ai_score": 1.218709111213684,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.578938484191895,
+          "ai_score": 1.7834075689315796,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+          "ai_source": "claude",
+          "gt_score": 7.709946155548096,
+          "ai_score": 2.481027603149414,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+          "ai_source": "gemini",
+          "gt_score": 7.709946155548096,
+          "ai_score": 1.661313533782959,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+          "ai_source": "gpt-5.2",
+          "gt_score": 7.709946155548096,
+          "ai_score": 8.091927528381348,
+          "winner": "gpt-5.2",
+          "correct": false
+        },
+        {
+          "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+          "ai_source": "claude",
+          "gt_score": 11.630509376525879,
+          "ai_score": 9.116866111755371,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+          "ai_source": "gemini",
+          "gt_score": 11.630509376525879,
+          "ai_score": 11.539395332336426,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+          "ai_source": "gpt-5.2",
+          "gt_score": 11.630509376525879,
+          "ai_score": 8.543990135192871,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+          "ai_source": "claude",
+          "gt_score": 6.006808280944824,
+          "ai_score": 6.077080249786377,
+          "winner": "claude",
+          "correct": false
+        },
+        {
+          "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+          "ai_source": "gemini",
+          "gt_score": 6.006808280944824,
+          "ai_score": 4.591829299926758,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+          "ai_source": "gpt-5.2",
+          "gt_score": 6.006808280944824,
+          "ai_score": 3.529794692993164,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+          "ai_source": "claude",
+          "gt_score": 6.623989582061768,
+          "ai_score": 2.7748332023620605,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+          "ai_source": "gemini",
+          "gt_score": 6.623989582061768,
+          "ai_score": 2.0017881393432617,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+          "ai_source": "gpt-5.2",
+          "gt_score": 6.623989582061768,
+          "ai_score": 4.378650188446045,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+          "ai_source": "claude",
+          "gt_score": 9.374882698059082,
+          "ai_score": -0.6238808035850525,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+          "ai_source": "gemini",
+          "gt_score": 9.374882698059082,
+          "ai_score": -1.1070067882537842,
+          "winner": "gt",
+          "correct": true
+        },
+        {
+          "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+          "ai_source": "gpt-5.2",
+          "gt_score": 9.374882698059082,
+          "ai_score": 0.185923233628273,
+          "winner": "gt",
+          "correct": true
+        }
+      ]
+    }
+  },
+  "epoch_eval_metrics": {
+    "base": {
+      "pairwise_accuracy": 0.5777777777777777,
+      "preference_accuracy": 0.5777777777777777,
+      "ranking_accuracy": 0.5777777777777777,
+      "group_perfect_accuracy": 0.4,
+      "mean_margin": 0.04238855573866102,
+      "hit_at_1": 0.4,
+      "mrr": 0.611111111111111,
+      "mean_positive_rank": 2.2666666666666666,
+      "num_pairs": 45,
+      "num_groups": 15,
+      "by_task": {
+        "text_to_svg": {
+          "pairwise_accuracy": 0.5777777777777777,
+          "preference_accuracy": 0.5777777777777777,
+          "ranking_accuracy": 0.5777777777777777,
+          "group_perfect_accuracy": 0.4,
+          "hit_at_1": 0.4,
+          "mrr": 0.611111111111111,
+          "mean_positive_rank": 2.2666666666666666,
+          "num_pairs": 45,
+          "num_groups": 15
+        }
+      }
+    },
+    "epoch_1": {
+      "pairwise_accuracy": 0.9111111111111111,
+      "preference_accuracy": 0.9111111111111111,
+      "ranking_accuracy": 0.9111111111111111,
+      "group_perfect_accuracy": 0.8,
+      "mean_margin": 4.265200477176243,
+      "hit_at_1": 0.8,
+      "mrr": 0.888888888888889,
+      "mean_positive_rank": 1.2666666666666666,
+      "num_pairs": 45,
+      "num_groups": 15,
+      "by_task": {
+        "text_to_svg": {
+          "pairwise_accuracy": 0.9111111111111111,
+          "preference_accuracy": 0.9111111111111111,
+          "ranking_accuracy": 0.9111111111111111,
+          "group_perfect_accuracy": 0.8,
+          "hit_at_1": 0.8,
+          "mrr": 0.888888888888889,
+          "mean_positive_rank": 1.2666666666666666,
+          "num_pairs": 45,
+          "num_groups": 15
+        }
+      }
+    },
+    "epoch_2": {
+      "pairwise_accuracy": 0.9555555555555556,
+      "preference_accuracy": 0.9555555555555556,
+      "ranking_accuracy": 0.9555555555555556,
+      "group_perfect_accuracy": 0.8666666666666667,
+      "mean_margin": 5.644502019882202,
+      "hit_at_1": 0.8666666666666667,
+      "mrr": 0.9333333333333333,
+      "mean_positive_rank": 1.1333333333333333,
+      "num_pairs": 45,
+      "num_groups": 15,
+      "by_task": {
+        "text_to_svg": {
+          "pairwise_accuracy": 0.9555555555555556,
+          "preference_accuracy": 0.9555555555555556,
+          "ranking_accuracy": 0.9555555555555556,
+          "group_perfect_accuracy": 0.8666666666666667,
+          "hit_at_1": 0.8666666666666667,
+          "mrr": 0.9333333333333333,
+          "mean_positive_rank": 1.1333333333333333,
+          "num_pairs": 45,
+          "num_groups": 15
+        }
+      }
+    },
+    "epoch_3": {
+      "pairwise_accuracy": 0.9777777777777777,
+      "preference_accuracy": 0.9777777777777777,
+      "ranking_accuracy": 0.9777777777777777,
+      "group_perfect_accuracy": 0.9333333333333333,
+      "mean_margin": 5.903024133046468,
+      "hit_at_1": 0.9333333333333333,
+      "mrr": 0.9666666666666667,
+      "mean_positive_rank": 1.0666666666666667,
+      "num_pairs": 45,
+      "num_groups": 15,
+      "by_task": {
+        "text_to_svg": {
+          "pairwise_accuracy": 0.9777777777777777,
+          "preference_accuracy": 0.9777777777777777,
+          "ranking_accuracy": 0.9777777777777777,
+          "group_perfect_accuracy": 0.9333333333333333,
+          "hit_at_1": 0.9333333333333333,
+          "mrr": 0.9666666666666667,
+          "mean_positive_rank": 1.0666666666666667,
+          "num_pairs": 45,
+          "num_groups": 15
+        }
+      }
+    },
+    "epoch_4": {
+      "pairwise_accuracy": 0.9777777777777777,
+      "preference_accuracy": 0.9777777777777777,
+      "ranking_accuracy": 0.9777777777777777,
+      "group_perfect_accuracy": 0.9333333333333333,
+      "mean_margin": 5.903024133046468,
+      "hit_at_1": 0.9333333333333333,
+      "mrr": 0.9666666666666667,
+      "mean_positive_rank": 1.0666666666666667,
+      "num_pairs": 45,
+      "num_groups": 15,
+      "by_task": {
+        "text_to_svg": {
+          "pairwise_accuracy": 0.9777777777777777,
+          "preference_accuracy": 0.9777777777777777,
+          "ranking_accuracy": 0.9777777777777777,
+          "group_perfect_accuracy": 0.9333333333333333,
+          "hit_at_1": 0.9333333333333333,
+          "mrr": 0.9666666666666667,
+          "mean_positive_rank": 1.0666666666666667,
+          "num_pairs": 45,
+          "num_groups": 15
+        }
+      }
+    },
+    "epoch_5": {
+      "pairwise_accuracy": 0.9777777777777777,
+      "preference_accuracy": 0.9777777777777777,
+      "ranking_accuracy": 0.9777777777777777,
+      "group_perfect_accuracy": 0.9333333333333333,
+      "mean_margin": 5.903024133046468,
+      "hit_at_1": 0.9333333333333333,
+      "mrr": 0.9666666666666667,
+      "mean_positive_rank": 1.0666666666666667,
+      "num_pairs": 45,
+      "num_groups": 15,
+      "by_task": {
+        "text_to_svg": {
+          "pairwise_accuracy": 0.9777777777777777,
+          "preference_accuracy": 0.9777777777777777,
+          "ranking_accuracy": 0.9777777777777777,
+          "group_perfect_accuracy": 0.9333333333333333,
+          "hit_at_1": 0.9333333333333333,
+          "mrr": 0.9666666666666667,
+          "mean_positive_rank": 1.0666666666666667,
+          "num_pairs": 45,
+          "num_groups": 15
+        }
+      }
+    }
+  },
+  "groups": [
+    {
+      "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+      "bucket": "medium",
+      "prompt": "This image features a series of concentric, uniformly thick blue arcs arranged in a curvilinear pattern against a transparent background. The lines curve from the upper left, moving downwards and to the right, resembling the ridges of a fingerprint, sound waves, or perhaps a stylized brain or a segment of a spiral. The overall style is clean, abstract, and minimalist.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+          "bucket": "medium",
+          "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_gt.png",
+          "base_score": 8.871882438659668,
+          "fine_score": 11.54992389678955,
+          "prompt_text": "This image features a series of concentric, uniformly thick blue arcs arranged in a curvilinear pattern against a transparent background. The lines curve from the upper left, moving downwards and to the right, resembling the ridges of a fingerprint, sound waves, or perhaps a stylized brain or a segment of a spiral. The overall style is clean, abstract, and minimalist."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+          "bucket": "medium",
+          "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_claude.png",
+          "base_score": 8.479320526123047,
+          "fine_score": 4.5662078857421875,
+          "prompt_text": "blue concentric arcs, curvilinear pattern"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+          "bucket": "medium",
+          "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_gemini.png",
+          "base_score": 8.27464771270752,
+          "fine_score": 10.655034065246582,
+          "prompt_text": "blue concentric arcs, curvilinear pattern"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+          "bucket": "medium",
+          "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_gpt-5-2.png",
+          "base_score": 9.263887405395508,
+          "fine_score": 11.1367769241333,
+          "prompt_text": "blue concentric arcs, curvilinear pattern"
+        }
+      ],
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gpt-5.2",
+        "gt",
+        "claude",
+        "gemini"
+      ],
+      "fine_rank": [
+        "gt",
+        "gpt-5.2",
+        "gemini",
+        "claude"
+      ]
+    },
+    {
+      "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+      "bucket": "complex",
+      "prompt": "This is a cheerful flat illustration featuring a young man smiling with his eyes closed and making a peace sign with his raised right hand. He is dressed in a teal blazer over an orange sweater, black pants, and cream-colored shoes, with a black bag strap visible on his left shoulder. The overall style is modern and minimalist with clean lines and a vibrant color palette, presented on a transparent background.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+          "bucket": "complex",
+          "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_gt.png",
+          "base_score": 9.910408020019531,
+          "fine_score": 8.495645523071289,
+          "prompt_text": "This is a cheerful flat illustration featuring a young man smiling with his eyes closed and making a peace sign with his raised right hand. He is dressed in a teal blazer over an orange sweater, black pants, and cream-colored shoes, with a black bag strap visible on his left shoulder. The overall style is modern and minimalist with clean lines and a vibrant color palette, presented on a transparent background."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+          "bucket": "complex",
+          "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_claude.png",
+          "base_score": 9.36386775970459,
+          "fine_score": 2.0015311241149902,
+          "prompt_text": "smiling man peace sign blazer"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+          "bucket": "complex",
+          "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_gemini.png",
+          "base_score": 9.011630058288574,
+          "fine_score": -0.7965731620788574,
+          "prompt_text": "smiling man peace sign blazer"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+          "bucket": "complex",
+          "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_gpt-5-2.png",
+          "base_score": 9.013813018798828,
+          "fine_score": 0.2363251894712448,
+          "prompt_text": "smiling man peace sign blazer"
+        }
+      ],
+      "base_winner": "gt",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gt",
+        "claude",
+        "gpt-5.2",
+        "gemini"
+      ],
+      "fine_rank": [
+        "gt",
+        "claude",
+        "gpt-5.2",
+        "gemini"
+      ]
+    },
+    {
+      "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+      "bucket": "simple",
+      "prompt": "The image displays a prominent, dark blue-gray outline of a hexagon centered against a pristine white background. The geometric shape features distinct, softly rounded corners, contributing to its clean and modern aesthetic. This minimalist design suggests it could function as a versatile icon or a graphic symbol.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+          "bucket": "simple",
+          "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_gt.png",
+          "base_score": 9.614044189453125,
+          "fine_score": 11.358016967773438,
+          "prompt_text": "The image displays a prominent, dark blue-gray outline of a hexagon centered against a pristine white background. The geometric shape features distinct, softly rounded corners, contributing to its clean and modern aesthetic. This minimalist design suggests it could function as a versatile icon or a graphic symbol."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+          "bucket": "simple",
+          "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_claude.png",
+          "base_score": 9.31273365020752,
+          "fine_score": 6.2682390213012695,
+          "prompt_text": "dark blue-gray rounded hexagon icon"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+          "bucket": "simple",
+          "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_gemini.png",
+          "base_score": 9.464395523071289,
+          "fine_score": 3.2183034420013428,
+          "prompt_text": "dark blue-gray rounded hexagon icon"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+          "bucket": "simple",
+          "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_gpt-5-2.png",
+          "base_score": 9.272910118103027,
+          "fine_score": 2.0147299766540527,
+          "prompt_text": "dark blue-gray rounded hexagon icon"
+        }
+      ],
+      "base_winner": "gt",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gt",
+        "gemini",
+        "claude",
+        "gpt-5.2"
+      ],
+      "fine_rank": [
+        "gt",
+        "claude",
+        "gemini",
+        "gpt-5.2"
+      ]
+    },
+    {
+      "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+      "bucket": "complex",
+      "prompt": "This is a minimalist, flat-design illustration depicting a person with short, teal-blue hair and light brown skin, actively brushing their teeth. They are wearing a high-collared white sweater with black stripe details around the neck, holding a black toothbrush to their open mouth, which reveals bright white teeth. The cheerful, cartoon-like style emphasizes clean lines and simple shapes against a transparent background.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+          "bucket": "complex",
+          "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_gt.png",
+          "base_score": 9.046346664428711,
+          "fine_score": 7.867756366729736,
+          "prompt_text": "This is a minimalist, flat-design illustration depicting a person with short, teal-blue hair and light brown skin, actively brushing their teeth. They are wearing a high-collared white sweater with black stripe details around the neck, holding a black toothbrush to their open mouth, which reveals bright white teeth. The cheerful, cartoon-like style emphasizes clean lines and simple shapes against a transparent background."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+          "bucket": "complex",
+          "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_claude.png",
+          "base_score": 8.964863777160645,
+          "fine_score": -0.9085057973861694,
+          "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+          "bucket": "complex",
+          "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_gemini.png",
+          "base_score": 9.11913013458252,
+          "fine_score": -0.7148926854133606,
+          "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+          "bucket": "complex",
+          "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_gpt-5-2.png",
+          "base_score": 8.753482818603516,
+          "fine_score": 1.545056700706482,
+          "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+        }
+      ],
+      "base_winner": "gemini",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gemini",
+        "gt",
+        "claude",
+        "gpt-5.2"
+      ],
+      "fine_rank": [
+        "gt",
+        "gpt-5.2",
+        "gemini",
+        "claude"
+      ]
+    },
+    {
+      "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+      "bucket": "complex",
+      "prompt": "This is a minimalist graphic depicting a cream-colored rectangular card or paper with a distinct scalloped, muted red border. A smaller, bright yellow scalloped element partially overlaps the red border at the bottom right, accompanied by a small purple line. Two subtle, faint purple-grey lines are also visible on the cream surface in the top right, suggesting a slight crease or texture.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+          "bucket": "complex",
+          "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_gt.png",
+          "base_score": 8.613316535949707,
+          "fine_score": 11.39419937133789,
+          "prompt_text": "This is a minimalist graphic depicting a cream-colored rectangular card or paper with a distinct scalloped, muted red border. A smaller, bright yellow scalloped element partially overlaps the red border at the bottom right, accompanied by a small purple line. Two subtle, faint purple-grey lines are also visible on the cream surface in the top right, suggesting a slight crease or texture."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+          "bucket": "complex",
+          "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_claude.png",
+          "base_score": 9.299803733825684,
+          "fine_score": 0.47989800572395325,
+          "prompt_text": "cream card with red scalloped border and yellow element"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+          "bucket": "complex",
+          "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_gemini.png",
+          "base_score": 9.600234985351562,
+          "fine_score": -0.21936114132404327,
+          "prompt_text": "cream card with red scalloped border and yellow element"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+          "bucket": "complex",
+          "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_gpt-5-2.png",
+          "base_score": 9.404419898986816,
+          "fine_score": 0.0992949828505516,
+          "prompt_text": "cream card with red scalloped border and yellow element"
+        }
+      ],
+      "base_winner": "gemini",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gemini",
+        "gpt-5.2",
+        "claude",
+        "gt"
+      ],
+      "fine_rank": [
+        "gt",
+        "claude",
+        "gpt-5.2",
+        "gemini"
+      ]
+    },
+    {
+      "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+      "bucket": "simple",
+      "prompt": "The image provided is completely black, without any visible subjects, colors, or discernible features. As a result, there is no specific style, text, or key elements to describe. Following the instructions, this entirely black image can be interpreted as transparent or representing an empty visual space.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+          "bucket": "simple",
+          "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_gt.png",
+          "base_score": 7.596933364868164,
+          "fine_score": 5.042140483856201,
+          "prompt_text": "The image provided is completely black, without any visible subjects, colors, or discernible features. As a result, there is no specific style, text, or key elements to describe. Following the instructions, this entirely black image can be interpreted as transparent or representing an empty visual space."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+          "bucket": "simple",
+          "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_claude.png",
+          "base_score": 8.79419231414795,
+          "fine_score": 3.0402400493621826,
+          "prompt_text": "black transparent space"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+          "bucket": "simple",
+          "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_gemini.png",
+          "base_score": 8.397124290466309,
+          "fine_score": 4.09028959274292,
+          "prompt_text": "black transparent space"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+          "bucket": "simple",
+          "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_gpt-5-2.png",
+          "base_score": 8.397124290466309,
+          "fine_score": 4.09028959274292,
+          "prompt_text": "black transparent space"
+        }
+      ],
+      "base_winner": "claude",
+      "fine_winner": "gt",
+      "base_rank": [
+        "claude",
+        "gemini",
+        "gpt-5.2",
+        "gt"
+      ],
+      "fine_rank": [
+        "gt",
+        "gemini",
+        "gpt-5.2",
+        "claude"
+      ]
+    },
+    {
+      "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+      "bucket": "simple",
+      "prompt": "This image depicts a stylized bar chart featuring three light yellowish-green bars of progressively increasing height, symbolizing growth or improvement. An upward-pointing arrow, rendered in the same light yellowish-green hue, diagonally crosses over the bars, reinforcing the concept of a positive trend or upward movement. The graphic is presented with a transparent background, giving it a clean and iconic appearance.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+          "bucket": "simple",
+          "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_gt.png",
+          "base_score": 9.83372688293457,
+          "fine_score": 12.361554145812988,
+          "prompt_text": "This image depicts a stylized bar chart featuring three light yellowish-green bars of progressively increasing height, symbolizing growth or improvement. An upward-pointing arrow, rendered in the same light yellowish-green hue, diagonally crosses over the bars, reinforcing the concept of a positive trend or upward movement. The graphic is presented with a transparent background, giving it a clean and iconic appearance."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+          "bucket": "simple",
+          "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_claude.png",
+          "base_score": 9.117825508117676,
+          "fine_score": 11.10270881652832,
+          "prompt_text": "light green bar chart with upward arrow"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+          "bucket": "simple",
+          "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_gemini.png",
+          "base_score": 8.780367851257324,
+          "fine_score": 3.812506675720215,
+          "prompt_text": "light green bar chart with upward arrow"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+          "bucket": "simple",
+          "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_gpt-5-2.png",
+          "base_score": 9.28853702545166,
+          "fine_score": 0.9053927063941956,
+          "prompt_text": "light green bar chart with upward arrow"
+        }
+      ],
+      "base_winner": "gt",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gt",
+        "gpt-5.2",
+        "claude",
+        "gemini"
+      ],
+      "fine_rank": [
+        "gt",
+        "claude",
+        "gemini",
+        "gpt-5.2"
+      ]
+    },
+    {
+      "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+      "bucket": "simple",
+      "prompt": "This image features a simple, minimalist design composed of two solid colors. A prominent brown frame encloses a large, white rectangular area in the center. The design is clean and symmetrical, suggesting a plain border or a placeholder for content.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+          "bucket": "simple",
+          "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_gt.png",
+          "base_score": 9.352497100830078,
+          "fine_score": 8.944426536560059,
+          "prompt_text": "This image features a simple, minimalist design composed of two solid colors. A prominent brown frame encloses a large, white rectangular area in the center. The design is clean and symmetrical, suggesting a plain border or a placeholder for content."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+          "bucket": "simple",
+          "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_claude.png",
+          "base_score": 9.314004898071289,
+          "fine_score": 2.9082677364349365,
+          "prompt_text": "brown frame around white rectangle"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+          "bucket": "simple",
+          "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_gemini.png",
+          "base_score": 9.234225273132324,
+          "fine_score": 6.441647529602051,
+          "prompt_text": "brown frame around white rectangle"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+          "bucket": "simple",
+          "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_gpt-5-2.png",
+          "base_score": 9.298633575439453,
+          "fine_score": 2.817521095275879,
+          "prompt_text": "brown frame around white rectangle"
+        }
+      ],
+      "base_winner": "gt",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gt",
+        "claude",
+        "gpt-5.2",
+        "gemini"
+      ],
+      "fine_rank": [
+        "gt",
+        "gemini",
+        "claude",
+        "gpt-5.2"
+      ]
+    },
+    {
+      "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+      "bucket": "complex",
+      "prompt": "This is a minimalist line art illustration of a ham, presented in white with bold black outlines against a transparent background. The ham's body features a diamond-shaped grid pattern, indicative of netting or scoring, while its wider, circular end reveals a cross-section with a small central circle and two larger irregular shapes representing bone and meat textures. Its clean, graphic style makes it suitable as an icon or symbol for food, especially cured meats.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+          "bucket": "complex",
+          "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_gt.png",
+          "base_score": 7.006667613983154,
+          "fine_score": 11.558365821838379,
+          "prompt_text": "This is a minimalist line art illustration of a ham, presented in white with bold black outlines against a transparent background. The ham's body features a diamond-shaped grid pattern, indicative of netting or scoring, while its wider, circular end reveals a cross-section with a small central circle and two larger irregular shapes representing bone and meat textures. Its clean, graphic style makes it suitable as an icon or symbol for food, especially cured meats."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+          "bucket": "complex",
+          "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_claude.png",
+          "base_score": 7.444408416748047,
+          "fine_score": 3.195195198059082,
+          "prompt_text": "white ham line art with diamond grid"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+          "bucket": "complex",
+          "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_gemini.png",
+          "base_score": 7.259811878204346,
+          "fine_score": 4.540710926055908,
+          "prompt_text": "white ham line art with diamond grid"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+          "bucket": "complex",
+          "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_gpt-5-2.png",
+          "base_score": 6.966270446777344,
+          "fine_score": 5.438854217529297,
+          "prompt_text": "white ham line art with diamond grid"
+        }
+      ],
+      "base_winner": "claude",
+      "fine_winner": "gt",
+      "base_rank": [
+        "claude",
+        "gemini",
+        "gt",
+        "gpt-5.2"
+      ],
+      "fine_rank": [
+        "gt",
+        "gpt-5.2",
+        "gemini",
+        "claude"
+      ]
+    },
+    {
+      "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+      "bucket": "simple",
+      "prompt": "This image displays a large, horizontally oriented rectangle with distinctly rounded corners. The shape is outlined by a solid, light orange border, while its interior is transparent. This design suggests a decorative frame or a placeholder intended for content to be displayed within its clear boundaries.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+          "bucket": "simple",
+          "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_gt.png",
+          "base_score": 9.489973068237305,
+          "fine_score": 9.578938484191895,
+          "prompt_text": "This image displays a large, horizontally oriented rectangle with distinctly rounded corners. The shape is outlined by a solid, light orange border, while its interior is transparent. This design suggests a decorative frame or a placeholder intended for content to be displayed within its clear boundaries."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+          "bucket": "simple",
+          "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_claude.png",
+          "base_score": 9.715800285339355,
+          "fine_score": 6.2773823738098145,
+          "prompt_text": "orange rounded frame placeholder"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+          "bucket": "simple",
+          "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_gemini.png",
+          "base_score": 9.62186336517334,
+          "fine_score": 1.218709111213684,
+          "prompt_text": "orange rounded frame placeholder"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+          "bucket": "simple",
+          "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_gpt-5-2.png",
+          "base_score": 9.605493545532227,
+          "fine_score": 1.7834075689315796,
+          "prompt_text": "orange rounded frame placeholder"
+        }
+      ],
+      "base_winner": "claude",
+      "fine_winner": "gt",
+      "base_rank": [
+        "claude",
+        "gemini",
+        "gpt-5.2",
+        "gt"
+      ],
+      "fine_rank": [
+        "gt",
+        "claude",
+        "gpt-5.2",
+        "gemini"
+      ]
+    },
+    {
+      "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+      "bucket": "complex",
+      "prompt": "This is a cheerful and abstract background pattern featuring a variety of whimsical shapes scattered across a solid purple backdrop. The elements include light pink squiggles, green blobs, a peach-colored flower, a pink triangle, and light orange spirals, interspersed with numerous small dashes in complementary soft hues. The overall style is playful and minimalist.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+          "bucket": "complex",
+          "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_gt.png",
+          "base_score": 9.049884796142578,
+          "fine_score": 7.709946155548096,
+          "prompt_text": "This is a cheerful and abstract background pattern featuring a variety of whimsical shapes scattered across a solid purple backdrop. The elements include light pink squiggles, green blobs, a peach-colored flower, a pink triangle, and light orange spirals, interspersed with numerous small dashes in complementary soft hues. The overall style is playful and minimalist."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+          "bucket": "complex",
+          "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_claude.png",
+          "base_score": 8.922647476196289,
+          "fine_score": 2.481027603149414,
+          "prompt_text": "playful purple background with whimsical shapes"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+          "bucket": "complex",
+          "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_gemini.png",
+          "base_score": 9.165478706359863,
+          "fine_score": 1.661313533782959,
+          "prompt_text": "playful purple background with whimsical shapes"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+          "bucket": "complex",
+          "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_gpt-5-2.png",
+          "base_score": 8.927977561950684,
+          "fine_score": 8.091927528381348,
+          "prompt_text": "playful purple background with whimsical shapes"
+        }
+      ],
+      "base_winner": "gemini",
+      "fine_winner": "gpt-5.2",
+      "base_rank": [
+        "gemini",
+        "gt",
+        "gpt-5.2",
+        "claude"
+      ],
+      "fine_rank": [
+        "gpt-5.2",
+        "gt",
+        "claude",
+        "gemini"
+      ]
+    },
+    {
+      "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+      "bucket": "medium",
+      "prompt": "The image features a simple, circular outline with a distinctive jagged or serrated edge. This graphic shape is rendered in a light coral or peach color, with its interior being transparent. The overall design resembles a decorative seal, stamp, or a starburst motif.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+          "bucket": "medium",
+          "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_gt.png",
+          "base_score": 9.386751174926758,
+          "fine_score": 11.630509376525879,
+          "prompt_text": "The image features a simple, circular outline with a distinctive jagged or serrated edge. This graphic shape is rendered in a light coral or peach color, with its interior being transparent. The overall design resembles a decorative seal, stamp, or a starburst motif."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+          "bucket": "medium",
+          "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_claude.png",
+          "base_score": 9.096223831176758,
+          "fine_score": 9.116866111755371,
+          "prompt_text": "jagged coral circular outline"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+          "bucket": "medium",
+          "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_gemini.png",
+          "base_score": 8.96812915802002,
+          "fine_score": 11.539395332336426,
+          "prompt_text": "jagged coral circular outline"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+          "bucket": "medium",
+          "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_gpt-5-2.png",
+          "base_score": 9.137367248535156,
+          "fine_score": 8.543990135192871,
+          "prompt_text": "jagged coral circular outline"
+        }
+      ],
+      "base_winner": "gt",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gt",
+        "gpt-5.2",
+        "claude",
+        "gemini"
+      ],
+      "fine_rank": [
+        "gt",
+        "gemini",
+        "claude",
+        "gpt-5.2"
+      ]
+    },
+    {
+      "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+      "bucket": "medium",
+      "prompt": "This image features a stylish frame adorned with a classic black and light beige checkerboard pattern. A vibrant light yellow diamond graphic is prominently placed in the bottom left corner, partially overlapping the checkered border. The large central rectangular area within the frame is transparent, indicating it's intended to display content.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+          "bucket": "medium",
+          "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_gt.png",
+          "base_score": 10.507431030273438,
+          "fine_score": 6.006808280944824,
+          "prompt_text": "This image features a stylish frame adorned with a classic black and light beige checkerboard pattern. A vibrant light yellow diamond graphic is prominently placed in the bottom left corner, partially overlapping the checkered border. The large central rectangular area within the frame is transparent, indicating it's intended to display content."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+          "bucket": "medium",
+          "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_claude.png",
+          "base_score": 10.632015228271484,
+          "fine_score": 6.077080249786377,
+          "prompt_text": "checkerboard frame with yellow diamond graphic"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+          "bucket": "medium",
+          "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_gemini.png",
+          "base_score": 10.701287269592285,
+          "fine_score": 4.591829299926758,
+          "prompt_text": "checkerboard frame with yellow diamond graphic"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+          "bucket": "medium",
+          "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_gpt-5-2.png",
+          "base_score": 10.858477592468262,
+          "fine_score": 3.529794692993164,
+          "prompt_text": "checkerboard frame with yellow diamond graphic"
+        }
+      ],
+      "base_winner": "gpt-5.2",
+      "fine_winner": "claude",
+      "base_rank": [
+        "gpt-5.2",
+        "gemini",
+        "claude",
+        "gt"
+      ],
+      "fine_rank": [
+        "claude",
+        "gt",
+        "gemini",
+        "gpt-5.2"
+      ]
+    },
+    {
+      "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+      "bucket": "medium",
+      "prompt": "This is a charming and simply drawn cartoon flower, presented against a transparent background. The flower features five rounded, light purple petals with a pale pink outline, surrounding a soft yellow circular center. A gentle green stem curves downwards, terminating at two simple, almond-shaped green leaves.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+          "bucket": "medium",
+          "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_gt.png",
+          "base_score": 10.19772720336914,
+          "fine_score": 6.623989582061768,
+          "prompt_text": "This is a charming and simply drawn cartoon flower, presented against a transparent background. The flower features five rounded, light purple petals with a pale pink outline, surrounding a soft yellow circular center. A gentle green stem curves downwards, terminating at two simple, almond-shaped green leaves."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+          "bucket": "medium",
+          "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_claude.png",
+          "base_score": 10.982100486755371,
+          "fine_score": 2.7748332023620605,
+          "prompt_text": "purple flower with yellow center and leaves"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+          "bucket": "medium",
+          "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_gemini.png",
+          "base_score": 10.450182914733887,
+          "fine_score": 2.0017881393432617,
+          "prompt_text": "purple flower with yellow center and leaves"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+          "bucket": "medium",
+          "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_gpt-5-2.png",
+          "base_score": 9.840258598327637,
+          "fine_score": 4.378650188446045,
+          "prompt_text": "purple flower with yellow center and leaves"
+        }
+      ],
+      "base_winner": "claude",
+      "fine_winner": "gt",
+      "base_rank": [
+        "claude",
+        "gemini",
+        "gt",
+        "gpt-5.2"
+      ],
+      "fine_rank": [
+        "gt",
+        "gpt-5.2",
+        "claude",
+        "gemini"
+      ]
+    },
+    {
+      "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+      "bucket": "complex",
+      "prompt": "This is a modern flat vector illustration featuring a smiling young person with dark hair and a red top, actively writing with a yellow pencil on a stack of lined white paper at a yellow desk. They are depicted within a browser-like window with a yellow frame and three black dots at the top right, all set against a transparent background. The clean lines and solid blocks of cheerful colors like red and yellow convey a friendly and studious atmosphere.",
+      "entries": [
+        {
+          "source": "gt",
+          "candidate_id": "gt:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+          "bucket": "complex",
+          "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_gt.png",
+          "base_score": 10.171080589294434,
+          "fine_score": 9.374882698059082,
+          "prompt_text": "This is a modern flat vector illustration featuring a smiling young person with dark hair and a red top, actively writing with a yellow pencil on a stack of lined white paper at a yellow desk. They are depicted within a browser-like window with a yellow frame and three black dots at the top right, all set against a transparent background. The clean lines and solid blocks of cheerful colors like red and yellow convey a friendly and studious atmosphere."
+        },
+        {
+          "source": "claude",
+          "candidate_id": "claude:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+          "bucket": "complex",
+          "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_claude.png",
+          "base_score": 9.717512130737305,
+          "fine_score": -0.6238808035850525,
+          "prompt_text": "smiling person writing on yellow desk"
+        },
+        {
+          "source": "gemini",
+          "candidate_id": "gemini:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+          "bucket": "complex",
+          "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_gemini.png",
+          "base_score": 9.182942390441895,
+          "fine_score": -1.1070067882537842,
+          "prompt_text": "smiling person writing on yellow desk"
+        },
+        {
+          "source": "gpt-5.2",
+          "candidate_id": "gpt-5.2:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+          "bucket": "complex",
+          "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_gpt-5-2.png",
+          "base_score": 9.621102333068848,
+          "fine_score": 0.185923233628273,
+          "prompt_text": "smiling person writing on yellow desk"
+        }
+      ],
+      "base_winner": "gt",
+      "fine_winner": "gt",
+      "base_rank": [
+        "gt",
+        "claude",
+        "gpt-5.2",
+        "gemini"
+      ],
+      "fine_rank": [
+        "gt",
+        "gpt-5.2",
+        "claude",
+        "gemini"
+      ]
+    }
+  ],
+  "ai_comparisons": [
+    {
+      "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+      "bucket": "medium",
+      "prompt": "This image features a series of concentric, uniformly thick blue arcs arranged in a curvilinear pattern against a transparent background. The lines curve from the upper left, moving downwards and to the right, resembling the ridges of a fingerprint, sound waves, or perhaps a stylized brain or a segment of a spiral. The overall style is clean, abstract, and minimalist.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+        "bucket": "medium",
+        "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_gpt-5-2.png",
+        "base_score": 9.263887405395508,
+        "fine_score": 11.1367769241333,
+        "prompt_text": "blue concentric arcs, curvilinear pattern"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+        "bucket": "medium",
+        "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_claude.png",
+        "base_score": 8.479320526123047,
+        "fine_score": 4.5662078857421875,
+        "prompt_text": "blue concentric arcs, curvilinear pattern"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.7845668792724609,
+      "fine_margin": 6.570569038391113
+    },
+    {
+      "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+      "bucket": "medium",
+      "prompt": "This image features a series of concentric, uniformly thick blue arcs arranged in a curvilinear pattern against a transparent background. The lines curve from the upper left, moving downwards and to the right, resembling the ridges of a fingerprint, sound waves, or perhaps a stylized brain or a segment of a spiral. The overall style is clean, abstract, and minimalist.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+        "bucket": "medium",
+        "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_claude.png",
+        "base_score": 8.479320526123047,
+        "fine_score": 4.5662078857421875,
+        "prompt_text": "blue concentric arcs, curvilinear pattern"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+        "bucket": "medium",
+        "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_gemini.png",
+        "base_score": 8.27464771270752,
+        "fine_score": 10.655034065246582,
+        "prompt_text": "blue concentric arcs, curvilinear pattern"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gemini",
+      "base_margin": 0.20467281341552734,
+      "fine_margin": 6.0888261795043945
+    },
+    {
+      "group_id": "0e691069-3f66-497b-be66-6f04192be5b0",
+      "bucket": "medium",
+      "prompt": "This image features a series of concentric, uniformly thick blue arcs arranged in a curvilinear pattern against a transparent background. The lines curve from the upper left, moving downwards and to the right, resembling the ridges of a fingerprint, sound waves, or perhaps a stylized brain or a segment of a spiral. The overall style is clean, abstract, and minimalist.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+        "bucket": "medium",
+        "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_gpt-5-2.png",
+        "base_score": 9.263887405395508,
+        "fine_score": 11.1367769241333,
+        "prompt_text": "blue concentric arcs, curvilinear pattern"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:0e691069-3f66-497b-be66-6f04192be5b0:0e691069-3f66-497b-be66-6f04192be5b0_1f51af387b76a0f6",
+        "bucket": "medium",
+        "image": "assets/0e691069-3f66-497b-be66-6f04192be5b0_gemini.png",
+        "base_score": 8.27464771270752,
+        "fine_score": 10.655034065246582,
+        "prompt_text": "blue concentric arcs, curvilinear pattern"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.9892396926879883,
+      "fine_margin": 0.48174285888671875
+    },
+    {
+      "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+      "bucket": "complex",
+      "prompt": "This is a cheerful flat illustration featuring a young man smiling with his eyes closed and making a peace sign with his raised right hand. He is dressed in a teal blazer over an orange sweater, black pants, and cream-colored shoes, with a black bag strap visible on his left shoulder. The overall style is modern and minimalist with clean lines and a vibrant color palette, presented on a transparent background.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+        "bucket": "complex",
+        "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_gpt-5-2.png",
+        "base_score": 9.013813018798828,
+        "fine_score": 0.2363251894712448,
+        "prompt_text": "smiling man peace sign blazer"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+        "bucket": "complex",
+        "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_claude.png",
+        "base_score": 9.36386775970459,
+        "fine_score": 2.0015311241149902,
+        "prompt_text": "smiling man peace sign blazer"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.3500547409057617,
+      "fine_margin": 1.7652059346437454
+    },
+    {
+      "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+      "bucket": "complex",
+      "prompt": "This is a cheerful flat illustration featuring a young man smiling with his eyes closed and making a peace sign with his raised right hand. He is dressed in a teal blazer over an orange sweater, black pants, and cream-colored shoes, with a black bag strap visible on his left shoulder. The overall style is modern and minimalist with clean lines and a vibrant color palette, presented on a transparent background.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+        "bucket": "complex",
+        "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_claude.png",
+        "base_score": 9.36386775970459,
+        "fine_score": 2.0015311241149902,
+        "prompt_text": "smiling man peace sign blazer"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+        "bucket": "complex",
+        "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_gemini.png",
+        "base_score": 9.011630058288574,
+        "fine_score": -0.7965731620788574,
+        "prompt_text": "smiling man peace sign blazer"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.3522377014160156,
+      "fine_margin": 2.7981042861938477
+    },
+    {
+      "group_id": "2bb28d9c-b0a1-40f3-8a86-96d232a28a80",
+      "bucket": "complex",
+      "prompt": "This is a cheerful flat illustration featuring a young man smiling with his eyes closed and making a peace sign with his raised right hand. He is dressed in a teal blazer over an orange sweater, black pants, and cream-colored shoes, with a black bag strap visible on his left shoulder. The overall style is modern and minimalist with clean lines and a vibrant color palette, presented on a transparent background.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+        "bucket": "complex",
+        "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_gpt-5-2.png",
+        "base_score": 9.013813018798828,
+        "fine_score": 0.2363251894712448,
+        "prompt_text": "smiling man peace sign blazer"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:2bb28d9c-b0a1-40f3-8a86-96d232a28a80:2bb28d9c-b0a1-40f3-8a86-96d232a28a80_1f0099723fb6e72c",
+        "bucket": "complex",
+        "image": "assets/2bb28d9c-b0a1-40f3-8a86-96d232a28a80_gemini.png",
+        "base_score": 9.011630058288574,
+        "fine_score": -0.7965731620788574,
+        "prompt_text": "smiling man peace sign blazer"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.0021829605102539062,
+      "fine_margin": 1.0328983515501022
+    },
+    {
+      "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+      "bucket": "simple",
+      "prompt": "The image displays a prominent, dark blue-gray outline of a hexagon centered against a pristine white background. The geometric shape features distinct, softly rounded corners, contributing to its clean and modern aesthetic. This minimalist design suggests it could function as a versatile icon or a graphic symbol.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+        "bucket": "simple",
+        "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_gpt-5-2.png",
+        "base_score": 9.272910118103027,
+        "fine_score": 2.0147299766540527,
+        "prompt_text": "dark blue-gray rounded hexagon icon"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+        "bucket": "simple",
+        "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_claude.png",
+        "base_score": 9.31273365020752,
+        "fine_score": 6.2682390213012695,
+        "prompt_text": "dark blue-gray rounded hexagon icon"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.03982353210449219,
+      "fine_margin": 4.253509044647217
+    },
+    {
+      "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+      "bucket": "simple",
+      "prompt": "The image displays a prominent, dark blue-gray outline of a hexagon centered against a pristine white background. The geometric shape features distinct, softly rounded corners, contributing to its clean and modern aesthetic. This minimalist design suggests it could function as a versatile icon or a graphic symbol.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+        "bucket": "simple",
+        "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_claude.png",
+        "base_score": 9.31273365020752,
+        "fine_score": 6.2682390213012695,
+        "prompt_text": "dark blue-gray rounded hexagon icon"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+        "bucket": "simple",
+        "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_gemini.png",
+        "base_score": 9.464395523071289,
+        "fine_score": 3.2183034420013428,
+        "prompt_text": "dark blue-gray rounded hexagon icon"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "claude",
+      "base_margin": 0.15166187286376953,
+      "fine_margin": 3.0499355792999268
+    },
+    {
+      "group_id": "375920f5-f42c-42d0-815d-45c5ff30baeb",
+      "bucket": "simple",
+      "prompt": "The image displays a prominent, dark blue-gray outline of a hexagon centered against a pristine white background. The geometric shape features distinct, softly rounded corners, contributing to its clean and modern aesthetic. This minimalist design suggests it could function as a versatile icon or a graphic symbol.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+        "bucket": "simple",
+        "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_gpt-5-2.png",
+        "base_score": 9.272910118103027,
+        "fine_score": 2.0147299766540527,
+        "prompt_text": "dark blue-gray rounded hexagon icon"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:375920f5-f42c-42d0-815d-45c5ff30baeb:375920f5-f42c-42d0-815d-45c5ff30baeb_431952037547eb8d",
+        "bucket": "simple",
+        "image": "assets/375920f5-f42c-42d0-815d-45c5ff30baeb_gemini.png",
+        "base_score": 9.464395523071289,
+        "fine_score": 3.2183034420013428,
+        "prompt_text": "dark blue-gray rounded hexagon icon"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gemini",
+      "base_margin": 0.19148540496826172,
+      "fine_margin": 1.20357346534729
+    },
+    {
+      "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+      "bucket": "complex",
+      "prompt": "This is a minimalist, flat-design illustration depicting a person with short, teal-blue hair and light brown skin, actively brushing their teeth. They are wearing a high-collared white sweater with black stripe details around the neck, holding a black toothbrush to their open mouth, which reveals bright white teeth. The cheerful, cartoon-like style emphasizes clean lines and simple shapes against a transparent background.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+        "bucket": "complex",
+        "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_gpt-5-2.png",
+        "base_score": 8.753482818603516,
+        "fine_score": 1.545056700706482,
+        "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+        "bucket": "complex",
+        "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_claude.png",
+        "base_score": 8.964863777160645,
+        "fine_score": -0.9085057973861694,
+        "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.2113809585571289,
+      "fine_margin": 2.4535624980926514
+    },
+    {
+      "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+      "bucket": "complex",
+      "prompt": "This is a minimalist, flat-design illustration depicting a person with short, teal-blue hair and light brown skin, actively brushing their teeth. They are wearing a high-collared white sweater with black stripe details around the neck, holding a black toothbrush to their open mouth, which reveals bright white teeth. The cheerful, cartoon-like style emphasizes clean lines and simple shapes against a transparent background.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+        "bucket": "complex",
+        "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_claude.png",
+        "base_score": 8.964863777160645,
+        "fine_score": -0.9085057973861694,
+        "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+        "bucket": "complex",
+        "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_gemini.png",
+        "base_score": 9.11913013458252,
+        "fine_score": -0.7148926854133606,
+        "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gemini",
+      "base_margin": 0.154266357421875,
+      "fine_margin": 0.19361311197280884
+    },
+    {
+      "group_id": "475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d",
+      "bucket": "complex",
+      "prompt": "This is a minimalist, flat-design illustration depicting a person with short, teal-blue hair and light brown skin, actively brushing their teeth. They are wearing a high-collared white sweater with black stripe details around the neck, holding a black toothbrush to their open mouth, which reveals bright white teeth. The cheerful, cartoon-like style emphasizes clean lines and simple shapes against a transparent background.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+        "bucket": "complex",
+        "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_gpt-5-2.png",
+        "base_score": 8.753482818603516,
+        "fine_score": 1.545056700706482,
+        "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d:475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_dd8054a58387b5b0",
+        "bucket": "complex",
+        "image": "assets/475f8fb3-23a3-4a4b-9f0f-daa935f0bd5d_gemini.png",
+        "base_score": 9.11913013458252,
+        "fine_score": -0.7148926854133606,
+        "prompt_text": "Teal-haired person brushing teeth, cartoon style"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.3656473159790039,
+      "fine_margin": 2.2599493861198425
+    },
+    {
+      "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+      "bucket": "complex",
+      "prompt": "This is a minimalist graphic depicting a cream-colored rectangular card or paper with a distinct scalloped, muted red border. A smaller, bright yellow scalloped element partially overlaps the red border at the bottom right, accompanied by a small purple line. Two subtle, faint purple-grey lines are also visible on the cream surface in the top right, suggesting a slight crease or texture.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+        "bucket": "complex",
+        "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_gpt-5-2.png",
+        "base_score": 9.404419898986816,
+        "fine_score": 0.0992949828505516,
+        "prompt_text": "cream card with red scalloped border and yellow element"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+        "bucket": "complex",
+        "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_claude.png",
+        "base_score": 9.299803733825684,
+        "fine_score": 0.47989800572395325,
+        "prompt_text": "cream card with red scalloped border and yellow element"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "claude",
+      "base_margin": 0.10461616516113281,
+      "fine_margin": 0.38060302287340164
+    },
+    {
+      "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+      "bucket": "complex",
+      "prompt": "This is a minimalist graphic depicting a cream-colored rectangular card or paper with a distinct scalloped, muted red border. A smaller, bright yellow scalloped element partially overlaps the red border at the bottom right, accompanied by a small purple line. Two subtle, faint purple-grey lines are also visible on the cream surface in the top right, suggesting a slight crease or texture.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+        "bucket": "complex",
+        "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_claude.png",
+        "base_score": 9.299803733825684,
+        "fine_score": 0.47989800572395325,
+        "prompt_text": "cream card with red scalloped border and yellow element"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+        "bucket": "complex",
+        "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_gemini.png",
+        "base_score": 9.600234985351562,
+        "fine_score": -0.21936114132404327,
+        "prompt_text": "cream card with red scalloped border and yellow element"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "claude",
+      "base_margin": 0.3004312515258789,
+      "fine_margin": 0.6992591470479965
+    },
+    {
+      "group_id": "48fb52e9-d309-4bec-8735-091663026e70",
+      "bucket": "complex",
+      "prompt": "This is a minimalist graphic depicting a cream-colored rectangular card or paper with a distinct scalloped, muted red border. A smaller, bright yellow scalloped element partially overlaps the red border at the bottom right, accompanied by a small purple line. Two subtle, faint purple-grey lines are also visible on the cream surface in the top right, suggesting a slight crease or texture.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+        "bucket": "complex",
+        "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_gpt-5-2.png",
+        "base_score": 9.404419898986816,
+        "fine_score": 0.0992949828505516,
+        "prompt_text": "cream card with red scalloped border and yellow element"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:48fb52e9-d309-4bec-8735-091663026e70:48fb52e9-d309-4bec-8735-091663026e70_b4c1c91cb468eaa1",
+        "bucket": "complex",
+        "image": "assets/48fb52e9-d309-4bec-8735-091663026e70_gemini.png",
+        "base_score": 9.600234985351562,
+        "fine_score": -0.21936114132404327,
+        "prompt_text": "cream card with red scalloped border and yellow element"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.1958150863647461,
+      "fine_margin": 0.3186561241745949
+    },
+    {
+      "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+      "bucket": "simple",
+      "prompt": "The image provided is completely black, without any visible subjects, colors, or discernible features. As a result, there is no specific style, text, or key elements to describe. Following the instructions, this entirely black image can be interpreted as transparent or representing an empty visual space.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+        "bucket": "simple",
+        "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_gpt-5-2.png",
+        "base_score": 8.397124290466309,
+        "fine_score": 4.09028959274292,
+        "prompt_text": "black transparent space"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+        "bucket": "simple",
+        "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_claude.png",
+        "base_score": 8.79419231414795,
+        "fine_score": 3.0402400493621826,
+        "prompt_text": "black transparent space"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.3970680236816406,
+      "fine_margin": 1.0500495433807373
+    },
+    {
+      "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+      "bucket": "simple",
+      "prompt": "The image provided is completely black, without any visible subjects, colors, or discernible features. As a result, there is no specific style, text, or key elements to describe. Following the instructions, this entirely black image can be interpreted as transparent or representing an empty visual space.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+        "bucket": "simple",
+        "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_claude.png",
+        "base_score": 8.79419231414795,
+        "fine_score": 3.0402400493621826,
+        "prompt_text": "black transparent space"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+        "bucket": "simple",
+        "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_gemini.png",
+        "base_score": 8.397124290466309,
+        "fine_score": 4.09028959274292,
+        "prompt_text": "black transparent space"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gemini",
+      "base_margin": 0.3970680236816406,
+      "fine_margin": 1.0500495433807373
+    },
+    {
+      "group_id": "6b75002f-4553-4495-af73-69dff9260dd7",
+      "bucket": "simple",
+      "prompt": "The image provided is completely black, without any visible subjects, colors, or discernible features. As a result, there is no specific style, text, or key elements to describe. Following the instructions, this entirely black image can be interpreted as transparent or representing an empty visual space.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+        "bucket": "simple",
+        "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_gpt-5-2.png",
+        "base_score": 8.397124290466309,
+        "fine_score": 4.09028959274292,
+        "prompt_text": "black transparent space"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:6b75002f-4553-4495-af73-69dff9260dd7:6b75002f-4553-4495-af73-69dff9260dd7_d27339b276b41cd5",
+        "bucket": "simple",
+        "image": "assets/6b75002f-4553-4495-af73-69dff9260dd7_gemini.png",
+        "base_score": 8.397124290466309,
+        "fine_score": 4.09028959274292,
+        "prompt_text": "black transparent space"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gemini",
+      "base_margin": 0.0,
+      "fine_margin": 0.0
+    },
+    {
+      "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+      "bucket": "simple",
+      "prompt": "This image depicts a stylized bar chart featuring three light yellowish-green bars of progressively increasing height, symbolizing growth or improvement. An upward-pointing arrow, rendered in the same light yellowish-green hue, diagonally crosses over the bars, reinforcing the concept of a positive trend or upward movement. The graphic is presented with a transparent background, giving it a clean and iconic appearance.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+        "bucket": "simple",
+        "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_gpt-5-2.png",
+        "base_score": 9.28853702545166,
+        "fine_score": 0.9053927063941956,
+        "prompt_text": "light green bar chart with upward arrow"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+        "bucket": "simple",
+        "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_claude.png",
+        "base_score": 9.117825508117676,
+        "fine_score": 11.10270881652832,
+        "prompt_text": "light green bar chart with upward arrow"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "claude",
+      "base_margin": 0.17071151733398438,
+      "fine_margin": 10.197316110134125
+    },
+    {
+      "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+      "bucket": "simple",
+      "prompt": "This image depicts a stylized bar chart featuring three light yellowish-green bars of progressively increasing height, symbolizing growth or improvement. An upward-pointing arrow, rendered in the same light yellowish-green hue, diagonally crosses over the bars, reinforcing the concept of a positive trend or upward movement. The graphic is presented with a transparent background, giving it a clean and iconic appearance.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+        "bucket": "simple",
+        "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_claude.png",
+        "base_score": 9.117825508117676,
+        "fine_score": 11.10270881652832,
+        "prompt_text": "light green bar chart with upward arrow"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+        "bucket": "simple",
+        "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_gemini.png",
+        "base_score": 8.780367851257324,
+        "fine_score": 3.812506675720215,
+        "prompt_text": "light green bar chart with upward arrow"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.33745765686035156,
+      "fine_margin": 7.2902021408081055
+    },
+    {
+      "group_id": "6effa7a8-4436-4915-9d93-bc871ea36dcc",
+      "bucket": "simple",
+      "prompt": "This image depicts a stylized bar chart featuring three light yellowish-green bars of progressively increasing height, symbolizing growth or improvement. An upward-pointing arrow, rendered in the same light yellowish-green hue, diagonally crosses over the bars, reinforcing the concept of a positive trend or upward movement. The graphic is presented with a transparent background, giving it a clean and iconic appearance.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+        "bucket": "simple",
+        "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_gpt-5-2.png",
+        "base_score": 9.28853702545166,
+        "fine_score": 0.9053927063941956,
+        "prompt_text": "light green bar chart with upward arrow"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:6effa7a8-4436-4915-9d93-bc871ea36dcc:6effa7a8-4436-4915-9d93-bc871ea36dcc_c328d088e41f5902",
+        "bucket": "simple",
+        "image": "assets/6effa7a8-4436-4915-9d93-bc871ea36dcc_gemini.png",
+        "base_score": 8.780367851257324,
+        "fine_score": 3.812506675720215,
+        "prompt_text": "light green bar chart with upward arrow"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gemini",
+      "base_margin": 0.5081691741943359,
+      "fine_margin": 2.9071139693260193
+    },
+    {
+      "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+      "bucket": "simple",
+      "prompt": "This image features a simple, minimalist design composed of two solid colors. A prominent brown frame encloses a large, white rectangular area in the center. The design is clean and symmetrical, suggesting a plain border or a placeholder for content.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+        "bucket": "simple",
+        "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_gpt-5-2.png",
+        "base_score": 9.298633575439453,
+        "fine_score": 2.817521095275879,
+        "prompt_text": "brown frame around white rectangle"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+        "bucket": "simple",
+        "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_claude.png",
+        "base_score": 9.314004898071289,
+        "fine_score": 2.9082677364349365,
+        "prompt_text": "brown frame around white rectangle"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.015371322631835938,
+      "fine_margin": 0.09074664115905762
+    },
+    {
+      "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+      "bucket": "simple",
+      "prompt": "This image features a simple, minimalist design composed of two solid colors. A prominent brown frame encloses a large, white rectangular area in the center. The design is clean and symmetrical, suggesting a plain border or a placeholder for content.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+        "bucket": "simple",
+        "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_claude.png",
+        "base_score": 9.314004898071289,
+        "fine_score": 2.9082677364349365,
+        "prompt_text": "brown frame around white rectangle"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+        "bucket": "simple",
+        "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_gemini.png",
+        "base_score": 9.234225273132324,
+        "fine_score": 6.441647529602051,
+        "prompt_text": "brown frame around white rectangle"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gemini",
+      "base_margin": 0.07977962493896484,
+      "fine_margin": 3.5333797931671143
+    },
+    {
+      "group_id": "789455bd-a5a3-4611-837c-dcbd7aaac18d",
+      "bucket": "simple",
+      "prompt": "This image features a simple, minimalist design composed of two solid colors. A prominent brown frame encloses a large, white rectangular area in the center. The design is clean and symmetrical, suggesting a plain border or a placeholder for content.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+        "bucket": "simple",
+        "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_gpt-5-2.png",
+        "base_score": 9.298633575439453,
+        "fine_score": 2.817521095275879,
+        "prompt_text": "brown frame around white rectangle"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:789455bd-a5a3-4611-837c-dcbd7aaac18d:789455bd-a5a3-4611-837c-dcbd7aaac18d_f3e90ca472e08b03",
+        "bucket": "simple",
+        "image": "assets/789455bd-a5a3-4611-837c-dcbd7aaac18d_gemini.png",
+        "base_score": 9.234225273132324,
+        "fine_score": 6.441647529602051,
+        "prompt_text": "brown frame around white rectangle"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gemini",
+      "base_margin": 0.0644083023071289,
+      "fine_margin": 3.624126434326172
+    },
+    {
+      "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+      "bucket": "complex",
+      "prompt": "This is a minimalist line art illustration of a ham, presented in white with bold black outlines against a transparent background. The ham's body features a diamond-shaped grid pattern, indicative of netting or scoring, while its wider, circular end reveals a cross-section with a small central circle and two larger irregular shapes representing bone and meat textures. Its clean, graphic style makes it suitable as an icon or symbol for food, especially cured meats.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+        "bucket": "complex",
+        "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_gpt-5-2.png",
+        "base_score": 6.966270446777344,
+        "fine_score": 5.438854217529297,
+        "prompt_text": "white ham line art with diamond grid"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+        "bucket": "complex",
+        "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_claude.png",
+        "base_score": 7.444408416748047,
+        "fine_score": 3.195195198059082,
+        "prompt_text": "white ham line art with diamond grid"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.4781379699707031,
+      "fine_margin": 2.243659019470215
+    },
+    {
+      "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+      "bucket": "complex",
+      "prompt": "This is a minimalist line art illustration of a ham, presented in white with bold black outlines against a transparent background. The ham's body features a diamond-shaped grid pattern, indicative of netting or scoring, while its wider, circular end reveals a cross-section with a small central circle and two larger irregular shapes representing bone and meat textures. Its clean, graphic style makes it suitable as an icon or symbol for food, especially cured meats.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+        "bucket": "complex",
+        "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_claude.png",
+        "base_score": 7.444408416748047,
+        "fine_score": 3.195195198059082,
+        "prompt_text": "white ham line art with diamond grid"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+        "bucket": "complex",
+        "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_gemini.png",
+        "base_score": 7.259811878204346,
+        "fine_score": 4.540710926055908,
+        "prompt_text": "white ham line art with diamond grid"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gemini",
+      "base_margin": 0.18459653854370117,
+      "fine_margin": 1.3455157279968262
+    },
+    {
+      "group_id": "7abdd104-8327-4c83-a550-a93ee4a97cf7",
+      "bucket": "complex",
+      "prompt": "This is a minimalist line art illustration of a ham, presented in white with bold black outlines against a transparent background. The ham's body features a diamond-shaped grid pattern, indicative of netting or scoring, while its wider, circular end reveals a cross-section with a small central circle and two larger irregular shapes representing bone and meat textures. Its clean, graphic style makes it suitable as an icon or symbol for food, especially cured meats.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+        "bucket": "complex",
+        "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_gpt-5-2.png",
+        "base_score": 6.966270446777344,
+        "fine_score": 5.438854217529297,
+        "prompt_text": "white ham line art with diamond grid"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:7abdd104-8327-4c83-a550-a93ee4a97cf7:7abdd104-8327-4c83-a550-a93ee4a97cf7_3bcd4ffd114c9f63",
+        "bucket": "complex",
+        "image": "assets/7abdd104-8327-4c83-a550-a93ee4a97cf7_gemini.png",
+        "base_score": 7.259811878204346,
+        "fine_score": 4.540710926055908,
+        "prompt_text": "white ham line art with diamond grid"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.29354143142700195,
+      "fine_margin": 0.8981432914733887
+    },
+    {
+      "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+      "bucket": "simple",
+      "prompt": "This image displays a large, horizontally oriented rectangle with distinctly rounded corners. The shape is outlined by a solid, light orange border, while its interior is transparent. This design suggests a decorative frame or a placeholder intended for content to be displayed within its clear boundaries.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+        "bucket": "simple",
+        "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_gpt-5-2.png",
+        "base_score": 9.605493545532227,
+        "fine_score": 1.7834075689315796,
+        "prompt_text": "orange rounded frame placeholder"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+        "bucket": "simple",
+        "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_claude.png",
+        "base_score": 9.715800285339355,
+        "fine_score": 6.2773823738098145,
+        "prompt_text": "orange rounded frame placeholder"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.1103067398071289,
+      "fine_margin": 4.493974804878235
+    },
+    {
+      "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+      "bucket": "simple",
+      "prompt": "This image displays a large, horizontally oriented rectangle with distinctly rounded corners. The shape is outlined by a solid, light orange border, while its interior is transparent. This design suggests a decorative frame or a placeholder intended for content to be displayed within its clear boundaries.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+        "bucket": "simple",
+        "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_claude.png",
+        "base_score": 9.715800285339355,
+        "fine_score": 6.2773823738098145,
+        "prompt_text": "orange rounded frame placeholder"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+        "bucket": "simple",
+        "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_gemini.png",
+        "base_score": 9.62186336517334,
+        "fine_score": 1.218709111213684,
+        "prompt_text": "orange rounded frame placeholder"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.09393692016601562,
+      "fine_margin": 5.05867326259613
+    },
+    {
+      "group_id": "ad63e329-a034-4ba7-8b30-8cd06ff9611f",
+      "bucket": "simple",
+      "prompt": "This image displays a large, horizontally oriented rectangle with distinctly rounded corners. The shape is outlined by a solid, light orange border, while its interior is transparent. This design suggests a decorative frame or a placeholder intended for content to be displayed within its clear boundaries.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+        "bucket": "simple",
+        "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_gpt-5-2.png",
+        "base_score": 9.605493545532227,
+        "fine_score": 1.7834075689315796,
+        "prompt_text": "orange rounded frame placeholder"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:ad63e329-a034-4ba7-8b30-8cd06ff9611f:ad63e329-a034-4ba7-8b30-8cd06ff9611f_35cb758ebee7d7d8",
+        "bucket": "simple",
+        "image": "assets/ad63e329-a034-4ba7-8b30-8cd06ff9611f_gemini.png",
+        "base_score": 9.62186336517334,
+        "fine_score": 1.218709111213684,
+        "prompt_text": "orange rounded frame placeholder"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.01636981964111328,
+      "fine_margin": 0.5646984577178955
+    },
+    {
+      "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+      "bucket": "complex",
+      "prompt": "This is a cheerful and abstract background pattern featuring a variety of whimsical shapes scattered across a solid purple backdrop. The elements include light pink squiggles, green blobs, a peach-colored flower, a pink triangle, and light orange spirals, interspersed with numerous small dashes in complementary soft hues. The overall style is playful and minimalist.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+        "bucket": "complex",
+        "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_gpt-5-2.png",
+        "base_score": 8.927977561950684,
+        "fine_score": 8.091927528381348,
+        "prompt_text": "playful purple background with whimsical shapes"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+        "bucket": "complex",
+        "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_claude.png",
+        "base_score": 8.922647476196289,
+        "fine_score": 2.481027603149414,
+        "prompt_text": "playful purple background with whimsical shapes"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.005330085754394531,
+      "fine_margin": 5.610899925231934
+    },
+    {
+      "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+      "bucket": "complex",
+      "prompt": "This is a cheerful and abstract background pattern featuring a variety of whimsical shapes scattered across a solid purple backdrop. The elements include light pink squiggles, green blobs, a peach-colored flower, a pink triangle, and light orange spirals, interspersed with numerous small dashes in complementary soft hues. The overall style is playful and minimalist.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+        "bucket": "complex",
+        "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_claude.png",
+        "base_score": 8.922647476196289,
+        "fine_score": 2.481027603149414,
+        "prompt_text": "playful purple background with whimsical shapes"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+        "bucket": "complex",
+        "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_gemini.png",
+        "base_score": 9.165478706359863,
+        "fine_score": 1.661313533782959,
+        "prompt_text": "playful purple background with whimsical shapes"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "claude",
+      "base_margin": 0.24283123016357422,
+      "fine_margin": 0.8197140693664551
+    },
+    {
+      "group_id": "ba99ded2-01fe-4df0-9e81-da619c6a19a7",
+      "bucket": "complex",
+      "prompt": "This is a cheerful and abstract background pattern featuring a variety of whimsical shapes scattered across a solid purple backdrop. The elements include light pink squiggles, green blobs, a peach-colored flower, a pink triangle, and light orange spirals, interspersed with numerous small dashes in complementary soft hues. The overall style is playful and minimalist.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+        "bucket": "complex",
+        "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_gpt-5-2.png",
+        "base_score": 8.927977561950684,
+        "fine_score": 8.091927528381348,
+        "prompt_text": "playful purple background with whimsical shapes"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:ba99ded2-01fe-4df0-9e81-da619c6a19a7:ba99ded2-01fe-4df0-9e81-da619c6a19a7_f03b6894ffe369a3",
+        "bucket": "complex",
+        "image": "assets/ba99ded2-01fe-4df0-9e81-da619c6a19a7_gemini.png",
+        "base_score": 9.165478706359863,
+        "fine_score": 1.661313533782959,
+        "prompt_text": "playful purple background with whimsical shapes"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.2375011444091797,
+      "fine_margin": 6.430613994598389
+    },
+    {
+      "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+      "bucket": "medium",
+      "prompt": "The image features a simple, circular outline with a distinctive jagged or serrated edge. This graphic shape is rendered in a light coral or peach color, with its interior being transparent. The overall design resembles a decorative seal, stamp, or a starburst motif.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+        "bucket": "medium",
+        "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_gpt-5-2.png",
+        "base_score": 9.137367248535156,
+        "fine_score": 8.543990135192871,
+        "prompt_text": "jagged coral circular outline"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+        "bucket": "medium",
+        "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_claude.png",
+        "base_score": 9.096223831176758,
+        "fine_score": 9.116866111755371,
+        "prompt_text": "jagged coral circular outline"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "claude",
+      "base_margin": 0.04114341735839844,
+      "fine_margin": 0.5728759765625
+    },
+    {
+      "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+      "bucket": "medium",
+      "prompt": "The image features a simple, circular outline with a distinctive jagged or serrated edge. This graphic shape is rendered in a light coral or peach color, with its interior being transparent. The overall design resembles a decorative seal, stamp, or a starburst motif.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+        "bucket": "medium",
+        "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_claude.png",
+        "base_score": 9.096223831176758,
+        "fine_score": 9.116866111755371,
+        "prompt_text": "jagged coral circular outline"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+        "bucket": "medium",
+        "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_gemini.png",
+        "base_score": 8.96812915802002,
+        "fine_score": 11.539395332336426,
+        "prompt_text": "jagged coral circular outline"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gemini",
+      "base_margin": 0.12809467315673828,
+      "fine_margin": 2.4225292205810547
+    },
+    {
+      "group_id": "c6747ea9-218b-4465-b89a-61a7c68fc5df",
+      "bucket": "medium",
+      "prompt": "The image features a simple, circular outline with a distinctive jagged or serrated edge. This graphic shape is rendered in a light coral or peach color, with its interior being transparent. The overall design resembles a decorative seal, stamp, or a starburst motif.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+        "bucket": "medium",
+        "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_gpt-5-2.png",
+        "base_score": 9.137367248535156,
+        "fine_score": 8.543990135192871,
+        "prompt_text": "jagged coral circular outline"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:c6747ea9-218b-4465-b89a-61a7c68fc5df:c6747ea9-218b-4465-b89a-61a7c68fc5df_168119caaa7249d0",
+        "bucket": "medium",
+        "image": "assets/c6747ea9-218b-4465-b89a-61a7c68fc5df_gemini.png",
+        "base_score": 8.96812915802002,
+        "fine_score": 11.539395332336426,
+        "prompt_text": "jagged coral circular outline"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gemini",
+      "base_margin": 0.16923809051513672,
+      "fine_margin": 2.9954051971435547
+    },
+    {
+      "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+      "bucket": "medium",
+      "prompt": "This image features a stylish frame adorned with a classic black and light beige checkerboard pattern. A vibrant light yellow diamond graphic is prominently placed in the bottom left corner, partially overlapping the checkered border. The large central rectangular area within the frame is transparent, indicating it's intended to display content.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+        "bucket": "medium",
+        "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_gpt-5-2.png",
+        "base_score": 10.858477592468262,
+        "fine_score": 3.529794692993164,
+        "prompt_text": "checkerboard frame with yellow diamond graphic"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+        "bucket": "medium",
+        "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_claude.png",
+        "base_score": 10.632015228271484,
+        "fine_score": 6.077080249786377,
+        "prompt_text": "checkerboard frame with yellow diamond graphic"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "claude",
+      "base_margin": 0.22646236419677734,
+      "fine_margin": 2.547285556793213
+    },
+    {
+      "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+      "bucket": "medium",
+      "prompt": "This image features a stylish frame adorned with a classic black and light beige checkerboard pattern. A vibrant light yellow diamond graphic is prominently placed in the bottom left corner, partially overlapping the checkered border. The large central rectangular area within the frame is transparent, indicating it's intended to display content.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+        "bucket": "medium",
+        "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_claude.png",
+        "base_score": 10.632015228271484,
+        "fine_score": 6.077080249786377,
+        "prompt_text": "checkerboard frame with yellow diamond graphic"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+        "bucket": "medium",
+        "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_gemini.png",
+        "base_score": 10.701287269592285,
+        "fine_score": 4.591829299926758,
+        "prompt_text": "checkerboard frame with yellow diamond graphic"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "claude",
+      "base_margin": 0.06927204132080078,
+      "fine_margin": 1.4852509498596191
+    },
+    {
+      "group_id": "cfa27aa4-7443-4ea4-bae7-c2bd746a2e23",
+      "bucket": "medium",
+      "prompt": "This image features a stylish frame adorned with a classic black and light beige checkerboard pattern. A vibrant light yellow diamond graphic is prominently placed in the bottom left corner, partially overlapping the checkered border. The large central rectangular area within the frame is transparent, indicating it's intended to display content.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+        "bucket": "medium",
+        "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_gpt-5-2.png",
+        "base_score": 10.858477592468262,
+        "fine_score": 3.529794692993164,
+        "prompt_text": "checkerboard frame with yellow diamond graphic"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23:cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_bc2bcebb6af58fcf",
+        "bucket": "medium",
+        "image": "assets/cfa27aa4-7443-4ea4-bae7-c2bd746a2e23_gemini.png",
+        "base_score": 10.701287269592285,
+        "fine_score": 4.591829299926758,
+        "prompt_text": "checkerboard frame with yellow diamond graphic"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gemini",
+      "base_margin": 0.15719032287597656,
+      "fine_margin": 1.0620346069335938
+    },
+    {
+      "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+      "bucket": "medium",
+      "prompt": "This is a charming and simply drawn cartoon flower, presented against a transparent background. The flower features five rounded, light purple petals with a pale pink outline, surrounding a soft yellow circular center. A gentle green stem curves downwards, terminating at two simple, almond-shaped green leaves.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+        "bucket": "medium",
+        "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_gpt-5-2.png",
+        "base_score": 9.840258598327637,
+        "fine_score": 4.378650188446045,
+        "prompt_text": "purple flower with yellow center and leaves"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+        "bucket": "medium",
+        "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_claude.png",
+        "base_score": 10.982100486755371,
+        "fine_score": 2.7748332023620605,
+        "prompt_text": "purple flower with yellow center and leaves"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 1.1418418884277344,
+      "fine_margin": 1.6038169860839844
+    },
+    {
+      "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+      "bucket": "medium",
+      "prompt": "This is a charming and simply drawn cartoon flower, presented against a transparent background. The flower features five rounded, light purple petals with a pale pink outline, surrounding a soft yellow circular center. A gentle green stem curves downwards, terminating at two simple, almond-shaped green leaves.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+        "bucket": "medium",
+        "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_claude.png",
+        "base_score": 10.982100486755371,
+        "fine_score": 2.7748332023620605,
+        "prompt_text": "purple flower with yellow center and leaves"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+        "bucket": "medium",
+        "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_gemini.png",
+        "base_score": 10.450182914733887,
+        "fine_score": 2.0017881393432617,
+        "prompt_text": "purple flower with yellow center and leaves"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.5319175720214844,
+      "fine_margin": 0.7730450630187988
+    },
+    {
+      "group_id": "df15ae1c-d219-449f-b27b-c908c615af70",
+      "bucket": "medium",
+      "prompt": "This is a charming and simply drawn cartoon flower, presented against a transparent background. The flower features five rounded, light purple petals with a pale pink outline, surrounding a soft yellow circular center. A gentle green stem curves downwards, terminating at two simple, almond-shaped green leaves.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+        "bucket": "medium",
+        "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_gpt-5-2.png",
+        "base_score": 9.840258598327637,
+        "fine_score": 4.378650188446045,
+        "prompt_text": "purple flower with yellow center and leaves"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:df15ae1c-d219-449f-b27b-c908c615af70:df15ae1c-d219-449f-b27b-c908c615af70_3aca8a9b5c9e602d",
+        "bucket": "medium",
+        "image": "assets/df15ae1c-d219-449f-b27b-c908c615af70_gemini.png",
+        "base_score": 10.450182914733887,
+        "fine_score": 2.0017881393432617,
+        "prompt_text": "purple flower with yellow center and leaves"
+      },
+      "base_winner": "gemini",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.60992431640625,
+      "fine_margin": 2.376862049102783
+    },
+    {
+      "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+      "bucket": "complex",
+      "prompt": "This is a modern flat vector illustration featuring a smiling young person with dark hair and a red top, actively writing with a yellow pencil on a stack of lined white paper at a yellow desk. They are depicted within a browser-like window with a yellow frame and three black dots at the top right, all set against a transparent background. The clean lines and solid blocks of cheerful colors like red and yellow convey a friendly and studious atmosphere.",
+      "pair": "gpt-5.2 vs claude",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+        "bucket": "complex",
+        "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_gpt-5-2.png",
+        "base_score": 9.621102333068848,
+        "fine_score": 0.185923233628273,
+        "prompt_text": "smiling person writing on yellow desk"
+      },
+      "right": {
+        "source": "claude",
+        "candidate_id": "claude:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+        "bucket": "complex",
+        "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_claude.png",
+        "base_score": 9.717512130737305,
+        "fine_score": -0.6238808035850525,
+        "prompt_text": "smiling person writing on yellow desk"
+      },
+      "base_winner": "claude",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.09640979766845703,
+      "fine_margin": 0.8098040372133255
+    },
+    {
+      "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+      "bucket": "complex",
+      "prompt": "This is a modern flat vector illustration featuring a smiling young person with dark hair and a red top, actively writing with a yellow pencil on a stack of lined white paper at a yellow desk. They are depicted within a browser-like window with a yellow frame and three black dots at the top right, all set against a transparent background. The clean lines and solid blocks of cheerful colors like red and yellow convey a friendly and studious atmosphere.",
+      "pair": "claude vs gemini",
+      "left": {
+        "source": "claude",
+        "candidate_id": "claude:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+        "bucket": "complex",
+        "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_claude.png",
+        "base_score": 9.717512130737305,
+        "fine_score": -0.6238808035850525,
+        "prompt_text": "smiling person writing on yellow desk"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+        "bucket": "complex",
+        "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_gemini.png",
+        "base_score": 9.182942390441895,
+        "fine_score": -1.1070067882537842,
+        "prompt_text": "smiling person writing on yellow desk"
+      },
+      "base_winner": "claude",
+      "fine_winner": "claude",
+      "base_margin": 0.5345697402954102,
+      "fine_margin": 0.4831259846687317
+    },
+    {
+      "group_id": "eaa659f0-83cd-4be3-a1b4-551dcacad485",
+      "bucket": "complex",
+      "prompt": "This is a modern flat vector illustration featuring a smiling young person with dark hair and a red top, actively writing with a yellow pencil on a stack of lined white paper at a yellow desk. They are depicted within a browser-like window with a yellow frame and three black dots at the top right, all set against a transparent background. The clean lines and solid blocks of cheerful colors like red and yellow convey a friendly and studious atmosphere.",
+      "pair": "gpt-5.2 vs gemini",
+      "left": {
+        "source": "gpt-5.2",
+        "candidate_id": "gpt-5.2:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+        "bucket": "complex",
+        "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_gpt-5-2.png",
+        "base_score": 9.621102333068848,
+        "fine_score": 0.185923233628273,
+        "prompt_text": "smiling person writing on yellow desk"
+      },
+      "right": {
+        "source": "gemini",
+        "candidate_id": "gemini:eaa659f0-83cd-4be3-a1b4-551dcacad485:eaa659f0-83cd-4be3-a1b4-551dcacad485_341b4900fcd05161",
+        "bucket": "complex",
+        "image": "assets/eaa659f0-83cd-4be3-a1b4-551dcacad485_gemini.png",
+        "base_score": 9.182942390441895,
+        "fine_score": -1.1070067882537842,
+        "prompt_text": "smiling person writing on yellow desk"
+      },
+      "base_winner": "gpt-5.2",
+      "fine_winner": "gpt-5.2",
+      "base_margin": 0.4381599426269531,
+      "fine_margin": 1.2929300218820572
+    }
+  ],
+  "ai_win_counts": {
+    "base": {
+      "gpt-5.2": 13,
+      "claude": 19,
+      "gemini": 13
+    },
+    "fine_tuned": {
+      "gpt-5.2": 16,
+      "gemini": 12,
+      "claude": 17
+    }
+  }
+}
