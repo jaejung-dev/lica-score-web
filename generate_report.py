@@ -4,6 +4,7 @@ import argparse
 import gc
 import hashlib
 import json
+import math
 import shutil
 import sys
 from collections import defaultdict
@@ -15,6 +16,10 @@ from typing import Any
 import numpy as np
 import torch
 
+from cache_config import configure_external_caches
+
+
+configure_external_caches()
 
 PROJECT_ROOT = Path("/home/ubuntu/ml-platform/other-projects/lica-score")
 sys.path.insert(0, str(PROJECT_ROOT / "src"))
@@ -114,7 +119,11 @@ def score_candidates(
             scores[group_id] = {}
             for key, candidate in payload["candidates"].items():
                 cand = torch.from_numpy(embeddings[key]).unsqueeze(0).to(device)
-                scores[group_id][candidate["source"]] = float(scorer(cond, cand).item())
+                score = scorer(cond, cand)
+                if scorer.scorer_type == "cosine":
+                    scale = scorer.logit_scale.clamp(max=math.log(100.0)).exp()
+                    score = score / scale
+                scores[group_id][candidate["source"]] = float(score.item())
     return scores
 
 
@@ -238,6 +247,7 @@ def evaluate_variant(
         "validation_loss": validation_loss(scorer, records, embeddings, device=device),
         "metrics": metrics,
         "summary": gt_ai_summary(records, scores),
+        "score_display": "raw_cosine" if scorer.scorer_type == "cosine" else scorer.scorer_type,
         "scores": scores,
     }
     release(qwen, scorer)

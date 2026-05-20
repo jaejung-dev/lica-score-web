@@ -1,5 +1,5 @@
 async function main() {
-  const cacheKey = new URLSearchParams(window.location.search).get("v") || "ranker-20260520";
+  const cacheKey = new URLSearchParams(window.location.search).get("v") || "imscore-20260520";
   const data = await fetch(`report-data.json?v=${encodeURIComponent(cacheKey)}`).then((r) => r.json());
   const variants = Object.fromEntries(data.variants.map((v) => [v.id, v]));
   const fmt = (x, n = 4) => (x == null ? "-" : Number(x).toFixed(n));
@@ -33,26 +33,22 @@ async function main() {
     const model = modelById(modelId);
     return model ? model[kind] : null;
   };
-  const orderedModelIds = () => [
-    "qwen8b",
-    "qwen2b",
-    "hpsv2_1",
-    "clip_vit_l14_openai",
-  ].filter((id) => modelById(id));
+  const trainedModelIds = () => ["qwen8b", "qwen2b"].filter((id) => modelById(id));
+  const baselineModelIds = () =>
+    data.models
+      .filter((model) => model.is_baseline)
+      .sort((a, b) => shortModelName(a.name).localeCompare(shortModelName(b.name)))
+      .map((model) => model.id);
+  const orderedModelIds = () => [...trainedModelIds(), ...baselineModelIds()];
   const orderedModels = () => orderedModelIds().map(modelById);
   const orderedComparisonVariantIds = () => [
-    variantIdFor("qwen8b", "best_variant"),
-    variantIdFor("qwen2b", "best_variant"),
-    variantIdFor("hpsv2_1", "best_variant"),
-    variantIdFor("clip_vit_l14_openai", "best_variant"),
-    variantIdFor("qwen8b", "base_variant"),
-    variantIdFor("qwen2b", "base_variant"),
+    ...trainedModelIds().map((id) => variantIdFor(id, "best_variant")),
+    ...baselineModelIds().map((id) => variantIdFor(id, "best_variant")),
+    ...trainedModelIds().map((id) => variantIdFor(id, "base_variant")),
   ].filter(Boolean);
   const orderedBestVariantIds = () => [
-    variantIdFor("qwen8b", "best_variant"),
-    variantIdFor("qwen2b", "best_variant"),
-    variantIdFor("hpsv2_1", "best_variant"),
-    variantIdFor("clip_vit_l14_openai", "best_variant"),
+    ...trainedModelIds().map((id) => variantIdFor(id, "best_variant")),
+    ...baselineModelIds().map((id) => variantIdFor(id, "best_variant")),
   ].filter(Boolean);
   const isFineTunedVariant = (variantOrId) => {
     const variant = typeof variantOrId === "string" ? variants[variantOrId] : variantOrId;
@@ -127,7 +123,7 @@ async function main() {
       }
       return `<tr><td>${shortModelName(model.name)}</td><td>${model.embedding_dim}</td><td>${model.best_epoch}</td><td>${pct(base.summary.accuracy)} → <b>${pct(best.summary.accuracy)}</b></td><td>${fmt(base.metrics.mrr, 3)} → <b>${fmt(best.metrics.mrr, 3)}</b></td><td>${fmt(base.metrics.hit_at_1, 3)} → <b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td>${fmt(base.metrics.pairwise_accuracy, 3)} → <b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td></tr>`;
     }).join("");
-    document.getElementById("modelcompare").innerHTML = `<h2>Lica vs CLIP / HPSv2 Summary</h2><table><tbody><tr><th>Model</th><th>Embedding dim</th><th>Best epoch</th><th>GT-vs-AI accuracy</th><th>MRR</th><th>Hit@1</th><th>Pairwise acc.</th></tr>${rows}</tbody></table>`;
+    document.getElementById("modelcompare").innerHTML = `<h2>Lica vs imscore Baselines Summary</h2><table><tbody><tr><th>Model</th><th>Embedding dim</th><th>Best epoch</th><th>GT-vs-AI accuracy</th><th>MRR</th><th>Hit@1</th><th>Pairwise acc.</th></tr>${rows}</tbody></table>`;
   }
 
   function confusionCard(variant) {
@@ -141,7 +137,7 @@ async function main() {
 
   function renderGallery() {
     const displayIds = orderedComparisonVariantIds();
-    document.getElementById("gallery").innerHTML = `<h2>Validation Render Gallery</h2><p class="muted">15 validation groups. Scores are scaled cosine logits, not 0-1 probabilities.</p>${data.groups.map((g) => `<div class="card group-card"><h3>${g.group_id} <span class="tag">${g.bucket}</span></h3><div class="prompt">${esc(g.prompt)}</div><div class="small muted">${displayIds.map((id) => `${variantLabelHtml(id)}: <b>${g.winners[id]}</b>`).join(" · ")}</div><div class="renders">${g.entries.map((e) => `<div class="render"><img src="${e.image}" alt="${e.source} render"><div class="body"><div class="source">${e.source}</div>${displayIds.map((id) => `<div class="score-row"><span>${variantLabelHtml(id)}</span><b>${fmt(e.scores[id], 3)}</b></div>`).join("")}</div></div>`).join("")}</div><div class="small muted score-note">Score = learned logit_scale × cosine_similarity(prompt, render). Higher is better; values can exceed 1.</div></div>`).join("")}`;
+    document.getElementById("gallery").innerHTML = `<h2>Validation Render Gallery</h2><p class="muted">15 validation groups. Lica rows show raw cosine similarity for display; loss/metrics still use the trained scaled logits. imscore rows show each library model's native score.</p>${data.groups.map((g) => `<div class="card group-card"><h3>${g.group_id} <span class="tag">${g.bucket}</span></h3><div class="prompt">${esc(g.prompt)}</div><div class="small muted">${displayIds.map((id) => `${variantLabelHtml(id)}: <b>${g.winners[id]}</b>`).join(" · ")}</div><div class="renders">${g.entries.map((e) => `<div class="render"><img src="${e.image}" alt="${e.source} render"><div class="body"><div class="source">${e.source}</div>${displayIds.map((id) => `<div class="score-row"><span>${variantLabelHtml(id)}</span><b>${fmt(e.scores[id], 3)}</b></div>`).join("")}</div></div>`).join("")}</div><div class="small muted score-note">All scores are ranking rewards; compare ordering within the same model, not absolute values across model families.</div></div>`).join("")}`;
   }
 
   function renderAiVai() {

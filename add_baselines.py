@@ -1,8 +1,10 @@
 from __future__ import annotations
 
 import argparse
+import importlib
 import json
 from collections import defaultdict
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -11,10 +13,108 @@ import torch
 from PIL import Image
 from tqdm import tqdm
 
+from cache_config import configure_external_caches
+
+
+configure_external_caches()
 
 PROJECT_ROOT = Path("/home/ubuntu/ml-platform/other-projects/lica-score")
 WEB_ROOT = Path("/home/ubuntu/lica-score-web")
-BASELINE_MODEL_IDS = {"clip_vit_l14_openai", "hpsv2_1"}
+
+IMSCORE_MODELS = [
+    {
+        "id": "imscore_hpsv21",
+        "name": "HPSv2.1",
+        "class": "imscore.hps.model:HPSv2",
+        "repo": "RE-N-Y/hpsv21",
+    },
+    {
+        "id": "imscore_pickscore",
+        "name": "PickScore",
+        "class": "imscore.pickscore.model:PickScorer",
+        "repo": "yuvalkirstain/PickScore_v1",
+        "constructor": True,
+    },
+    {
+        "id": "imscore_mpsv1",
+        "name": "MPS v1",
+        "class": "imscore.mps.model:MPS",
+        "repo": "RE-N-Y/mpsv1",
+    },
+    {
+        "id": "imscore_imagereward",
+        "name": "ImageReward",
+        "class": "imscore.imreward.model:ImageReward",
+        "repo": "RE-N-Y/ImageReward",
+    },
+    {
+        "id": "imscore_clipscore",
+        "name": "CLIPScore",
+        "class": "imscore.preference.model:CLIPScore",
+        "repo": "RE-N-Y/clipscore-vit-large-patch14",
+    },
+    {
+        "id": "imscore_pickscore_siglip",
+        "name": "SigLIP PickScore",
+        "class": "imscore.preference.model:SiglipPreferenceScorer",
+        "repo": "RE-N-Y/pickscore-siglip",
+    },
+    {
+        "id": "imscore_pickscore_clip",
+        "name": "CLIP PickScore",
+        "class": "imscore.preference.model:CLIPPreferenceScorer",
+        "repo": "RE-N-Y/pickscore-clip",
+    },
+    {
+        "id": "imscore_laion_aesthetic",
+        "name": "LAION Aesthetic",
+        "class": "imscore.aesthetic.model:LAIONAestheticScorer",
+        "repo": "RE-N-Y/laion-aesthetic",
+    },
+    {
+        "id": "imscore_shadow_aesthetic",
+        "name": "Shadow Aesthetic",
+        "class": "imscore.aesthetic.model:ShadowAesthetic",
+        "repo": "RE-N-Y/aesthetic-shadow-v2",
+    },
+    {
+        "id": "imscore_vqascore",
+        "name": "VQAScore",
+        "class": "imscore.vqascore.model:VQAScore",
+        "repo": "RE-N-Y/clip-t5-xxl",
+        "batch_size": 1,
+    },
+    {
+        "id": "imscore_evalmuse",
+        "name": "EvalMuse",
+        "class": "imscore.evalmuse.model:EvalMuse",
+        "repo": "RE-N-Y/evalmuse",
+    },
+    {
+        "id": "imscore_hpsv3",
+        "name": "HPSv3",
+        "class": "imscore.hpsv3.model:HPSv3",
+        "repo": "RE-N-Y/hpsv3",
+    },
+    {
+        "id": "imscore_cyclereward_combo",
+        "name": "CycleReward Combo",
+        "class": "imscore.cyclereward.model:CycleReward",
+        "repo": "NagaSaiAbhinay/CycleReward-Combo",
+    },
+    {
+        "id": "imscore_cyclereward_t2i",
+        "name": "CycleReward T2I",
+        "class": "imscore.cyclereward.model:CycleReward",
+        "repo": "NagaSaiAbhinay/CycleReward-T2I",
+    },
+    {
+        "id": "imscore_cyclereward_i2t",
+        "name": "CycleReward I2T",
+        "class": "imscore.cyclereward.model:CycleReward",
+        "repo": "NagaSaiAbhinay/CycleReward-I2T",
+    },
+]
 
 
 def load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -156,66 +256,93 @@ def gt_ai_summary(records: list[dict[str, Any]], scores: dict[str, dict[str, flo
     }
 
 
-def score_clip(groups: dict[str, dict[str, Any]], device: torch.device) -> dict[str, dict[str, float]]:
-    import open_clip
+def load_imscore_model(spec: dict[str, Any], device: torch.device) -> Any:
+    if spec["id"] == "imscore_mpsv1":
+        patch_clip_text_return_dict()
+    module_name, class_name = spec["class"].split(":")
+    cls = getattr(importlib.import_module(module_name), class_name)
+    if spec.get("constructor"):
+        model = cls(spec["repo"])
+    else:
+        model = cls.from_pretrained(spec["repo"])
+    if hasattr(model, "to"):
+        model = model.to(device)
+    if hasattr(model, "eval"):
+        model.eval()
+    return model
 
-    model, _, preprocess = open_clip.create_model_and_transforms(
-        "ViT-L-14",
-        pretrained="openai",
-        device=device,
-    )
-    tokenizer = open_clip.get_tokenizer("ViT-L-14")
-    model.eval()
+
+def patch_clip_text_return_dict() -> None:
+    from transformers.models.clip.modeling_clip import CLIPTextTransformer, CLIPVisionTransformer
+
+    def patch_forward(cls: Any) -> None:
+        if getattr(cls.forward, "_lica_patched_return_dict", False):
+            return
+
+        original_forward = cls.forward
+
+        def forward_without_return_dict(self: Any, *args: Any, **kwargs: Any) -> Any:
+            kwargs.pop("return_dict", None)
+            return original_forward(self, *args, **kwargs)
+
+        forward_without_return_dict._lica_patched_return_dict = True  # type: ignore[attr-defined]
+        cls.forward = forward_without_return_dict
+
+    patch_forward(CLIPTextTransformer)
+    patch_forward(CLIPVisionTransformer)
+
+
+def image_to_tensor(path: str) -> torch.Tensor:
+    image = Image.open(path).convert("RGB")
+    array = np.asarray(image, dtype=np.float32) / 255.0
+    return torch.from_numpy(array).permute(2, 0, 1)
+
+
+def tensor_to_scores(raw: Any, expected: int) -> list[float]:
+    if isinstance(raw, (list, tuple)) and len(raw) == 1:
+        raw = raw[0]
+    tensor = torch.as_tensor(raw).detach().float().cpu().reshape(-1)
+    if tensor.numel() == 1 and expected > 1:
+        return [float(tensor.item())] * expected
+    if tensor.numel() < expected:
+        raise RuntimeError(f"Expected at least {expected} scores, got shape={tuple(tensor.shape)}")
+    return [float(value) for value in tensor[:expected].tolist()]
+
+
+@torch.no_grad()
+def score_pixels(model: Any, pixels: torch.Tensor, prompts: list[str]) -> list[float]:
+    raw = model.score(pixels, prompts)
+    return tensor_to_scores(raw, pixels.shape[0])
+
+
+def score_imscore_model(
+    spec: dict[str, Any],
+    groups: dict[str, dict[str, Any]],
+    device: torch.device,
+) -> dict[str, dict[str, float]]:
+    model = load_imscore_model(spec, device)
     scores: dict[str, dict[str, float]] = {}
-    with torch.no_grad():
-        for group_id, group in tqdm(groups.items(), desc="CLIP ViT-L/14"):
-            sources = sorted(group["candidates"])
-            images = [
-                preprocess(Image.open(group["candidates"][source]["render_path"]).convert("RGB"))
-                for source in sources
-            ]
-            image_tensor = torch.stack(images).to(device)
-            text_tensor = tokenizer([group["prompt"]]).to(device)
-            image_features = model.encode_image(image_tensor)
-            text_features = model.encode_text(text_tensor)
-            image_features = torch.nn.functional.normalize(image_features, dim=-1)
-            text_features = torch.nn.functional.normalize(text_features, dim=-1)
-            values = (image_features @ text_features.T).squeeze(-1).float().cpu().tolist()
-            scores[group_id] = {source: float(value) for source, value in zip(sources, values)}
-    return scores
-
-
-def score_hpsv2(groups: dict[str, dict[str, Any]], device: torch.device) -> dict[str, dict[str, float]]:
-    import huggingface_hub
-    from hpsv2.img_score import initialize_model, model_dict
-    from hpsv2.src.open_clip import get_tokenizer
-    from hpsv2.utils import hps_version_map
-
-    initialize_model()
-    model = model_dict["model"]
-    preprocess = model_dict["preprocess_val"]
-    checkpoint_path = huggingface_hub.hf_hub_download("xswu/HPSv2", hps_version_map["v2.1"])
-    checkpoint = torch.load(checkpoint_path, map_location=device)
-    model.load_state_dict(checkpoint["state_dict"])
-    model = model.to(device)
-    model.eval()
-    tokenizer = get_tokenizer("ViT-H-14")
-    scores: dict[str, dict[str, float]] = {}
-    with torch.no_grad():
-        for group_id, group in tqdm(groups.items(), desc="HPSv2.1"):
-            sources = sorted(group["candidates"])
-            images = [
-                preprocess(Image.open(group["candidates"][source]["render_path"]).convert("RGB"))
-                for source in sources
-            ]
-            image_tensor = torch.stack(images).to(device=device, non_blocking=True)
-            text_tensor = tokenizer([group["prompt"]]).to(device=device, non_blocking=True)
-            with torch.amp.autocast("cuda", enabled=device.type == "cuda"):
-                outputs = model(image_tensor, text_tensor)
-                values = (outputs["image_features"] @ outputs["text_features"].T).squeeze(-1)
-            scores[group_id] = {
-                source: float(value) for source, value in zip(sources, values.float().cpu().tolist())
-            }
+    for group_id, group in tqdm(groups.items(), desc=spec["name"]):
+        sources = sorted(group["candidates"])
+        images = [image_to_tensor(group["candidates"][source]["render_path"]) for source in sources]
+        prompts = [group["prompt"]] * len(sources)
+        if spec.get("batch_size") == 1:
+            values = []
+            for image, prompt in zip(images, prompts):
+                pixels = image.unsqueeze(0).to(device=device, non_blocking=True)
+                values.extend(score_pixels(model, pixels, [prompt]))
+        elif len({tuple(image.shape) for image in images}) == 1:
+            pixels = torch.stack(images).to(device=device, non_blocking=True)
+            values = score_pixels(model, pixels, prompts)
+        else:
+            values = []
+            for image, prompt in zip(images, prompts):
+                pixels = image.unsqueeze(0).to(device=device, non_blocking=True)
+                values.extend(score_pixels(model, pixels, [prompt]))
+        scores[group_id] = {source: float(value) for source, value in zip(sources, values)}
+    del model
+    if torch.cuda.is_available():
+        torch.cuda.empty_cache()
     return scores
 
 
@@ -237,6 +364,7 @@ def add_variant(
         "epoch": 0,
         "train_loss": None,
         "validation_loss": None,
+        "score_display": "imscore_score",
         "metrics": metrics,
         "summary": gt_ai_summary(records, scores),
     }
@@ -298,23 +426,23 @@ def rebuild_ai_comparisons(data: dict[str, Any]) -> None:
     data["ai_comparisons"] = comparisons
 
 
-def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--pairs-dir", type=Path, default=PROJECT_ROOT / "data/processed/svg_data_v1")
-    parser.add_argument("--report-data", type=Path, default=WEB_ROOT / "report-data.json")
-    parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
-    args = parser.parse_args()
+def write_report(path: Path, data: dict[str, Any]) -> None:
+    data["generated_at"] = datetime.now(timezone.utc).astimezone().strftime("%Y-%m-%d %H:%M %Z")
+    rebuild_ai_comparisons(data)
+    path.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-    records = load_jsonl(args.pairs_dir / "eval_pairs.jsonl")
-    groups = collect_groups(records)
-    device = torch.device(args.device)
-    data = json.loads(args.report_data.read_text(encoding="utf-8"))
 
-    data["models"] = [model for model in data["models"] if model["id"] not in BASELINE_MODEL_IDS]
+def remove_existing_baselines(data: dict[str, Any], selected_model_ids: set[str] | None = None) -> None:
+    baseline_model_ids = {model["id"] for model in data["models"] if model.get("is_baseline")}
+    if selected_model_ids is not None:
+        baseline_model_ids &= selected_model_ids
+    baseline_variant_ids = {
+        variant["id"] for variant in data["variants"] if variant["model_id"] in baseline_model_ids
+    }
+    data["models"] = [model for model in data["models"] if model["id"] not in baseline_model_ids]
     data["variants"] = [
-        variant for variant in data["variants"] if variant["model_id"] not in BASELINE_MODEL_IDS
+        variant for variant in data["variants"] if variant["id"] not in baseline_variant_ids
     ]
-    baseline_variant_ids = {"clip_vit_l14_openai", "hpsv2_1"}
     for group in data["groups"]:
         for entry in group["entries"]:
             for variant_id in baseline_variant_ids:
@@ -322,32 +450,64 @@ def main() -> None:
         for variant_id in baseline_variant_ids:
             group.get("winners", {}).pop(variant_id, None)
 
-    clip_scores = score_clip(groups, device)
-    add_variant(
-        data=data,
-        records=records,
-        model_id="clip_vit_l14_openai",
-        model_name="CLIP ViT-L/14",
-        variant_id="clip_vit_l14_openai",
-        label="CLIP ViT-L/14 OpenAI",
-        scores=clip_scores,
-    )
-    if torch.cuda.is_available():
-        torch.cuda.empty_cache()
 
-    hps_scores = score_hpsv2(groups, device)
-    add_variant(
-        data=data,
-        records=records,
-        model_id="hpsv2_1",
-        model_name="HPSv2.1",
-        variant_id="hpsv2_1",
-        label="HPSv2.1",
-        scores=hps_scores,
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--pairs-dir", type=Path, default=PROJECT_ROOT / "data/processed/svg_data_v1")
+    parser.add_argument("--report-data", type=Path, default=WEB_ROOT / "report-data.json")
+    parser.add_argument("--device", default="cuda" if torch.cuda.is_available() else "cpu")
+    parser.add_argument(
+        "--models",
+        nargs="*",
+        default=None,
+        help="Optional subset of imscore model ids. Defaults to all configured models.",
     )
+    parser.add_argument("--keep-going", action=argparse.BooleanOptionalAction, default=True)
+    args = parser.parse_args()
 
-    rebuild_ai_comparisons(data)
-    args.report_data.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    records = load_jsonl(args.pairs_dir / "eval_pairs.jsonl")
+    groups = collect_groups(records)
+    device = torch.device(args.device)
+    data = json.loads(args.report_data.read_text(encoding="utf-8"))
+
+    specs = IMSCORE_MODELS
+    if args.models:
+        selected = set(args.models)
+        specs = [spec for spec in specs if spec["id"] in selected]
+        missing = selected - {spec["id"] for spec in specs}
+        if missing:
+            raise ValueError(f"Unknown imscore model ids: {sorted(missing)}")
+    else:
+        selected = None
+    remove_existing_baselines(data, selected_model_ids=selected)
+
+    failures = []
+    for spec in specs:
+        try:
+            scores = score_imscore_model(spec, groups, device)
+            add_variant(
+                data=data,
+                records=records,
+                model_id=spec["id"],
+                model_name=spec["name"],
+                variant_id=spec["id"],
+                label=spec["name"],
+                scores=scores,
+            )
+            data["baseline_failures"] = failures
+            write_report(args.report_data, data)
+        except Exception as exc:
+            failures.append({"id": spec["id"], "name": spec["name"], "error": repr(exc)})
+            print(f"failed {spec['id']}: {exc!r}")
+            data["baseline_failures"] = failures
+            write_report(args.report_data, data)
+            if torch.cuda.is_available():
+                torch.cuda.empty_cache()
+            if not args.keep_going:
+                raise
+
+    data["baseline_failures"] = failures
+    write_report(args.report_data, data)
     for model in data["models"]:
         variant = next(v for v in data["variants"] if v["id"] == model["best_variant"])
         print(
@@ -359,6 +519,8 @@ def main() -> None:
             "hit@1",
             round(variant["metrics"]["hit_at_1"], 4),
         )
+    if failures:
+        print("failures", json.dumps(failures, ensure_ascii=False, indent=2))
 
 
 if __name__ == "__main__":
