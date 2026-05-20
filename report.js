@@ -13,7 +13,7 @@ async function main() {
     })[c]);
   document.head.insertAdjacentHTML(
     "beforeend",
-    "<style>.charts{grid-template-columns:repeat(4,minmax(220px,1fr))}.chart{min-width:0}.score-note{margin-top:8px}</style>",
+    "<style>.charts{grid-template-columns:repeat(4,minmax(220px,1fr))}.chart{min-width:0}.score-note{margin-top:8px}.finetuned-label{color:#cf222e;font-weight:750}</style>",
   );
   const shortModelName = (name) =>
     String(name || "")
@@ -27,9 +27,41 @@ async function main() {
     if (model?.is_baseline) return name;
     return variant.epoch === 0 ? `${name} Base` : `${name} Epoch ${variant.epoch}`;
   };
-  const comparisonVariantIds = (model) =>
-    model.is_baseline ? [model.best_variant] : [model.base_variant, model.best_variant];
-  const bestVariantIds = () => data.models.map((m) => m.best_variant);
+  const modelById = (id) => data.models.find((m) => m.id === id);
+  const variantIdFor = (modelId, kind) => {
+    const model = modelById(modelId);
+    return model ? model[kind] : null;
+  };
+  const orderedModelIds = () => [
+    "qwen8b",
+    "qwen2b",
+    "hpsv2_1",
+    "clip_vit_l14_openai",
+  ].filter((id) => modelById(id));
+  const orderedModels = () => orderedModelIds().map(modelById);
+  const orderedComparisonVariantIds = () => [
+    variantIdFor("qwen8b", "best_variant"),
+    variantIdFor("qwen2b", "best_variant"),
+    variantIdFor("hpsv2_1", "best_variant"),
+    variantIdFor("clip_vit_l14_openai", "best_variant"),
+    variantIdFor("qwen8b", "base_variant"),
+    variantIdFor("qwen2b", "base_variant"),
+  ].filter(Boolean);
+  const orderedBestVariantIds = () => [
+    variantIdFor("qwen8b", "best_variant"),
+    variantIdFor("qwen2b", "best_variant"),
+    variantIdFor("hpsv2_1", "best_variant"),
+    variantIdFor("clip_vit_l14_openai", "best_variant"),
+  ].filter(Boolean);
+  const isFineTunedVariant = (variantOrId) => {
+    const variant = typeof variantOrId === "string" ? variants[variantOrId] : variantOrId;
+    const model = variant ? modelById(variant.model_id) : null;
+    return Boolean(variant && model && !model.is_baseline && variant.epoch > 0);
+  };
+  const variantLabelHtml = (variantOrId) => {
+    const label = shortVariantLabel(variantOrId);
+    return isFineTunedVariant(variantOrId) ? `<span class="finetuned-label">${label}</span>` : label;
+  };
   const stat = (value, label) =>
     `<div class="card stat"><div class="value">${value}</div><div class="label">${label}</div></div>`;
 
@@ -63,7 +95,7 @@ async function main() {
   }
 
   function renderOverview() {
-    const cards = data.models.map((model) => {
+    const cards = orderedModels().map((model) => {
       const base = variants[model.base_variant];
       const best = variants[model.best_variant];
       const modelName = shortModelName(model.name);
@@ -83,12 +115,12 @@ async function main() {
   }
 
   function renderMetrics() {
-    const trainedModels = data.models.filter((model) => !model.is_baseline);
+    const trainedModels = orderedModels().filter((model) => !model.is_baseline);
     document.getElementById("metrics").innerHTML = `<h2>Training And Validation Curves</h2><p class="muted">Each model is trained on the same vtracer-free Text-to-SVG split. Epoch 0 is the untrained base embedding model with cosine scoring.</p><div class="grid charts">${trainedModels.map((model) => `${lineChart(`${shortModelName(model.name)}: Loss`, model.epoch_metrics, [{ key: "train_loss", label: "train loss", color: "#0969da" }, { key: "validation_loss", label: "validation loss", color: "#cf222e" }], "Loss")}${lineChart(`${shortModelName(model.name)}: Ranking Metrics`, model.epoch_metrics, [{ key: "pairwise_accuracy", label: "pairwise accuracy", color: "#0969da" }, { key: "hit_at_1", label: "hit@1", color: "#1a7f37" }, { key: "mrr", label: "MRR", color: "#9a6700" }], "Metric")}`).join("")}</div>`;
   }
 
   function renderModelCompare() {
-    const rows = data.models.map((model) => {
+    const rows = orderedModels().map((model) => {
       const base = variants[model.base_variant];
       const best = variants[model.best_variant];
       if (model.is_baseline) {
@@ -100,30 +132,30 @@ async function main() {
   }
 
   function confusionCard(variant) {
-    return `<div class="card"><h3>${shortVariantLabel(variant)}</h3><table><tbody><tr><th>Actual winner</th><th>Predicted GT</th><th>Predicted AI</th><th>Accuracy</th></tr><tr><td>GT</td><td class="good">${variant.summary.confusion.true_gt_pred_gt}</td><td class="${variant.summary.confusion.true_gt_pred_ai ? "bad" : "good"}">${variant.summary.confusion.true_gt_pred_ai}</td><td>${pct(variant.summary.accuracy)}</td></tr></tbody></table><h3 style="margin-top:14px">By AI source</h3><table><tbody>${Object.entries(variant.summary.by_source).map(([src, v]) => `<tr><td>${src}</td><td>${v.correct} / ${v.total}</td><td>${pct(v.accuracy)}</td></tr>`).join("")}</tbody></table></div>`;
+    return `<div class="card"><h3>${variantLabelHtml(variant)}</h3><table><tbody><tr><th>Actual winner</th><th>Predicted GT</th><th>Predicted AI</th><th>Accuracy</th></tr><tr><td>GT</td><td class="good">${variant.summary.confusion.true_gt_pred_gt}</td><td class="${variant.summary.confusion.true_gt_pred_ai ? "bad" : "good"}">${variant.summary.confusion.true_gt_pred_ai}</td><td>${pct(variant.summary.accuracy)}</td></tr></tbody></table><h3 style="margin-top:14px">By AI source</h3><table><tbody>${Object.entries(variant.summary.by_source).map(([src, v]) => `<tr><td>${src}</td><td>${v.correct} / ${v.total}</td><td>${pct(v.accuracy)}</td></tr>`).join("")}</tbody></table></div>`;
   }
 
   function renderGtAi() {
-    const ids = data.models.flatMap(comparisonVariantIds);
+    const ids = orderedComparisonVariantIds();
     document.getElementById("gtai").innerHTML = `<h2>GT vs AI Accuracy And Confusion Matrix</h2><p class="muted">GT is assumed winner; Claude/Gemini/GPT-5.2 are assumed losers.</p><div class="confusion">${ids.map((id) => confusionCard(variants[id])).join("")}</div>`;
   }
 
   function renderGallery() {
-    const displayIds = data.models.flatMap(comparisonVariantIds);
-    document.getElementById("gallery").innerHTML = `<h2>Validation Render Gallery</h2><p class="muted">15 validation groups. Scores are scaled cosine logits, not 0-1 probabilities.</p>${data.groups.map((g) => `<div class="card group-card"><h3>${g.group_id} <span class="tag">${g.bucket}</span></h3><div class="prompt">${esc(g.prompt)}</div><div class="small muted">${displayIds.map((id) => `${shortVariantLabel(id)}: <b>${g.winners[id]}</b>`).join(" · ")}</div><div class="renders">${g.entries.map((e) => `<div class="render"><img src="${e.image}" alt="${e.source} render"><div class="body"><div class="source">${e.source}</div>${displayIds.map((id) => `<div class="score-row"><span>${shortVariantLabel(id)}</span><b>${fmt(e.scores[id], 3)}</b></div>`).join("")}</div></div>`).join("")}</div><div class="small muted score-note">Score = learned logit_scale × cosine_similarity(prompt, render). Higher is better; values can exceed 1.</div></div>`).join("")}`;
+    const displayIds = orderedComparisonVariantIds();
+    document.getElementById("gallery").innerHTML = `<h2>Validation Render Gallery</h2><p class="muted">15 validation groups. Scores are scaled cosine logits, not 0-1 probabilities.</p>${data.groups.map((g) => `<div class="card group-card"><h3>${g.group_id} <span class="tag">${g.bucket}</span></h3><div class="prompt">${esc(g.prompt)}</div><div class="small muted">${displayIds.map((id) => `${variantLabelHtml(id)}: <b>${g.winners[id]}</b>`).join(" · ")}</div><div class="renders">${g.entries.map((e) => `<div class="render"><img src="${e.image}" alt="${e.source} render"><div class="body"><div class="source">${e.source}</div>${displayIds.map((id) => `<div class="score-row"><span>${variantLabelHtml(id)}</span><b>${fmt(e.scores[id], 3)}</b></div>`).join("")}</div></div>`).join("")}</div><div class="small muted score-note">Score = learned logit_scale × cosine_similarity(prompt, render). Higher is better; values can exceed 1.</div></div>`).join("")}`;
   }
 
   function renderAiVai() {
-    const displayIds = bestVariantIds();
+    const displayIds = orderedBestVariantIds();
     const winCounts = Object.fromEntries(displayIds.map((id) => [id, {}]));
     data.ai_comparisons.forEach((c) => displayIds.forEach((id) => {
       winCounts[id][c.winners[id]] = (winCounts[id][c.winners[id]] || 0) + 1;
     }));
-    document.getElementById("aivai").innerHTML = `<h2>AI Generated Results Compared Against Each Other</h2><p class="muted">Pairwise winners among GPT-5.2, Claude, and Gemini for each best fine-tuned model.</p><div class="grid stats">${displayIds.map((id) => stat(Object.entries(winCounts[id]).map(([k, v]) => `${k}: ${v}`).join("<br>"), `${shortVariantLabel(id)} AI-vs-AI wins`)).join("")}</div><div class="controls"><label>Filter pair <select id="pairFilter"><option value="all">all</option><option>gpt-5.2 vs claude</option><option>claude vs gemini</option><option>gpt-5.2 vs gemini</option></select></label></div><div id="aiCompareGrid" class="compare-grid"></div>`;
+    document.getElementById("aivai").innerHTML = `<h2>AI Generated Results Compared Against Each Other</h2><p class="muted">Pairwise winners among GPT-5.2, Claude, and Gemini for each best ranker.</p><div class="grid stats">${displayIds.map((id) => stat(Object.entries(winCounts[id]).map(([k, v]) => `${k}: ${v}`).join("<br>"), `${variantLabelHtml(id)} AI-vs-AI wins`)).join("")}</div><div class="controls"><label>Filter pair <select id="pairFilter"><option value="all">all</option><option>gpt-5.2 vs claude</option><option>claude vs gemini</option><option>gpt-5.2 vs gemini</option></select></label></div><div id="aiCompareGrid" class="compare-grid"></div>`;
     const draw = () => {
       const f = document.getElementById("pairFilter").value;
       const rows = data.ai_comparisons.filter((c) => f === "all" || c.pair === f);
-      document.getElementById("aiCompareGrid").innerHTML = rows.map((c) => `<div class="card"><h3>${c.pair} <span class="tag">${c.bucket}</span></h3><div class="small muted">${c.group_id}</div><div class="compare-images"><img src="${c.left.image}" alt="${c.left.source}"><img src="${c.right.image}" alt="${c.right.source}"></div><table><tbody><tr><th>model</th><th>${c.left.source}</th><th>${c.right.source}</th><th>winner</th></tr>${displayIds.map((id) => `<tr><td>${shortVariantLabel(id)}</td><td>${fmt(c.left.scores[id], 3)}</td><td>${fmt(c.right.scores[id], 3)}</td><td><b>${c.winners[id]}</b></td></tr>`).join("")}</tbody></table></div>`).join("");
+      document.getElementById("aiCompareGrid").innerHTML = rows.map((c) => `<div class="card"><h3>${c.pair} <span class="tag">${c.bucket}</span></h3><div class="small muted">${c.group_id}</div><div class="compare-images"><img src="${c.left.image}" alt="${c.left.source}"><img src="${c.right.image}" alt="${c.right.source}"></div><table><tbody><tr><th>model</th><th>${c.left.source}</th><th>${c.right.source}</th><th>winner</th></tr>${displayIds.map((id) => `<tr><td>${variantLabelHtml(id)}</td><td>${fmt(c.left.scores[id], 3)}</td><td>${fmt(c.right.scores[id], 3)}</td><td><b>${c.winners[id]}</b></td></tr>`).join("")}</tbody></table></div>`).join("");
     };
     draw();
     document.getElementById("pairFilter").addEventListener("change", draw);
