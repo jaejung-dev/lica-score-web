@@ -152,6 +152,48 @@
           "mean_margin": 2.7096991539001465
         }
       ]
+    },
+    {
+      "id": "clip_vit_l14_openai",
+      "name": "CLIP ViT-L/14",
+      "is_baseline": true,
+      "base_variant": "clip_vit_l14_openai",
+      "best_variant": "clip_vit_l14_openai",
+      "variant_ids": [
+        "clip_vit_l14_openai"
+      ],
+      "epoch_metrics": [
+        {
+          "epoch": 0,
+          "train_loss": null,
+          "validation_loss": null,
+          "pairwise_accuracy": 0.5777777777777777,
+          "hit_at_1": 0.4,
+          "mrr": 0.6111111111111112,
+          "mean_margin": 0.011519218153423733
+        }
+      ]
+    },
+    {
+      "id": "hpsv2_1",
+      "name": "HPSv2.1",
+      "is_baseline": true,
+      "base_variant": "hpsv2_1",
+      "best_variant": "hpsv2_1",
+      "variant_ids": [
+        "hpsv2_1"
+      ],
+      "epoch_metrics": [
+        {
+          "epoch": 0,
+          "train_loss": null,
+          "validation_loss": null,
+          "pairwise_accuracy": 0.5777777777777777,
+          "hit_at_1": 0.3333333333333333,
+          "mrr": 0.5833333333333334,
+          "mean_margin": 0.01882052951388889
+        }
+      ]
     }
   ],
   "variants": [
@@ -850,6 +892,122 @@
           }
         }
       }
+    },
+    {
+      "id": "clip_vit_l14_openai",
+      "label": "CLIP ViT-L/14 OpenAI",
+      "model_id": "clip_vit_l14_openai",
+      "epoch": 0,
+      "train_loss": null,
+      "validation_loss": null,
+      "metrics": {
+        "pairwise_accuracy": 0.5777777777777777,
+        "preference_accuracy": 0.5777777777777777,
+        "ranking_accuracy": 0.5777777777777777,
+        "group_perfect_accuracy": 0.4,
+        "mean_margin": 0.011519218153423733,
+        "hit_at_1": 0.4,
+        "mrr": 0.6111111111111112,
+        "mean_positive_rank": 2.2666666666666666,
+        "num_pairs": 45,
+        "num_groups": 15,
+        "by_task": {
+          "text_to_svg": {
+            "pairwise_accuracy": 0.5777777777777777,
+            "preference_accuracy": 0.5777777777777777,
+            "ranking_accuracy": 0.5777777777777777,
+            "group_perfect_accuracy": 0.4,
+            "hit_at_1": 0.4,
+            "mrr": 0.6111111111111112,
+            "mean_positive_rank": 2.2666666666666666,
+            "num_pairs": 45,
+            "num_groups": 15
+          }
+        }
+      },
+      "summary": {
+        "accuracy": 0.5777777777777777,
+        "confusion": {
+          "true_gt_pred_gt": 26,
+          "true_gt_pred_ai": 19,
+          "total": 45
+        },
+        "by_source": {
+          "claude": {
+            "correct": 7,
+            "total": 15,
+            "accuracy": 0.4666666666666667
+          },
+          "gemini": {
+            "correct": 10,
+            "total": 15,
+            "accuracy": 0.6666666666666666
+          },
+          "gpt-5.2": {
+            "correct": 9,
+            "total": 15,
+            "accuracy": 0.6
+          }
+        }
+      }
+    },
+    {
+      "id": "hpsv2_1",
+      "label": "HPSv2.1",
+      "model_id": "hpsv2_1",
+      "epoch": 0,
+      "train_loss": null,
+      "validation_loss": null,
+      "metrics": {
+        "pairwise_accuracy": 0.5777777777777777,
+        "preference_accuracy": 0.5777777777777777,
+        "ranking_accuracy": 0.5777777777777777,
+        "group_perfect_accuracy": 0.3333333333333333,
+        "mean_margin": 0.01882052951388889,
+        "hit_at_1": 0.3333333333333333,
+        "mrr": 0.5833333333333334,
+        "mean_positive_rank": 2.2666666666666666,
+        "num_pairs": 45,
+        "num_groups": 15,
+        "by_task": {
+          "text_to_svg": {
+            "pairwise_accuracy": 0.5777777777777777,
+            "preference_accuracy": 0.5777777777777777,
+            "ranking_accuracy": 0.5777777777777777,
+            "group_perfect_accuracy": 0.3333333333333333,
+            "hit_at_1": 0.3333333333333333,
+            "mrr": 0.5833333333333334,
+            "mean_positive_rank": 2.2666666666666666,
+            "num_pairs": 45,
+            "num_groups": 15
+          }
+        }
+      },
+      "summary": {
+        "accuracy": 0.5777777777777777,
+        "confusion": {
+          "true_gt_pred_gt": 26,
+          "true_gt_pred_ai": 19,
+          "total": 45
+        },
+        "by_source": {
+          "claude": {
+            "correct": 8,
+            "total": 15,
+            "accuracy": 0.5333333333333333
+          },
+          "gemini": {
+            "correct": 6,
+            "total": 15,
+            "accuracy": 0.4
+          },
+          "gpt-5.2": {
+            "correct": 12,
+            "total": 15,
+            "accuracy": 0.8
+          }
+        }
+      }
     }
   ],
   "groups": [
@@ -869,7 +1027,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gt",
+        "hpsv2_1": "gt"
       },
       "entries": [
         {
@@ -887,7 +1047,9 @@
             "qwen8b_epoch_2": 13.527783393859863,
             "qwen8b_epoch_3": 14.096314430236816,
             "qwen8b_epoch_4": 14.096314430236816,
-            "qwen8b_epoch_5": 14.096314430236816
+            "qwen8b_epoch_5": 14.096314430236816,
+            "clip_vit_l14_openai": 0.2548946440219879,
+            "hpsv2_1": 0.2117919921875
           }
         },
         {
@@ -905,7 +1067,9 @@
             "qwen8b_epoch_2": 9.690023422241211,
             "qwen8b_epoch_3": 10.031073570251465,
             "qwen8b_epoch_4": 10.031073570251465,
-            "qwen8b_epoch_5": 10.031073570251465
+            "qwen8b_epoch_5": 10.031073570251465,
+            "clip_vit_l14_openai": 0.23801013827323914,
+            "hpsv2_1": 0.1455078125
           }
         },
         {
@@ -923,7 +1087,9 @@
             "qwen8b_epoch_2": 10.907716751098633,
             "qwen8b_epoch_3": 13.655367851257324,
             "qwen8b_epoch_4": 13.655367851257324,
-            "qwen8b_epoch_5": 13.655367851257324
+            "qwen8b_epoch_5": 13.655367851257324,
+            "clip_vit_l14_openai": 0.2351730465888977,
+            "hpsv2_1": 0.15771484375
           }
         },
         {
@@ -941,7 +1107,9 @@
             "qwen8b_epoch_2": 10.157909393310547,
             "qwen8b_epoch_3": 12.099459648132324,
             "qwen8b_epoch_4": 12.099459648132324,
-            "qwen8b_epoch_5": 12.099459648132324
+            "qwen8b_epoch_5": 12.099459648132324,
+            "clip_vit_l14_openai": 0.24993778765201569,
+            "hpsv2_1": 0.19677734375
           }
         }
       ]
@@ -962,7 +1130,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gt",
+        "hpsv2_1": "gt"
       },
       "entries": [
         {
@@ -980,7 +1150,9 @@
             "qwen8b_epoch_2": 13.236553192138672,
             "qwen8b_epoch_3": 14.009989738464355,
             "qwen8b_epoch_4": 14.009989738464355,
-            "qwen8b_epoch_5": 14.009989738464355
+            "qwen8b_epoch_5": 14.009989738464355,
+            "clip_vit_l14_openai": 0.34530237317085266,
+            "hpsv2_1": 0.2342529296875
           }
         },
         {
@@ -998,7 +1170,9 @@
             "qwen8b_epoch_2": 11.955464363098145,
             "qwen8b_epoch_3": 12.711833953857422,
             "qwen8b_epoch_4": 12.711833953857422,
-            "qwen8b_epoch_5": 12.711833953857422
+            "qwen8b_epoch_5": 12.711833953857422,
+            "clip_vit_l14_openai": 0.3165549635887146,
+            "hpsv2_1": 0.21240234375
           }
         },
         {
@@ -1016,7 +1190,9 @@
             "qwen8b_epoch_2": 11.438175201416016,
             "qwen8b_epoch_3": 10.585752487182617,
             "qwen8b_epoch_4": 10.585752487182617,
-            "qwen8b_epoch_5": 10.585752487182617
+            "qwen8b_epoch_5": 10.585752487182617,
+            "clip_vit_l14_openai": 0.279437780380249,
+            "hpsv2_1": 0.1802978515625
           }
         },
         {
@@ -1034,7 +1210,9 @@
             "qwen8b_epoch_2": 11.624698638916016,
             "qwen8b_epoch_3": 11.591226577758789,
             "qwen8b_epoch_4": 11.591226577758789,
-            "qwen8b_epoch_5": 11.591226577758789
+            "qwen8b_epoch_5": 11.591226577758789,
+            "clip_vit_l14_openai": 0.29890966415405273,
+            "hpsv2_1": 0.1796875
           }
         }
       ]
@@ -1055,7 +1233,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gt",
+        "hpsv2_1": "gemini"
       },
       "entries": [
         {
@@ -1073,7 +1253,9 @@
             "qwen8b_epoch_2": 9.1716947555542,
             "qwen8b_epoch_3": 11.582528114318848,
             "qwen8b_epoch_4": 11.582528114318848,
-            "qwen8b_epoch_5": 11.582528114318848
+            "qwen8b_epoch_5": 11.582528114318848,
+            "clip_vit_l14_openai": 0.31313520669937134,
+            "hpsv2_1": 0.270263671875
           }
         },
         {
@@ -1091,7 +1273,9 @@
             "qwen8b_epoch_2": 7.720149993896484,
             "qwen8b_epoch_3": 8.591484069824219,
             "qwen8b_epoch_4": 8.591484069824219,
-            "qwen8b_epoch_5": 8.591484069824219
+            "qwen8b_epoch_5": 8.591484069824219,
+            "clip_vit_l14_openai": 0.30133917927742004,
+            "hpsv2_1": 0.271240234375
           }
         },
         {
@@ -1109,7 +1293,9 @@
             "qwen8b_epoch_2": 7.5497331619262695,
             "qwen8b_epoch_3": 8.480013847351074,
             "qwen8b_epoch_4": 8.480013847351074,
-            "qwen8b_epoch_5": 8.480013847351074
+            "qwen8b_epoch_5": 8.480013847351074,
+            "clip_vit_l14_openai": 0.30599987506866455,
+            "hpsv2_1": 0.27197265625
           }
         },
         {
@@ -1127,7 +1313,9 @@
             "qwen8b_epoch_2": 7.242478370666504,
             "qwen8b_epoch_3": 8.110457420349121,
             "qwen8b_epoch_4": 8.110457420349121,
-            "qwen8b_epoch_5": 8.110457420349121
+            "qwen8b_epoch_5": 8.110457420349121,
+            "clip_vit_l14_openai": 0.30236488580703735,
+            "hpsv2_1": 0.270751953125
           }
         }
       ]
@@ -1148,7 +1336,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gt",
+        "hpsv2_1": "gt"
       },
       "entries": [
         {
@@ -1166,7 +1356,9 @@
             "qwen8b_epoch_2": 12.866591453552246,
             "qwen8b_epoch_3": 13.837236404418945,
             "qwen8b_epoch_4": 13.837236404418945,
-            "qwen8b_epoch_5": 13.837236404418945
+            "qwen8b_epoch_5": 13.837236404418945,
+            "clip_vit_l14_openai": 0.39235416054725647,
+            "hpsv2_1": 0.23681640625
           }
         },
         {
@@ -1184,7 +1376,9 @@
             "qwen8b_epoch_2": 9.998079299926758,
             "qwen8b_epoch_3": 9.30792236328125,
             "qwen8b_epoch_4": 9.30792236328125,
-            "qwen8b_epoch_5": 9.30792236328125
+            "qwen8b_epoch_5": 9.30792236328125,
+            "clip_vit_l14_openai": 0.3102976083755493,
+            "hpsv2_1": 0.1746826171875
           }
         },
         {
@@ -1202,7 +1396,9 @@
             "qwen8b_epoch_2": 9.115605354309082,
             "qwen8b_epoch_3": 8.944473266601562,
             "qwen8b_epoch_4": 8.944473266601562,
-            "qwen8b_epoch_5": 8.944473266601562
+            "qwen8b_epoch_5": 8.944473266601562,
+            "clip_vit_l14_openai": 0.30501997470855713,
+            "hpsv2_1": 0.1627197265625
           }
         },
         {
@@ -1220,7 +1416,9 @@
             "qwen8b_epoch_2": 9.40254020690918,
             "qwen8b_epoch_3": 9.733549118041992,
             "qwen8b_epoch_4": 9.733549118041992,
-            "qwen8b_epoch_5": 9.733549118041992
+            "qwen8b_epoch_5": 9.733549118041992,
+            "clip_vit_l14_openai": 0.29997798800468445,
+            "hpsv2_1": 0.18359375
           }
         }
       ]
@@ -1241,7 +1439,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gemini"
       },
       "entries": [
         {
@@ -1259,7 +1459,9 @@
             "qwen8b_epoch_2": 14.087677001953125,
             "qwen8b_epoch_3": 14.234954833984375,
             "qwen8b_epoch_4": 14.234954833984375,
-            "qwen8b_epoch_5": 14.234954833984375
+            "qwen8b_epoch_5": 14.234954833984375,
+            "clip_vit_l14_openai": 0.27934399247169495,
+            "hpsv2_1": 0.244873046875
           }
         },
         {
@@ -1277,7 +1479,9 @@
             "qwen8b_epoch_2": 8.961651802062988,
             "qwen8b_epoch_3": 8.981258392333984,
             "qwen8b_epoch_4": 8.981258392333984,
-            "qwen8b_epoch_5": 8.981258392333984
+            "qwen8b_epoch_5": 8.981258392333984,
+            "clip_vit_l14_openai": 0.31443536281585693,
+            "hpsv2_1": 0.240234375
           }
         },
         {
@@ -1295,7 +1499,9 @@
             "qwen8b_epoch_2": 10.022668838500977,
             "qwen8b_epoch_3": 9.415356636047363,
             "qwen8b_epoch_4": 9.415356636047363,
-            "qwen8b_epoch_5": 9.415356636047363
+            "qwen8b_epoch_5": 9.415356636047363,
+            "clip_vit_l14_openai": 0.3104126751422882,
+            "hpsv2_1": 0.2459716796875
           }
         },
         {
@@ -1313,7 +1519,9 @@
             "qwen8b_epoch_2": 9.49141788482666,
             "qwen8b_epoch_3": 9.306200981140137,
             "qwen8b_epoch_4": 9.306200981140137,
-            "qwen8b_epoch_5": 9.306200981140137
+            "qwen8b_epoch_5": 9.306200981140137,
+            "clip_vit_l14_openai": 0.27982673048973083,
+            "hpsv2_1": 0.2254638671875
           }
         }
       ]
@@ -1334,7 +1542,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gemini",
+        "hpsv2_1": "claude"
       },
       "entries": [
         {
@@ -1352,7 +1562,9 @@
             "qwen8b_epoch_2": 13.77320384979248,
             "qwen8b_epoch_3": 13.979950904846191,
             "qwen8b_epoch_4": 13.979950904846191,
-            "qwen8b_epoch_5": 13.979950904846191
+            "qwen8b_epoch_5": 13.979950904846191,
+            "clip_vit_l14_openai": 0.18561714887619019,
+            "hpsv2_1": 0.14404296875
           }
         },
         {
@@ -1370,7 +1582,9 @@
             "qwen8b_epoch_2": 13.158260345458984,
             "qwen8b_epoch_3": 13.67624568939209,
             "qwen8b_epoch_4": 13.67624568939209,
-            "qwen8b_epoch_5": 13.67624568939209
+            "qwen8b_epoch_5": 13.67624568939209,
+            "clip_vit_l14_openai": 0.23285582661628723,
+            "hpsv2_1": 0.1739501953125
           }
         },
         {
@@ -1388,7 +1602,9 @@
             "qwen8b_epoch_2": 13.432565689086914,
             "qwen8b_epoch_3": 13.871121406555176,
             "qwen8b_epoch_4": 13.871121406555176,
-            "qwen8b_epoch_5": 13.871121406555176
+            "qwen8b_epoch_5": 13.871121406555176,
+            "clip_vit_l14_openai": 0.24177603423595428,
+            "hpsv2_1": 0.1544189453125
           }
         },
         {
@@ -1406,7 +1622,9 @@
             "qwen8b_epoch_2": 13.432565689086914,
             "qwen8b_epoch_3": 13.871121406555176,
             "qwen8b_epoch_4": 13.871121406555176,
-            "qwen8b_epoch_5": 13.871121406555176
+            "qwen8b_epoch_5": 13.871121406555176,
+            "clip_vit_l14_openai": 0.24177603423595428,
+            "hpsv2_1": 0.1544189453125
           }
         }
       ]
@@ -1427,7 +1645,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "claude"
       },
       "entries": [
         {
@@ -1445,7 +1665,9 @@
             "qwen8b_epoch_2": 13.722137451171875,
             "qwen8b_epoch_3": 14.173089981079102,
             "qwen8b_epoch_4": 14.173089981079102,
-            "qwen8b_epoch_5": 14.173089981079102
+            "qwen8b_epoch_5": 14.173089981079102,
+            "clip_vit_l14_openai": 0.3047696650028229,
+            "hpsv2_1": 0.21923828125
           }
         },
         {
@@ -1463,7 +1685,9 @@
             "qwen8b_epoch_2": 10.004189491271973,
             "qwen8b_epoch_3": 10.266793251037598,
             "qwen8b_epoch_4": 10.266793251037598,
-            "qwen8b_epoch_5": 10.266793251037598
+            "qwen8b_epoch_5": 10.266793251037598,
+            "clip_vit_l14_openai": 0.28211137652397156,
+            "hpsv2_1": 0.2208251953125
           }
         },
         {
@@ -1481,7 +1705,9 @@
             "qwen8b_epoch_2": 8.771912574768066,
             "qwen8b_epoch_3": 8.945301055908203,
             "qwen8b_epoch_4": 8.945301055908203,
-            "qwen8b_epoch_5": 8.945301055908203
+            "qwen8b_epoch_5": 8.945301055908203,
+            "clip_vit_l14_openai": 0.27901339530944824,
+            "hpsv2_1": 0.2044677734375
           }
         },
         {
@@ -1499,7 +1725,9 @@
             "qwen8b_epoch_2": 7.38140869140625,
             "qwen8b_epoch_3": 7.641377925872803,
             "qwen8b_epoch_4": 7.641377925872803,
-            "qwen8b_epoch_5": 7.641377925872803
+            "qwen8b_epoch_5": 7.641377925872803,
+            "clip_vit_l14_openai": 0.31095457077026367,
+            "hpsv2_1": 0.1875
           }
         }
       ]
@@ -1520,7 +1748,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "claude"
       },
       "entries": [
         {
@@ -1538,7 +1768,9 @@
             "qwen8b_epoch_2": 12.559860229492188,
             "qwen8b_epoch_3": 13.922667503356934,
             "qwen8b_epoch_4": 13.922667503356934,
-            "qwen8b_epoch_5": 13.922667503356934
+            "qwen8b_epoch_5": 13.922667503356934,
+            "clip_vit_l14_openai": 0.2898526191711426,
+            "hpsv2_1": 0.241455078125
           }
         },
         {
@@ -1556,7 +1788,9 @@
             "qwen8b_epoch_2": 9.982882499694824,
             "qwen8b_epoch_3": 13.08094310760498,
             "qwen8b_epoch_4": 13.08094310760498,
-            "qwen8b_epoch_5": 13.08094310760498
+            "qwen8b_epoch_5": 13.08094310760498,
+            "clip_vit_l14_openai": 0.29800960421562195,
+            "hpsv2_1": 0.248046875
           }
         },
         {
@@ -1574,7 +1808,9 @@
             "qwen8b_epoch_2": 11.346863746643066,
             "qwen8b_epoch_3": 13.40422534942627,
             "qwen8b_epoch_4": 13.40422534942627,
-            "qwen8b_epoch_5": 13.40422534942627
+            "qwen8b_epoch_5": 13.40422534942627,
+            "clip_vit_l14_openai": 0.29789599776268005,
+            "hpsv2_1": 0.241455078125
           }
         },
         {
@@ -1592,7 +1828,9 @@
             "qwen8b_epoch_2": 10.32992172241211,
             "qwen8b_epoch_3": 13.079233169555664,
             "qwen8b_epoch_4": 13.079233169555664,
-            "qwen8b_epoch_5": 13.079233169555664
+            "qwen8b_epoch_5": 13.079233169555664,
+            "clip_vit_l14_openai": 0.2998529076576233,
+            "hpsv2_1": 0.2445068359375
           }
         }
       ]
@@ -1613,7 +1851,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gt",
+        "hpsv2_1": "claude"
       },
       "entries": [
         {
@@ -1631,7 +1871,9 @@
             "qwen8b_epoch_2": 13.700921058654785,
             "qwen8b_epoch_3": 14.23470687866211,
             "qwen8b_epoch_4": 14.23470687866211,
-            "qwen8b_epoch_5": 14.23470687866211
+            "qwen8b_epoch_5": 14.23470687866211,
+            "clip_vit_l14_openai": 0.38147127628326416,
+            "hpsv2_1": 0.181884765625
           }
         },
         {
@@ -1649,7 +1891,9 @@
             "qwen8b_epoch_2": 8.924726486206055,
             "qwen8b_epoch_3": 9.949891090393066,
             "qwen8b_epoch_4": 9.949891090393066,
-            "qwen8b_epoch_5": 9.949891090393066
+            "qwen8b_epoch_5": 9.949891090393066,
+            "clip_vit_l14_openai": 0.29587143659591675,
+            "hpsv2_1": 0.18603515625
           }
         },
         {
@@ -1667,7 +1911,9 @@
             "qwen8b_epoch_2": 13.087562561035156,
             "qwen8b_epoch_3": 14.109081268310547,
             "qwen8b_epoch_4": 14.109081268310547,
-            "qwen8b_epoch_5": 14.109081268310547
+            "qwen8b_epoch_5": 14.109081268310547,
+            "clip_vit_l14_openai": 0.2770340144634247,
+            "hpsv2_1": 0.1845703125
           }
         },
         {
@@ -1685,7 +1931,9 @@
             "qwen8b_epoch_2": 9.543458938598633,
             "qwen8b_epoch_3": 10.678557395935059,
             "qwen8b_epoch_4": 10.678557395935059,
-            "qwen8b_epoch_5": 10.678557395935059
+            "qwen8b_epoch_5": 10.678557395935059,
+            "clip_vit_l14_openai": 0.28771156072616577,
+            "hpsv2_1": 0.17919921875
           }
         }
       ]
@@ -1706,7 +1954,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gemini"
       },
       "entries": [
         {
@@ -1724,7 +1974,9 @@
             "qwen8b_epoch_2": 7.760140895843506,
             "qwen8b_epoch_3": 9.663121223449707,
             "qwen8b_epoch_4": 9.663121223449707,
-            "qwen8b_epoch_5": 9.663121223449707
+            "qwen8b_epoch_5": 9.663121223449707,
+            "clip_vit_l14_openai": 0.24180200695991516,
+            "hpsv2_1": 0.2357177734375
           }
         },
         {
@@ -1742,7 +1994,9 @@
             "qwen8b_epoch_2": 7.284027099609375,
             "qwen8b_epoch_3": 8.011176109313965,
             "qwen8b_epoch_4": 8.011176109313965,
-            "qwen8b_epoch_5": 8.011176109313965
+            "qwen8b_epoch_5": 8.011176109313965,
+            "clip_vit_l14_openai": 0.29934626817703247,
+            "hpsv2_1": 0.230224609375
           }
         },
         {
@@ -1760,7 +2014,9 @@
             "qwen8b_epoch_2": 6.761471271514893,
             "qwen8b_epoch_3": 6.963207244873047,
             "qwen8b_epoch_4": 6.963207244873047,
-            "qwen8b_epoch_5": 6.963207244873047
+            "qwen8b_epoch_5": 6.963207244873047,
+            "clip_vit_l14_openai": 0.29724523425102234,
+            "hpsv2_1": 0.2420654296875
           }
         },
         {
@@ -1778,7 +2034,9 @@
             "qwen8b_epoch_2": 6.718573093414307,
             "qwen8b_epoch_3": 7.215419769287109,
             "qwen8b_epoch_4": 7.215419769287109,
-            "qwen8b_epoch_5": 7.215419769287109
+            "qwen8b_epoch_5": 7.215419769287109,
+            "clip_vit_l14_openai": 0.28098413348197937,
+            "hpsv2_1": 0.2252197265625
           }
         }
       ]
@@ -1799,7 +2057,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       },
       "entries": [
         {
@@ -1817,7 +2077,9 @@
             "qwen8b_epoch_2": 11.615615844726562,
             "qwen8b_epoch_3": 13.477086067199707,
             "qwen8b_epoch_4": 13.477086067199707,
-            "qwen8b_epoch_5": 13.477086067199707
+            "qwen8b_epoch_5": 13.477086067199707,
+            "clip_vit_l14_openai": 0.2735687494277954,
+            "hpsv2_1": 0.1851806640625
           }
         },
         {
@@ -1835,7 +2097,9 @@
             "qwen8b_epoch_2": 11.631593704223633,
             "qwen8b_epoch_3": 11.29929256439209,
             "qwen8b_epoch_4": 11.29929256439209,
-            "qwen8b_epoch_5": 11.29929256439209
+            "qwen8b_epoch_5": 11.29929256439209,
+            "clip_vit_l14_openai": 0.3028666377067566,
+            "hpsv2_1": 0.19091796875
           }
         },
         {
@@ -1853,7 +2117,9 @@
             "qwen8b_epoch_2": 10.143074035644531,
             "qwen8b_epoch_3": 9.701641082763672,
             "qwen8b_epoch_4": 9.701641082763672,
-            "qwen8b_epoch_5": 9.701641082763672
+            "qwen8b_epoch_5": 9.701641082763672,
+            "clip_vit_l14_openai": 0.2689765393733978,
+            "hpsv2_1": 0.1907958984375
           }
         },
         {
@@ -1871,7 +2137,9 @@
             "qwen8b_epoch_2": 9.05240535736084,
             "qwen8b_epoch_3": 9.5955171585083,
             "qwen8b_epoch_4": 9.5955171585083,
-            "qwen8b_epoch_5": 9.5955171585083
+            "qwen8b_epoch_5": 9.5955171585083,
+            "clip_vit_l14_openai": 0.2734576165676117,
+            "hpsv2_1": 0.171142578125
           }
         }
       ]
@@ -1892,7 +2160,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "gt",
+        "hpsv2_1": "gt"
       },
       "entries": [
         {
@@ -1910,7 +2180,9 @@
             "qwen8b_epoch_2": 13.879111289978027,
             "qwen8b_epoch_3": 14.266378402709961,
             "qwen8b_epoch_4": 14.266378402709961,
-            "qwen8b_epoch_5": 14.266378402709961
+            "qwen8b_epoch_5": 14.266378402709961,
+            "clip_vit_l14_openai": 0.2589550018310547,
+            "hpsv2_1": 0.2332763671875
           }
         },
         {
@@ -1928,7 +2200,9 @@
             "qwen8b_epoch_2": 8.967061042785645,
             "qwen8b_epoch_3": 9.885781288146973,
             "qwen8b_epoch_4": 9.885781288146973,
-            "qwen8b_epoch_5": 9.885781288146973
+            "qwen8b_epoch_5": 9.885781288146973,
+            "clip_vit_l14_openai": 0.2562161982059479,
+            "hpsv2_1": 0.2257080078125
           }
         },
         {
@@ -1946,7 +2220,9 @@
             "qwen8b_epoch_2": 12.647459983825684,
             "qwen8b_epoch_3": 14.171391487121582,
             "qwen8b_epoch_4": 14.171391487121582,
-            "qwen8b_epoch_5": 14.171391487121582
+            "qwen8b_epoch_5": 14.171391487121582,
+            "clip_vit_l14_openai": 0.2192177176475525,
+            "hpsv2_1": 0.1729736328125
           }
         },
         {
@@ -1964,7 +2240,9 @@
             "qwen8b_epoch_2": 12.80398178100586,
             "qwen8b_epoch_3": 13.824615478515625,
             "qwen8b_epoch_4": 13.824615478515625,
-            "qwen8b_epoch_5": 13.824615478515625
+            "qwen8b_epoch_5": 13.824615478515625,
+            "clip_vit_l14_openai": 0.22729532420635223,
+            "hpsv2_1": 0.176025390625
           }
         }
       ]
@@ -1985,7 +2263,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gemini"
       },
       "entries": [
         {
@@ -2003,7 +2283,9 @@
             "qwen8b_epoch_2": 10.864255905151367,
             "qwen8b_epoch_3": 13.79510498046875,
             "qwen8b_epoch_4": 13.79510498046875,
-            "qwen8b_epoch_5": 13.79510498046875
+            "qwen8b_epoch_5": 13.79510498046875,
+            "clip_vit_l14_openai": 0.3066434860229492,
+            "hpsv2_1": 0.2139892578125
           }
         },
         {
@@ -2021,7 +2303,9 @@
             "qwen8b_epoch_2": 12.62740707397461,
             "qwen8b_epoch_3": 14.148387908935547,
             "qwen8b_epoch_4": 14.148387908935547,
-            "qwen8b_epoch_5": 14.148387908935547
+            "qwen8b_epoch_5": 14.148387908935547,
+            "clip_vit_l14_openai": 0.3245963454246521,
+            "hpsv2_1": 0.197021484375
           }
         },
         {
@@ -2039,7 +2323,9 @@
             "qwen8b_epoch_2": 12.92004680633545,
             "qwen8b_epoch_3": 13.843395233154297,
             "qwen8b_epoch_4": 13.843395233154297,
-            "qwen8b_epoch_5": 13.843395233154297
+            "qwen8b_epoch_5": 13.843395233154297,
+            "clip_vit_l14_openai": 0.31052061915397644,
+            "hpsv2_1": 0.218017578125
           }
         },
         {
@@ -2057,7 +2343,9 @@
             "qwen8b_epoch_2": 12.76244831085205,
             "qwen8b_epoch_3": 13.55521011352539,
             "qwen8b_epoch_4": 13.55521011352539,
-            "qwen8b_epoch_5": 13.55521011352539
+            "qwen8b_epoch_5": 13.55521011352539,
+            "clip_vit_l14_openai": 0.2929019033908844,
+            "hpsv2_1": 0.213623046875
           }
         }
       ]
@@ -2078,7 +2366,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       },
       "entries": [
         {
@@ -2096,7 +2386,9 @@
             "qwen8b_epoch_2": 9.8328275680542,
             "qwen8b_epoch_3": 11.978293418884277,
             "qwen8b_epoch_4": 11.978293418884277,
-            "qwen8b_epoch_5": 11.978293418884277
+            "qwen8b_epoch_5": 11.978293418884277,
+            "clip_vit_l14_openai": 0.3084218204021454,
+            "hpsv2_1": 0.23291015625
           }
         },
         {
@@ -2114,7 +2406,9 @@
             "qwen8b_epoch_2": 8.383760452270508,
             "qwen8b_epoch_3": 7.926851272583008,
             "qwen8b_epoch_4": 7.926851272583008,
-            "qwen8b_epoch_5": 7.926851272583008
+            "qwen8b_epoch_5": 7.926851272583008,
+            "clip_vit_l14_openai": 0.3157275915145874,
+            "hpsv2_1": 0.24072265625
           }
         },
         {
@@ -2132,7 +2426,9 @@
             "qwen8b_epoch_2": 8.65708065032959,
             "qwen8b_epoch_3": 8.122099876403809,
             "qwen8b_epoch_4": 8.122099876403809,
-            "qwen8b_epoch_5": 8.122099876403809
+            "qwen8b_epoch_5": 8.122099876403809,
+            "clip_vit_l14_openai": 0.3044107258319855,
+            "hpsv2_1": 0.23291015625
           }
         },
         {
@@ -2150,7 +2446,9 @@
             "qwen8b_epoch_2": 9.977890968322754,
             "qwen8b_epoch_3": 10.776490211486816,
             "qwen8b_epoch_4": 10.776490211486816,
-            "qwen8b_epoch_5": 10.776490211486816
+            "qwen8b_epoch_5": 10.776490211486816,
+            "clip_vit_l14_openai": 0.31069570779800415,
+            "hpsv2_1": 0.1849365234375
           }
         }
       ]
@@ -2171,7 +2469,9 @@
         "qwen8b_epoch_2": "gt",
         "qwen8b_epoch_3": "gt",
         "qwen8b_epoch_4": "gt",
-        "qwen8b_epoch_5": "gt"
+        "qwen8b_epoch_5": "gt",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gt"
       },
       "entries": [
         {
@@ -2189,7 +2489,9 @@
             "qwen8b_epoch_2": 12.784994125366211,
             "qwen8b_epoch_3": 13.82588005065918,
             "qwen8b_epoch_4": 13.82588005065918,
-            "qwen8b_epoch_5": 13.82588005065918
+            "qwen8b_epoch_5": 13.82588005065918,
+            "clip_vit_l14_openai": 0.32160577178001404,
+            "hpsv2_1": 0.26318359375
           }
         },
         {
@@ -2207,7 +2509,9 @@
             "qwen8b_epoch_2": 10.142064094543457,
             "qwen8b_epoch_3": 9.582725524902344,
             "qwen8b_epoch_4": 9.582725524902344,
-            "qwen8b_epoch_5": 9.582725524902344
+            "qwen8b_epoch_5": 9.582725524902344,
+            "clip_vit_l14_openai": 0.32519644498825073,
+            "hpsv2_1": 0.1968994140625
           }
         },
         {
@@ -2225,7 +2529,9 @@
             "qwen8b_epoch_2": 9.169251441955566,
             "qwen8b_epoch_3": 8.875816345214844,
             "qwen8b_epoch_4": 8.875816345214844,
-            "qwen8b_epoch_5": 8.875816345214844
+            "qwen8b_epoch_5": 8.875816345214844,
+            "clip_vit_l14_openai": 0.25089290738105774,
+            "hpsv2_1": 0.1866455078125
           }
         },
         {
@@ -2243,7 +2549,9 @@
             "qwen8b_epoch_2": 9.9586820602417,
             "qwen8b_epoch_3": 9.677105903625488,
             "qwen8b_epoch_4": 9.677105903625488,
-            "qwen8b_epoch_5": 9.677105903625488
+            "qwen8b_epoch_5": 9.677105903625488,
+            "clip_vit_l14_openai": 0.3017406165599823,
+            "hpsv2_1": 0.2054443359375
           }
         }
       ]
@@ -2269,7 +2577,9 @@
           "qwen8b_epoch_2": 10.157909393310547,
           "qwen8b_epoch_3": 12.099459648132324,
           "qwen8b_epoch_4": 12.099459648132324,
-          "qwen8b_epoch_5": 12.099459648132324
+          "qwen8b_epoch_5": 12.099459648132324,
+          "clip_vit_l14_openai": 0.24993778765201569,
+          "hpsv2_1": 0.19677734375
         }
       },
       "right": {
@@ -2287,7 +2597,9 @@
           "qwen8b_epoch_2": 9.690023422241211,
           "qwen8b_epoch_3": 10.031073570251465,
           "qwen8b_epoch_4": 10.031073570251465,
-          "qwen8b_epoch_5": 10.031073570251465
+          "qwen8b_epoch_5": 10.031073570251465,
+          "clip_vit_l14_openai": 0.23801013827323914,
+          "hpsv2_1": 0.1455078125
         }
       },
       "winners": {
@@ -2302,7 +2614,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -2324,7 +2638,9 @@
           "qwen8b_epoch_2": 9.690023422241211,
           "qwen8b_epoch_3": 10.031073570251465,
           "qwen8b_epoch_4": 10.031073570251465,
-          "qwen8b_epoch_5": 10.031073570251465
+          "qwen8b_epoch_5": 10.031073570251465,
+          "clip_vit_l14_openai": 0.23801013827323914,
+          "hpsv2_1": 0.1455078125
         }
       },
       "right": {
@@ -2342,7 +2658,9 @@
           "qwen8b_epoch_2": 10.907716751098633,
           "qwen8b_epoch_3": 13.655367851257324,
           "qwen8b_epoch_4": 13.655367851257324,
-          "qwen8b_epoch_5": 13.655367851257324
+          "qwen8b_epoch_5": 13.655367851257324,
+          "clip_vit_l14_openai": 0.2351730465888977,
+          "hpsv2_1": 0.15771484375
         }
       },
       "winners": {
@@ -2357,7 +2675,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -2379,7 +2699,9 @@
           "qwen8b_epoch_2": 10.157909393310547,
           "qwen8b_epoch_3": 12.099459648132324,
           "qwen8b_epoch_4": 12.099459648132324,
-          "qwen8b_epoch_5": 12.099459648132324
+          "qwen8b_epoch_5": 12.099459648132324,
+          "clip_vit_l14_openai": 0.24993778765201569,
+          "hpsv2_1": 0.19677734375
         }
       },
       "right": {
@@ -2397,7 +2719,9 @@
           "qwen8b_epoch_2": 10.907716751098633,
           "qwen8b_epoch_3": 13.655367851257324,
           "qwen8b_epoch_4": 13.655367851257324,
-          "qwen8b_epoch_5": 13.655367851257324
+          "qwen8b_epoch_5": 13.655367851257324,
+          "clip_vit_l14_openai": 0.2351730465888977,
+          "hpsv2_1": 0.15771484375
         }
       },
       "winners": {
@@ -2412,7 +2736,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -2434,7 +2760,9 @@
           "qwen8b_epoch_2": 11.624698638916016,
           "qwen8b_epoch_3": 11.591226577758789,
           "qwen8b_epoch_4": 11.591226577758789,
-          "qwen8b_epoch_5": 11.591226577758789
+          "qwen8b_epoch_5": 11.591226577758789,
+          "clip_vit_l14_openai": 0.29890966415405273,
+          "hpsv2_1": 0.1796875
         }
       },
       "right": {
@@ -2452,7 +2780,9 @@
           "qwen8b_epoch_2": 11.955464363098145,
           "qwen8b_epoch_3": 12.711833953857422,
           "qwen8b_epoch_4": 12.711833953857422,
-          "qwen8b_epoch_5": 12.711833953857422
+          "qwen8b_epoch_5": 12.711833953857422,
+          "clip_vit_l14_openai": 0.3165549635887146,
+          "hpsv2_1": 0.21240234375
         }
       },
       "winners": {
@@ -2467,7 +2797,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -2489,7 +2821,9 @@
           "qwen8b_epoch_2": 11.955464363098145,
           "qwen8b_epoch_3": 12.711833953857422,
           "qwen8b_epoch_4": 12.711833953857422,
-          "qwen8b_epoch_5": 12.711833953857422
+          "qwen8b_epoch_5": 12.711833953857422,
+          "clip_vit_l14_openai": 0.3165549635887146,
+          "hpsv2_1": 0.21240234375
         }
       },
       "right": {
@@ -2507,7 +2841,9 @@
           "qwen8b_epoch_2": 11.438175201416016,
           "qwen8b_epoch_3": 10.585752487182617,
           "qwen8b_epoch_4": 10.585752487182617,
-          "qwen8b_epoch_5": 10.585752487182617
+          "qwen8b_epoch_5": 10.585752487182617,
+          "clip_vit_l14_openai": 0.279437780380249,
+          "hpsv2_1": 0.1802978515625
         }
       },
       "winners": {
@@ -2522,7 +2858,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -2544,7 +2882,9 @@
           "qwen8b_epoch_2": 11.624698638916016,
           "qwen8b_epoch_3": 11.591226577758789,
           "qwen8b_epoch_4": 11.591226577758789,
-          "qwen8b_epoch_5": 11.591226577758789
+          "qwen8b_epoch_5": 11.591226577758789,
+          "clip_vit_l14_openai": 0.29890966415405273,
+          "hpsv2_1": 0.1796875
         }
       },
       "right": {
@@ -2562,7 +2902,9 @@
           "qwen8b_epoch_2": 11.438175201416016,
           "qwen8b_epoch_3": 10.585752487182617,
           "qwen8b_epoch_4": 10.585752487182617,
-          "qwen8b_epoch_5": 10.585752487182617
+          "qwen8b_epoch_5": 10.585752487182617,
+          "clip_vit_l14_openai": 0.279437780380249,
+          "hpsv2_1": 0.1802978515625
         }
       },
       "winners": {
@@ -2577,7 +2919,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -2599,7 +2943,9 @@
           "qwen8b_epoch_2": 7.242478370666504,
           "qwen8b_epoch_3": 8.110457420349121,
           "qwen8b_epoch_4": 8.110457420349121,
-          "qwen8b_epoch_5": 8.110457420349121
+          "qwen8b_epoch_5": 8.110457420349121,
+          "clip_vit_l14_openai": 0.30236488580703735,
+          "hpsv2_1": 0.270751953125
         }
       },
       "right": {
@@ -2617,7 +2963,9 @@
           "qwen8b_epoch_2": 7.720149993896484,
           "qwen8b_epoch_3": 8.591484069824219,
           "qwen8b_epoch_4": 8.591484069824219,
-          "qwen8b_epoch_5": 8.591484069824219
+          "qwen8b_epoch_5": 8.591484069824219,
+          "clip_vit_l14_openai": 0.30133917927742004,
+          "hpsv2_1": 0.271240234375
         }
       },
       "winners": {
@@ -2632,7 +2980,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -2654,7 +3004,9 @@
           "qwen8b_epoch_2": 7.720149993896484,
           "qwen8b_epoch_3": 8.591484069824219,
           "qwen8b_epoch_4": 8.591484069824219,
-          "qwen8b_epoch_5": 8.591484069824219
+          "qwen8b_epoch_5": 8.591484069824219,
+          "clip_vit_l14_openai": 0.30133917927742004,
+          "hpsv2_1": 0.271240234375
         }
       },
       "right": {
@@ -2672,7 +3024,9 @@
           "qwen8b_epoch_2": 7.5497331619262695,
           "qwen8b_epoch_3": 8.480013847351074,
           "qwen8b_epoch_4": 8.480013847351074,
-          "qwen8b_epoch_5": 8.480013847351074
+          "qwen8b_epoch_5": 8.480013847351074,
+          "clip_vit_l14_openai": 0.30599987506866455,
+          "hpsv2_1": 0.27197265625
         }
       },
       "winners": {
@@ -2687,7 +3041,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "gemini",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -2709,7 +3065,9 @@
           "qwen8b_epoch_2": 7.242478370666504,
           "qwen8b_epoch_3": 8.110457420349121,
           "qwen8b_epoch_4": 8.110457420349121,
-          "qwen8b_epoch_5": 8.110457420349121
+          "qwen8b_epoch_5": 8.110457420349121,
+          "clip_vit_l14_openai": 0.30236488580703735,
+          "hpsv2_1": 0.270751953125
         }
       },
       "right": {
@@ -2727,7 +3085,9 @@
           "qwen8b_epoch_2": 7.5497331619262695,
           "qwen8b_epoch_3": 8.480013847351074,
           "qwen8b_epoch_4": 8.480013847351074,
-          "qwen8b_epoch_5": 8.480013847351074
+          "qwen8b_epoch_5": 8.480013847351074,
+          "clip_vit_l14_openai": 0.30599987506866455,
+          "hpsv2_1": 0.27197265625
         }
       },
       "winners": {
@@ -2742,7 +3102,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gemini",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -2764,7 +3126,9 @@
           "qwen8b_epoch_2": 9.40254020690918,
           "qwen8b_epoch_3": 9.733549118041992,
           "qwen8b_epoch_4": 9.733549118041992,
-          "qwen8b_epoch_5": 9.733549118041992
+          "qwen8b_epoch_5": 9.733549118041992,
+          "clip_vit_l14_openai": 0.29997798800468445,
+          "hpsv2_1": 0.18359375
         }
       },
       "right": {
@@ -2782,7 +3146,9 @@
           "qwen8b_epoch_2": 9.998079299926758,
           "qwen8b_epoch_3": 9.30792236328125,
           "qwen8b_epoch_4": 9.30792236328125,
-          "qwen8b_epoch_5": 9.30792236328125
+          "qwen8b_epoch_5": 9.30792236328125,
+          "clip_vit_l14_openai": 0.3102976083755493,
+          "hpsv2_1": 0.1746826171875
         }
       },
       "winners": {
@@ -2797,7 +3163,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -2819,7 +3187,9 @@
           "qwen8b_epoch_2": 9.998079299926758,
           "qwen8b_epoch_3": 9.30792236328125,
           "qwen8b_epoch_4": 9.30792236328125,
-          "qwen8b_epoch_5": 9.30792236328125
+          "qwen8b_epoch_5": 9.30792236328125,
+          "clip_vit_l14_openai": 0.3102976083755493,
+          "hpsv2_1": 0.1746826171875
         }
       },
       "right": {
@@ -2837,7 +3207,9 @@
           "qwen8b_epoch_2": 9.115605354309082,
           "qwen8b_epoch_3": 8.944473266601562,
           "qwen8b_epoch_4": 8.944473266601562,
-          "qwen8b_epoch_5": 8.944473266601562
+          "qwen8b_epoch_5": 8.944473266601562,
+          "clip_vit_l14_openai": 0.30501997470855713,
+          "hpsv2_1": 0.1627197265625
         }
       },
       "winners": {
@@ -2852,7 +3224,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -2874,7 +3248,9 @@
           "qwen8b_epoch_2": 9.40254020690918,
           "qwen8b_epoch_3": 9.733549118041992,
           "qwen8b_epoch_4": 9.733549118041992,
-          "qwen8b_epoch_5": 9.733549118041992
+          "qwen8b_epoch_5": 9.733549118041992,
+          "clip_vit_l14_openai": 0.29997798800468445,
+          "hpsv2_1": 0.18359375
         }
       },
       "right": {
@@ -2892,7 +3268,9 @@
           "qwen8b_epoch_2": 9.115605354309082,
           "qwen8b_epoch_3": 8.944473266601562,
           "qwen8b_epoch_4": 8.944473266601562,
-          "qwen8b_epoch_5": 8.944473266601562
+          "qwen8b_epoch_5": 8.944473266601562,
+          "clip_vit_l14_openai": 0.30501997470855713,
+          "hpsv2_1": 0.1627197265625
         }
       },
       "winners": {
@@ -2907,7 +3285,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "gemini",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -2929,7 +3309,9 @@
           "qwen8b_epoch_2": 9.49141788482666,
           "qwen8b_epoch_3": 9.306200981140137,
           "qwen8b_epoch_4": 9.306200981140137,
-          "qwen8b_epoch_5": 9.306200981140137
+          "qwen8b_epoch_5": 9.306200981140137,
+          "clip_vit_l14_openai": 0.27982673048973083,
+          "hpsv2_1": 0.2254638671875
         }
       },
       "right": {
@@ -2947,7 +3329,9 @@
           "qwen8b_epoch_2": 8.961651802062988,
           "qwen8b_epoch_3": 8.981258392333984,
           "qwen8b_epoch_4": 8.981258392333984,
-          "qwen8b_epoch_5": 8.981258392333984
+          "qwen8b_epoch_5": 8.981258392333984,
+          "clip_vit_l14_openai": 0.31443536281585693,
+          "hpsv2_1": 0.240234375
         }
       },
       "winners": {
@@ -2962,7 +3346,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -2984,7 +3370,9 @@
           "qwen8b_epoch_2": 8.961651802062988,
           "qwen8b_epoch_3": 8.981258392333984,
           "qwen8b_epoch_4": 8.981258392333984,
-          "qwen8b_epoch_5": 8.981258392333984
+          "qwen8b_epoch_5": 8.981258392333984,
+          "clip_vit_l14_openai": 0.31443536281585693,
+          "hpsv2_1": 0.240234375
         }
       },
       "right": {
@@ -3002,7 +3390,9 @@
           "qwen8b_epoch_2": 10.022668838500977,
           "qwen8b_epoch_3": 9.415356636047363,
           "qwen8b_epoch_4": 9.415356636047363,
-          "qwen8b_epoch_5": 9.415356636047363
+          "qwen8b_epoch_5": 9.415356636047363,
+          "clip_vit_l14_openai": 0.3104126751422882,
+          "hpsv2_1": 0.2459716796875
         }
       },
       "winners": {
@@ -3017,7 +3407,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -3039,7 +3431,9 @@
           "qwen8b_epoch_2": 9.49141788482666,
           "qwen8b_epoch_3": 9.306200981140137,
           "qwen8b_epoch_4": 9.306200981140137,
-          "qwen8b_epoch_5": 9.306200981140137
+          "qwen8b_epoch_5": 9.306200981140137,
+          "clip_vit_l14_openai": 0.27982673048973083,
+          "hpsv2_1": 0.2254638671875
         }
       },
       "right": {
@@ -3057,7 +3451,9 @@
           "qwen8b_epoch_2": 10.022668838500977,
           "qwen8b_epoch_3": 9.415356636047363,
           "qwen8b_epoch_4": 9.415356636047363,
-          "qwen8b_epoch_5": 9.415356636047363
+          "qwen8b_epoch_5": 9.415356636047363,
+          "clip_vit_l14_openai": 0.3104126751422882,
+          "hpsv2_1": 0.2459716796875
         }
       },
       "winners": {
@@ -3072,7 +3468,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gemini",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -3094,7 +3492,9 @@
           "qwen8b_epoch_2": 13.432565689086914,
           "qwen8b_epoch_3": 13.871121406555176,
           "qwen8b_epoch_4": 13.871121406555176,
-          "qwen8b_epoch_5": 13.871121406555176
+          "qwen8b_epoch_5": 13.871121406555176,
+          "clip_vit_l14_openai": 0.24177603423595428,
+          "hpsv2_1": 0.1544189453125
         }
       },
       "right": {
@@ -3112,7 +3512,9 @@
           "qwen8b_epoch_2": 13.158260345458984,
           "qwen8b_epoch_3": 13.67624568939209,
           "qwen8b_epoch_4": 13.67624568939209,
-          "qwen8b_epoch_5": 13.67624568939209
+          "qwen8b_epoch_5": 13.67624568939209,
+          "clip_vit_l14_openai": 0.23285582661628723,
+          "hpsv2_1": 0.1739501953125
         }
       },
       "winners": {
@@ -3127,7 +3529,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3149,7 +3553,9 @@
           "qwen8b_epoch_2": 13.158260345458984,
           "qwen8b_epoch_3": 13.67624568939209,
           "qwen8b_epoch_4": 13.67624568939209,
-          "qwen8b_epoch_5": 13.67624568939209
+          "qwen8b_epoch_5": 13.67624568939209,
+          "clip_vit_l14_openai": 0.23285582661628723,
+          "hpsv2_1": 0.1739501953125
         }
       },
       "right": {
@@ -3167,7 +3573,9 @@
           "qwen8b_epoch_2": 13.432565689086914,
           "qwen8b_epoch_3": 13.871121406555176,
           "qwen8b_epoch_4": 13.871121406555176,
-          "qwen8b_epoch_5": 13.871121406555176
+          "qwen8b_epoch_5": 13.871121406555176,
+          "clip_vit_l14_openai": 0.24177603423595428,
+          "hpsv2_1": 0.1544189453125
         }
       },
       "winners": {
@@ -3182,7 +3590,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gemini",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3204,7 +3614,9 @@
           "qwen8b_epoch_2": 13.432565689086914,
           "qwen8b_epoch_3": 13.871121406555176,
           "qwen8b_epoch_4": 13.871121406555176,
-          "qwen8b_epoch_5": 13.871121406555176
+          "qwen8b_epoch_5": 13.871121406555176,
+          "clip_vit_l14_openai": 0.24177603423595428,
+          "hpsv2_1": 0.1544189453125
         }
       },
       "right": {
@@ -3222,7 +3634,9 @@
           "qwen8b_epoch_2": 13.432565689086914,
           "qwen8b_epoch_3": 13.871121406555176,
           "qwen8b_epoch_4": 13.871121406555176,
-          "qwen8b_epoch_5": 13.871121406555176
+          "qwen8b_epoch_5": 13.871121406555176,
+          "clip_vit_l14_openai": 0.24177603423595428,
+          "hpsv2_1": 0.1544189453125
         }
       },
       "winners": {
@@ -3237,7 +3651,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -3259,7 +3675,9 @@
           "qwen8b_epoch_2": 7.38140869140625,
           "qwen8b_epoch_3": 7.641377925872803,
           "qwen8b_epoch_4": 7.641377925872803,
-          "qwen8b_epoch_5": 7.641377925872803
+          "qwen8b_epoch_5": 7.641377925872803,
+          "clip_vit_l14_openai": 0.31095457077026367,
+          "hpsv2_1": 0.1875
         }
       },
       "right": {
@@ -3277,7 +3695,9 @@
           "qwen8b_epoch_2": 10.004189491271973,
           "qwen8b_epoch_3": 10.266793251037598,
           "qwen8b_epoch_4": 10.266793251037598,
-          "qwen8b_epoch_5": 10.266793251037598
+          "qwen8b_epoch_5": 10.266793251037598,
+          "clip_vit_l14_openai": 0.28211137652397156,
+          "hpsv2_1": 0.2208251953125
         }
       },
       "winners": {
@@ -3292,7 +3712,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3314,7 +3736,9 @@
           "qwen8b_epoch_2": 10.004189491271973,
           "qwen8b_epoch_3": 10.266793251037598,
           "qwen8b_epoch_4": 10.266793251037598,
-          "qwen8b_epoch_5": 10.266793251037598
+          "qwen8b_epoch_5": 10.266793251037598,
+          "clip_vit_l14_openai": 0.28211137652397156,
+          "hpsv2_1": 0.2208251953125
         }
       },
       "right": {
@@ -3332,7 +3756,9 @@
           "qwen8b_epoch_2": 8.771912574768066,
           "qwen8b_epoch_3": 8.945301055908203,
           "qwen8b_epoch_4": 8.945301055908203,
-          "qwen8b_epoch_5": 8.945301055908203
+          "qwen8b_epoch_5": 8.945301055908203,
+          "clip_vit_l14_openai": 0.27901339530944824,
+          "hpsv2_1": 0.2044677734375
         }
       },
       "winners": {
@@ -3347,7 +3773,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3369,7 +3797,9 @@
           "qwen8b_epoch_2": 7.38140869140625,
           "qwen8b_epoch_3": 7.641377925872803,
           "qwen8b_epoch_4": 7.641377925872803,
-          "qwen8b_epoch_5": 7.641377925872803
+          "qwen8b_epoch_5": 7.641377925872803,
+          "clip_vit_l14_openai": 0.31095457077026367,
+          "hpsv2_1": 0.1875
         }
       },
       "right": {
@@ -3387,7 +3817,9 @@
           "qwen8b_epoch_2": 8.771912574768066,
           "qwen8b_epoch_3": 8.945301055908203,
           "qwen8b_epoch_4": 8.945301055908203,
-          "qwen8b_epoch_5": 8.945301055908203
+          "qwen8b_epoch_5": 8.945301055908203,
+          "clip_vit_l14_openai": 0.27901339530944824,
+          "hpsv2_1": 0.2044677734375
         }
       },
       "winners": {
@@ -3402,7 +3834,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -3424,7 +3858,9 @@
           "qwen8b_epoch_2": 10.32992172241211,
           "qwen8b_epoch_3": 13.079233169555664,
           "qwen8b_epoch_4": 13.079233169555664,
-          "qwen8b_epoch_5": 13.079233169555664
+          "qwen8b_epoch_5": 13.079233169555664,
+          "clip_vit_l14_openai": 0.2998529076576233,
+          "hpsv2_1": 0.2445068359375
         }
       },
       "right": {
@@ -3442,7 +3878,9 @@
           "qwen8b_epoch_2": 9.982882499694824,
           "qwen8b_epoch_3": 13.08094310760498,
           "qwen8b_epoch_4": 13.08094310760498,
-          "qwen8b_epoch_5": 13.08094310760498
+          "qwen8b_epoch_5": 13.08094310760498,
+          "clip_vit_l14_openai": 0.29800960421562195,
+          "hpsv2_1": 0.248046875
         }
       },
       "winners": {
@@ -3457,7 +3895,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3479,7 +3919,9 @@
           "qwen8b_epoch_2": 9.982882499694824,
           "qwen8b_epoch_3": 13.08094310760498,
           "qwen8b_epoch_4": 13.08094310760498,
-          "qwen8b_epoch_5": 13.08094310760498
+          "qwen8b_epoch_5": 13.08094310760498,
+          "clip_vit_l14_openai": 0.29800960421562195,
+          "hpsv2_1": 0.248046875
         }
       },
       "right": {
@@ -3497,7 +3939,9 @@
           "qwen8b_epoch_2": 11.346863746643066,
           "qwen8b_epoch_3": 13.40422534942627,
           "qwen8b_epoch_4": 13.40422534942627,
-          "qwen8b_epoch_5": 13.40422534942627
+          "qwen8b_epoch_5": 13.40422534942627,
+          "clip_vit_l14_openai": 0.29789599776268005,
+          "hpsv2_1": 0.241455078125
         }
       },
       "winners": {
@@ -3512,7 +3956,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3534,7 +3980,9 @@
           "qwen8b_epoch_2": 10.32992172241211,
           "qwen8b_epoch_3": 13.079233169555664,
           "qwen8b_epoch_4": 13.079233169555664,
-          "qwen8b_epoch_5": 13.079233169555664
+          "qwen8b_epoch_5": 13.079233169555664,
+          "clip_vit_l14_openai": 0.2998529076576233,
+          "hpsv2_1": 0.2445068359375
         }
       },
       "right": {
@@ -3552,7 +4000,9 @@
           "qwen8b_epoch_2": 11.346863746643066,
           "qwen8b_epoch_3": 13.40422534942627,
           "qwen8b_epoch_4": 13.40422534942627,
-          "qwen8b_epoch_5": 13.40422534942627
+          "qwen8b_epoch_5": 13.40422534942627,
+          "clip_vit_l14_openai": 0.29789599776268005,
+          "hpsv2_1": 0.241455078125
         }
       },
       "winners": {
@@ -3567,7 +4017,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -3589,7 +4041,9 @@
           "qwen8b_epoch_2": 9.543458938598633,
           "qwen8b_epoch_3": 10.678557395935059,
           "qwen8b_epoch_4": 10.678557395935059,
-          "qwen8b_epoch_5": 10.678557395935059
+          "qwen8b_epoch_5": 10.678557395935059,
+          "clip_vit_l14_openai": 0.28771156072616577,
+          "hpsv2_1": 0.17919921875
         }
       },
       "right": {
@@ -3607,7 +4061,9 @@
           "qwen8b_epoch_2": 8.924726486206055,
           "qwen8b_epoch_3": 9.949891090393066,
           "qwen8b_epoch_4": 9.949891090393066,
-          "qwen8b_epoch_5": 9.949891090393066
+          "qwen8b_epoch_5": 9.949891090393066,
+          "clip_vit_l14_openai": 0.29587143659591675,
+          "hpsv2_1": 0.18603515625
         }
       },
       "winners": {
@@ -3622,7 +4078,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3644,7 +4102,9 @@
           "qwen8b_epoch_2": 8.924726486206055,
           "qwen8b_epoch_3": 9.949891090393066,
           "qwen8b_epoch_4": 9.949891090393066,
-          "qwen8b_epoch_5": 9.949891090393066
+          "qwen8b_epoch_5": 9.949891090393066,
+          "clip_vit_l14_openai": 0.29587143659591675,
+          "hpsv2_1": 0.18603515625
         }
       },
       "right": {
@@ -3662,7 +4122,9 @@
           "qwen8b_epoch_2": 13.087562561035156,
           "qwen8b_epoch_3": 14.109081268310547,
           "qwen8b_epoch_4": 14.109081268310547,
-          "qwen8b_epoch_5": 14.109081268310547
+          "qwen8b_epoch_5": 14.109081268310547,
+          "clip_vit_l14_openai": 0.2770340144634247,
+          "hpsv2_1": 0.1845703125
         }
       },
       "winners": {
@@ -3677,7 +4139,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3699,7 +4163,9 @@
           "qwen8b_epoch_2": 9.543458938598633,
           "qwen8b_epoch_3": 10.678557395935059,
           "qwen8b_epoch_4": 10.678557395935059,
-          "qwen8b_epoch_5": 10.678557395935059
+          "qwen8b_epoch_5": 10.678557395935059,
+          "clip_vit_l14_openai": 0.28771156072616577,
+          "hpsv2_1": 0.17919921875
         }
       },
       "right": {
@@ -3717,7 +4183,9 @@
           "qwen8b_epoch_2": 13.087562561035156,
           "qwen8b_epoch_3": 14.109081268310547,
           "qwen8b_epoch_4": 14.109081268310547,
-          "qwen8b_epoch_5": 14.109081268310547
+          "qwen8b_epoch_5": 14.109081268310547,
+          "clip_vit_l14_openai": 0.2770340144634247,
+          "hpsv2_1": 0.1845703125
         }
       },
       "winners": {
@@ -3732,7 +4200,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -3754,7 +4224,9 @@
           "qwen8b_epoch_2": 6.718573093414307,
           "qwen8b_epoch_3": 7.215419769287109,
           "qwen8b_epoch_4": 7.215419769287109,
-          "qwen8b_epoch_5": 7.215419769287109
+          "qwen8b_epoch_5": 7.215419769287109,
+          "clip_vit_l14_openai": 0.28098413348197937,
+          "hpsv2_1": 0.2252197265625
         }
       },
       "right": {
@@ -3772,7 +4244,9 @@
           "qwen8b_epoch_2": 7.284027099609375,
           "qwen8b_epoch_3": 8.011176109313965,
           "qwen8b_epoch_4": 8.011176109313965,
-          "qwen8b_epoch_5": 8.011176109313965
+          "qwen8b_epoch_5": 8.011176109313965,
+          "clip_vit_l14_openai": 0.29934626817703247,
+          "hpsv2_1": 0.230224609375
         }
       },
       "winners": {
@@ -3787,7 +4261,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3809,7 +4285,9 @@
           "qwen8b_epoch_2": 7.284027099609375,
           "qwen8b_epoch_3": 8.011176109313965,
           "qwen8b_epoch_4": 8.011176109313965,
-          "qwen8b_epoch_5": 8.011176109313965
+          "qwen8b_epoch_5": 8.011176109313965,
+          "clip_vit_l14_openai": 0.29934626817703247,
+          "hpsv2_1": 0.230224609375
         }
       },
       "right": {
@@ -3827,7 +4305,9 @@
           "qwen8b_epoch_2": 6.761471271514893,
           "qwen8b_epoch_3": 6.963207244873047,
           "qwen8b_epoch_4": 6.963207244873047,
-          "qwen8b_epoch_5": 6.963207244873047
+          "qwen8b_epoch_5": 6.963207244873047,
+          "clip_vit_l14_openai": 0.29724523425102234,
+          "hpsv2_1": 0.2420654296875
         }
       },
       "winners": {
@@ -3842,7 +4322,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -3864,7 +4346,9 @@
           "qwen8b_epoch_2": 6.718573093414307,
           "qwen8b_epoch_3": 7.215419769287109,
           "qwen8b_epoch_4": 7.215419769287109,
-          "qwen8b_epoch_5": 7.215419769287109
+          "qwen8b_epoch_5": 7.215419769287109,
+          "clip_vit_l14_openai": 0.28098413348197937,
+          "hpsv2_1": 0.2252197265625
         }
       },
       "right": {
@@ -3882,7 +4366,9 @@
           "qwen8b_epoch_2": 6.761471271514893,
           "qwen8b_epoch_3": 6.963207244873047,
           "qwen8b_epoch_4": 6.963207244873047,
-          "qwen8b_epoch_5": 6.963207244873047
+          "qwen8b_epoch_5": 6.963207244873047,
+          "clip_vit_l14_openai": 0.29724523425102234,
+          "hpsv2_1": 0.2420654296875
         }
       },
       "winners": {
@@ -3897,7 +4383,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "gemini",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -3919,7 +4407,9 @@
           "qwen8b_epoch_2": 9.05240535736084,
           "qwen8b_epoch_3": 9.5955171585083,
           "qwen8b_epoch_4": 9.5955171585083,
-          "qwen8b_epoch_5": 9.5955171585083
+          "qwen8b_epoch_5": 9.5955171585083,
+          "clip_vit_l14_openai": 0.2734576165676117,
+          "hpsv2_1": 0.171142578125
         }
       },
       "right": {
@@ -3937,7 +4427,9 @@
           "qwen8b_epoch_2": 11.631593704223633,
           "qwen8b_epoch_3": 11.29929256439209,
           "qwen8b_epoch_4": 11.29929256439209,
-          "qwen8b_epoch_5": 11.29929256439209
+          "qwen8b_epoch_5": 11.29929256439209,
+          "clip_vit_l14_openai": 0.3028666377067566,
+          "hpsv2_1": 0.19091796875
         }
       },
       "winners": {
@@ -3952,7 +4444,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -3974,7 +4468,9 @@
           "qwen8b_epoch_2": 11.631593704223633,
           "qwen8b_epoch_3": 11.29929256439209,
           "qwen8b_epoch_4": 11.29929256439209,
-          "qwen8b_epoch_5": 11.29929256439209
+          "qwen8b_epoch_5": 11.29929256439209,
+          "clip_vit_l14_openai": 0.3028666377067566,
+          "hpsv2_1": 0.19091796875
         }
       },
       "right": {
@@ -3992,7 +4488,9 @@
           "qwen8b_epoch_2": 10.143074035644531,
           "qwen8b_epoch_3": 9.701641082763672,
           "qwen8b_epoch_4": 9.701641082763672,
-          "qwen8b_epoch_5": 9.701641082763672
+          "qwen8b_epoch_5": 9.701641082763672,
+          "clip_vit_l14_openai": 0.2689765393733978,
+          "hpsv2_1": 0.1907958984375
         }
       },
       "winners": {
@@ -4007,7 +4505,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -4029,7 +4529,9 @@
           "qwen8b_epoch_2": 9.05240535736084,
           "qwen8b_epoch_3": 9.5955171585083,
           "qwen8b_epoch_4": 9.5955171585083,
-          "qwen8b_epoch_5": 9.5955171585083
+          "qwen8b_epoch_5": 9.5955171585083,
+          "clip_vit_l14_openai": 0.2734576165676117,
+          "hpsv2_1": 0.171142578125
         }
       },
       "right": {
@@ -4047,7 +4549,9 @@
           "qwen8b_epoch_2": 10.143074035644531,
           "qwen8b_epoch_3": 9.701641082763672,
           "qwen8b_epoch_4": 9.701641082763672,
-          "qwen8b_epoch_5": 9.701641082763672
+          "qwen8b_epoch_5": 9.701641082763672,
+          "clip_vit_l14_openai": 0.2689765393733978,
+          "hpsv2_1": 0.1907958984375
         }
       },
       "winners": {
@@ -4062,7 +4566,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -4084,7 +4590,9 @@
           "qwen8b_epoch_2": 12.80398178100586,
           "qwen8b_epoch_3": 13.824615478515625,
           "qwen8b_epoch_4": 13.824615478515625,
-          "qwen8b_epoch_5": 13.824615478515625
+          "qwen8b_epoch_5": 13.824615478515625,
+          "clip_vit_l14_openai": 0.22729532420635223,
+          "hpsv2_1": 0.176025390625
         }
       },
       "right": {
@@ -4102,7 +4610,9 @@
           "qwen8b_epoch_2": 8.967061042785645,
           "qwen8b_epoch_3": 9.885781288146973,
           "qwen8b_epoch_4": 9.885781288146973,
-          "qwen8b_epoch_5": 9.885781288146973
+          "qwen8b_epoch_5": 9.885781288146973,
+          "clip_vit_l14_openai": 0.2562161982059479,
+          "hpsv2_1": 0.2257080078125
         }
       },
       "winners": {
@@ -4117,7 +4627,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -4139,7 +4651,9 @@
           "qwen8b_epoch_2": 8.967061042785645,
           "qwen8b_epoch_3": 9.885781288146973,
           "qwen8b_epoch_4": 9.885781288146973,
-          "qwen8b_epoch_5": 9.885781288146973
+          "qwen8b_epoch_5": 9.885781288146973,
+          "clip_vit_l14_openai": 0.2562161982059479,
+          "hpsv2_1": 0.2257080078125
         }
       },
       "right": {
@@ -4157,7 +4671,9 @@
           "qwen8b_epoch_2": 12.647459983825684,
           "qwen8b_epoch_3": 14.171391487121582,
           "qwen8b_epoch_4": 14.171391487121582,
-          "qwen8b_epoch_5": 14.171391487121582
+          "qwen8b_epoch_5": 14.171391487121582,
+          "clip_vit_l14_openai": 0.2192177176475525,
+          "hpsv2_1": 0.1729736328125
         }
       },
       "winners": {
@@ -4172,7 +4688,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -4194,7 +4712,9 @@
           "qwen8b_epoch_2": 12.80398178100586,
           "qwen8b_epoch_3": 13.824615478515625,
           "qwen8b_epoch_4": 13.824615478515625,
-          "qwen8b_epoch_5": 13.824615478515625
+          "qwen8b_epoch_5": 13.824615478515625,
+          "clip_vit_l14_openai": 0.22729532420635223,
+          "hpsv2_1": 0.176025390625
         }
       },
       "right": {
@@ -4212,7 +4732,9 @@
           "qwen8b_epoch_2": 12.647459983825684,
           "qwen8b_epoch_3": 14.171391487121582,
           "qwen8b_epoch_4": 14.171391487121582,
-          "qwen8b_epoch_5": 14.171391487121582
+          "qwen8b_epoch_5": 14.171391487121582,
+          "clip_vit_l14_openai": 0.2192177176475525,
+          "hpsv2_1": 0.1729736328125
         }
       },
       "winners": {
@@ -4227,7 +4749,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -4249,7 +4773,9 @@
           "qwen8b_epoch_2": 12.76244831085205,
           "qwen8b_epoch_3": 13.55521011352539,
           "qwen8b_epoch_4": 13.55521011352539,
-          "qwen8b_epoch_5": 13.55521011352539
+          "qwen8b_epoch_5": 13.55521011352539,
+          "clip_vit_l14_openai": 0.2929019033908844,
+          "hpsv2_1": 0.213623046875
         }
       },
       "right": {
@@ -4267,7 +4793,9 @@
           "qwen8b_epoch_2": 12.62740707397461,
           "qwen8b_epoch_3": 14.148387908935547,
           "qwen8b_epoch_4": 14.148387908935547,
-          "qwen8b_epoch_5": 14.148387908935547
+          "qwen8b_epoch_5": 14.148387908935547,
+          "clip_vit_l14_openai": 0.3245963454246521,
+          "hpsv2_1": 0.197021484375
         }
       },
       "winners": {
@@ -4282,7 +4810,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -4304,7 +4834,9 @@
           "qwen8b_epoch_2": 12.62740707397461,
           "qwen8b_epoch_3": 14.148387908935547,
           "qwen8b_epoch_4": 14.148387908935547,
-          "qwen8b_epoch_5": 14.148387908935547
+          "qwen8b_epoch_5": 14.148387908935547,
+          "clip_vit_l14_openai": 0.3245963454246521,
+          "hpsv2_1": 0.197021484375
         }
       },
       "right": {
@@ -4322,7 +4854,9 @@
           "qwen8b_epoch_2": 12.92004680633545,
           "qwen8b_epoch_3": 13.843395233154297,
           "qwen8b_epoch_4": 13.843395233154297,
-          "qwen8b_epoch_5": 13.843395233154297
+          "qwen8b_epoch_5": 13.843395233154297,
+          "clip_vit_l14_openai": 0.31052061915397644,
+          "hpsv2_1": 0.218017578125
         }
       },
       "winners": {
@@ -4337,7 +4871,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -4359,7 +4895,9 @@
           "qwen8b_epoch_2": 12.76244831085205,
           "qwen8b_epoch_3": 13.55521011352539,
           "qwen8b_epoch_4": 13.55521011352539,
-          "qwen8b_epoch_5": 13.55521011352539
+          "qwen8b_epoch_5": 13.55521011352539,
+          "clip_vit_l14_openai": 0.2929019033908844,
+          "hpsv2_1": 0.213623046875
         }
       },
       "right": {
@@ -4377,7 +4915,9 @@
           "qwen8b_epoch_2": 12.92004680633545,
           "qwen8b_epoch_3": 13.843395233154297,
           "qwen8b_epoch_4": 13.843395233154297,
-          "qwen8b_epoch_5": 13.843395233154297
+          "qwen8b_epoch_5": 13.843395233154297,
+          "clip_vit_l14_openai": 0.31052061915397644,
+          "hpsv2_1": 0.218017578125
         }
       },
       "winners": {
@@ -4392,7 +4932,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "gemini",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -4414,7 +4956,9 @@
           "qwen8b_epoch_2": 9.977890968322754,
           "qwen8b_epoch_3": 10.776490211486816,
           "qwen8b_epoch_4": 10.776490211486816,
-          "qwen8b_epoch_5": 10.776490211486816
+          "qwen8b_epoch_5": 10.776490211486816,
+          "clip_vit_l14_openai": 0.31069570779800415,
+          "hpsv2_1": 0.1849365234375
         }
       },
       "right": {
@@ -4432,7 +4976,9 @@
           "qwen8b_epoch_2": 8.383760452270508,
           "qwen8b_epoch_3": 7.926851272583008,
           "qwen8b_epoch_4": 7.926851272583008,
-          "qwen8b_epoch_5": 7.926851272583008
+          "qwen8b_epoch_5": 7.926851272583008,
+          "clip_vit_l14_openai": 0.3157275915145874,
+          "hpsv2_1": 0.24072265625
         }
       },
       "winners": {
@@ -4447,7 +4993,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -4469,7 +5017,9 @@
           "qwen8b_epoch_2": 8.383760452270508,
           "qwen8b_epoch_3": 7.926851272583008,
           "qwen8b_epoch_4": 7.926851272583008,
-          "qwen8b_epoch_5": 7.926851272583008
+          "qwen8b_epoch_5": 7.926851272583008,
+          "clip_vit_l14_openai": 0.3157275915145874,
+          "hpsv2_1": 0.24072265625
         }
       },
       "right": {
@@ -4487,7 +5037,9 @@
           "qwen8b_epoch_2": 8.65708065032959,
           "qwen8b_epoch_3": 8.122099876403809,
           "qwen8b_epoch_4": 8.122099876403809,
-          "qwen8b_epoch_5": 8.122099876403809
+          "qwen8b_epoch_5": 8.122099876403809,
+          "clip_vit_l14_openai": 0.3044107258319855,
+          "hpsv2_1": 0.23291015625
         }
       },
       "winners": {
@@ -4502,7 +5054,9 @@
         "qwen8b_epoch_2": "gemini",
         "qwen8b_epoch_3": "gemini",
         "qwen8b_epoch_4": "gemini",
-        "qwen8b_epoch_5": "gemini"
+        "qwen8b_epoch_5": "gemini",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -4524,7 +5078,9 @@
           "qwen8b_epoch_2": 9.977890968322754,
           "qwen8b_epoch_3": 10.776490211486816,
           "qwen8b_epoch_4": 10.776490211486816,
-          "qwen8b_epoch_5": 10.776490211486816
+          "qwen8b_epoch_5": 10.776490211486816,
+          "clip_vit_l14_openai": 0.31069570779800415,
+          "hpsv2_1": 0.1849365234375
         }
       },
       "right": {
@@ -4542,7 +5098,9 @@
           "qwen8b_epoch_2": 8.65708065032959,
           "qwen8b_epoch_3": 8.122099876403809,
           "qwen8b_epoch_4": 8.122099876403809,
-          "qwen8b_epoch_5": 8.122099876403809
+          "qwen8b_epoch_5": 8.122099876403809,
+          "clip_vit_l14_openai": 0.3044107258319855,
+          "hpsv2_1": 0.23291015625
         }
       },
       "winners": {
@@ -4557,7 +5115,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gemini"
       }
     },
     {
@@ -4579,7 +5139,9 @@
           "qwen8b_epoch_2": 9.9586820602417,
           "qwen8b_epoch_3": 9.677105903625488,
           "qwen8b_epoch_4": 9.677105903625488,
-          "qwen8b_epoch_5": 9.677105903625488
+          "qwen8b_epoch_5": 9.677105903625488,
+          "clip_vit_l14_openai": 0.3017406165599823,
+          "hpsv2_1": 0.2054443359375
         }
       },
       "right": {
@@ -4597,7 +5159,9 @@
           "qwen8b_epoch_2": 10.142064094543457,
           "qwen8b_epoch_3": 9.582725524902344,
           "qwen8b_epoch_4": 9.582725524902344,
-          "qwen8b_epoch_5": 9.582725524902344
+          "qwen8b_epoch_5": 9.582725524902344,
+          "clip_vit_l14_openai": 0.32519644498825073,
+          "hpsv2_1": 0.1968994140625
         }
       },
       "winners": {
@@ -4612,7 +5176,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "gpt-5.2"
       }
     },
     {
@@ -4634,7 +5200,9 @@
           "qwen8b_epoch_2": 10.142064094543457,
           "qwen8b_epoch_3": 9.582725524902344,
           "qwen8b_epoch_4": 9.582725524902344,
-          "qwen8b_epoch_5": 9.582725524902344
+          "qwen8b_epoch_5": 9.582725524902344,
+          "clip_vit_l14_openai": 0.32519644498825073,
+          "hpsv2_1": 0.1968994140625
         }
       },
       "right": {
@@ -4652,7 +5220,9 @@
           "qwen8b_epoch_2": 9.169251441955566,
           "qwen8b_epoch_3": 8.875816345214844,
           "qwen8b_epoch_4": 8.875816345214844,
-          "qwen8b_epoch_5": 8.875816345214844
+          "qwen8b_epoch_5": 8.875816345214844,
+          "clip_vit_l14_openai": 0.25089290738105774,
+          "hpsv2_1": 0.1866455078125
         }
       },
       "winners": {
@@ -4667,7 +5237,9 @@
         "qwen8b_epoch_2": "claude",
         "qwen8b_epoch_3": "claude",
         "qwen8b_epoch_4": "claude",
-        "qwen8b_epoch_5": "claude"
+        "qwen8b_epoch_5": "claude",
+        "clip_vit_l14_openai": "claude",
+        "hpsv2_1": "claude"
       }
     },
     {
@@ -4689,7 +5261,9 @@
           "qwen8b_epoch_2": 9.9586820602417,
           "qwen8b_epoch_3": 9.677105903625488,
           "qwen8b_epoch_4": 9.677105903625488,
-          "qwen8b_epoch_5": 9.677105903625488
+          "qwen8b_epoch_5": 9.677105903625488,
+          "clip_vit_l14_openai": 0.3017406165599823,
+          "hpsv2_1": 0.2054443359375
         }
       },
       "right": {
@@ -4707,7 +5281,9 @@
           "qwen8b_epoch_2": 9.169251441955566,
           "qwen8b_epoch_3": 8.875816345214844,
           "qwen8b_epoch_4": 8.875816345214844,
-          "qwen8b_epoch_5": 8.875816345214844
+          "qwen8b_epoch_5": 8.875816345214844,
+          "clip_vit_l14_openai": 0.25089290738105774,
+          "hpsv2_1": 0.1866455078125
         }
       },
       "winners": {
@@ -4722,7 +5298,9 @@
         "qwen8b_epoch_2": "gpt-5.2",
         "qwen8b_epoch_3": "gpt-5.2",
         "qwen8b_epoch_4": "gpt-5.2",
-        "qwen8b_epoch_5": "gpt-5.2"
+        "qwen8b_epoch_5": "gpt-5.2",
+        "clip_vit_l14_openai": "gpt-5.2",
+        "hpsv2_1": "gpt-5.2"
       }
     }
   ]

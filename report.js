@@ -24,8 +24,12 @@ async function main() {
     if (!variant) return "-";
     const model = data.models.find((m) => m.id === variant.model_id);
     const name = shortModelName(model?.name || variant.label);
+    if (model?.is_baseline) return name;
     return variant.epoch === 0 ? `${name} Base` : `${name} Epoch ${variant.epoch}`;
   };
+  const comparisonVariantIds = (model) =>
+    model.is_baseline ? [model.best_variant] : [model.base_variant, model.best_variant];
+  const bestVariantIds = () => data.models.map((m) => m.best_variant);
   const stat = (value, label) =>
     `<div class="card stat"><div class="value">${value}</div><div class="label">${label}</div></div>`;
 
@@ -63,6 +67,12 @@ async function main() {
       const base = variants[model.base_variant];
       const best = variants[model.best_variant];
       const modelName = shortModelName(model.name);
+      if (model.is_baseline) {
+        return [
+          stat(pct(best.summary.accuracy), `${modelName} GT-vs-AI accuracy`),
+          stat(fmt(best.metrics.mrr, 3), `${modelName} MRR`),
+        ].join("");
+      }
       return [
         stat(pct(best.summary.accuracy), `${modelName} best GT-vs-AI accuracy`),
         stat(pct(base.summary.accuracy), `${modelName} base GT-vs-AI accuracy`),
@@ -73,16 +83,20 @@ async function main() {
   }
 
   function renderMetrics() {
-    document.getElementById("metrics").innerHTML = `<h2>Training And Validation Curves</h2><p class="muted">Each model is trained on the same vtracer-free Text-to-SVG split. Epoch 0 is the untrained base embedding model with cosine scoring.</p><div class="grid charts">${data.models.map((model) => `${lineChart(`${shortModelName(model.name)}: Loss`, model.epoch_metrics, [{ key: "train_loss", label: "train loss", color: "#0969da" }, { key: "validation_loss", label: "validation loss", color: "#cf222e" }], "Loss")}${lineChart(`${shortModelName(model.name)}: Ranking Metrics`, model.epoch_metrics, [{ key: "pairwise_accuracy", label: "pairwise accuracy", color: "#0969da" }, { key: "hit_at_1", label: "hit@1", color: "#1a7f37" }, { key: "mrr", label: "MRR", color: "#9a6700" }], "Metric")}`).join("")}</div>`;
+    const trainedModels = data.models.filter((model) => !model.is_baseline);
+    document.getElementById("metrics").innerHTML = `<h2>Training And Validation Curves</h2><p class="muted">Each model is trained on the same vtracer-free Text-to-SVG split. Epoch 0 is the untrained base embedding model with cosine scoring.</p><div class="grid charts">${trainedModels.map((model) => `${lineChart(`${shortModelName(model.name)}: Loss`, model.epoch_metrics, [{ key: "train_loss", label: "train loss", color: "#0969da" }, { key: "validation_loss", label: "validation loss", color: "#cf222e" }], "Loss")}${lineChart(`${shortModelName(model.name)}: Ranking Metrics`, model.epoch_metrics, [{ key: "pairwise_accuracy", label: "pairwise accuracy", color: "#0969da" }, { key: "hit_at_1", label: "hit@1", color: "#1a7f37" }, { key: "mrr", label: "MRR", color: "#9a6700" }], "Metric")}`).join("")}</div>`;
   }
 
   function renderModelCompare() {
     const rows = data.models.map((model) => {
       const base = variants[model.base_variant];
       const best = variants[model.best_variant];
+      if (model.is_baseline) {
+        return `<tr><td>${shortModelName(model.name)}</td><td>-</td><td>-</td><td><b>${pct(best.summary.accuracy)}</b></td><td><b>${fmt(best.metrics.mrr, 3)}</b></td><td><b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td><b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td></tr>`;
+      }
       return `<tr><td>${shortModelName(model.name)}</td><td>${model.embedding_dim}</td><td>${model.best_epoch}</td><td>${pct(base.summary.accuracy)} → <b>${pct(best.summary.accuracy)}</b></td><td>${fmt(base.metrics.mrr, 3)} → <b>${fmt(best.metrics.mrr, 3)}</b></td><td>${fmt(base.metrics.hit_at_1, 3)} → <b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td>${fmt(base.metrics.pairwise_accuracy, 3)} → <b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td></tr>`;
     }).join("");
-    document.getElementById("modelcompare").innerHTML = `<h2>2B vs 8B Summary</h2><table><tbody><tr><th>Model</th><th>Embedding dim</th><th>Best epoch</th><th>GT-vs-AI accuracy</th><th>MRR</th><th>Hit@1</th><th>Pairwise acc.</th></tr>${rows}</tbody></table>`;
+    document.getElementById("modelcompare").innerHTML = `<h2>Lica vs CLIP / HPSv2 Summary</h2><table><tbody><tr><th>Model</th><th>Embedding dim</th><th>Best epoch</th><th>GT-vs-AI accuracy</th><th>MRR</th><th>Hit@1</th><th>Pairwise acc.</th></tr>${rows}</tbody></table>`;
   }
 
   function confusionCard(variant) {
@@ -90,17 +104,17 @@ async function main() {
   }
 
   function renderGtAi() {
-    const ids = data.models.flatMap((m) => [m.base_variant, m.best_variant]);
+    const ids = data.models.flatMap(comparisonVariantIds);
     document.getElementById("gtai").innerHTML = `<h2>GT vs AI Accuracy And Confusion Matrix</h2><p class="muted">GT is assumed winner; Claude/Gemini/GPT-5.2 are assumed losers.</p><div class="confusion">${ids.map((id) => confusionCard(variants[id])).join("")}</div>`;
   }
 
   function renderGallery() {
-    const displayIds = data.models.flatMap((m) => [m.base_variant, m.best_variant]);
+    const displayIds = data.models.flatMap(comparisonVariantIds);
     document.getElementById("gallery").innerHTML = `<h2>Validation Render Gallery</h2><p class="muted">15 validation groups. Scores are scaled cosine logits, not 0-1 probabilities.</p>${data.groups.map((g) => `<div class="card group-card"><h3>${g.group_id} <span class="tag">${g.bucket}</span></h3><div class="prompt">${esc(g.prompt)}</div><div class="small muted">${displayIds.map((id) => `${shortVariantLabel(id)}: <b>${g.winners[id]}</b>`).join(" · ")}</div><div class="renders">${g.entries.map((e) => `<div class="render"><img src="${e.image}" alt="${e.source} render"><div class="body"><div class="source">${e.source}</div>${displayIds.map((id) => `<div class="score-row"><span>${shortVariantLabel(id)}</span><b>${fmt(e.scores[id], 3)}</b></div>`).join("")}</div></div>`).join("")}</div><div class="small muted score-note">Score = learned logit_scale × cosine_similarity(prompt, render). Higher is better; values can exceed 1.</div></div>`).join("")}`;
   }
 
   function renderAiVai() {
-    const displayIds = data.models.map((m) => m.best_variant);
+    const displayIds = bestVariantIds();
     const winCounts = Object.fromEntries(displayIds.map((id) => [id, {}]));
     data.ai_comparisons.forEach((c) => displayIds.forEach((id) => {
       winCounts[id][c.winners[id]] = (winCounts[id][c.winners[id]] || 0) + 1;
