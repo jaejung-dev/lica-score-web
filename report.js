@@ -1,5 +1,6 @@
 async function main() {
-  const data = await fetch("report-data.json").then((r) => r.json());
+  const cacheKey = new URLSearchParams(window.location.search).get("v") || "ranker-20260520";
+  const data = await fetch(`report-data.json?v=${encodeURIComponent(cacheKey)}`).then((r) => r.json());
   const variants = Object.fromEntries(data.variants.map((v) => [v.id, v]));
   const fmt = (x, n = 4) => (x == null ? "-" : Number(x).toFixed(n));
   const pct = (x) => `${(100 * Number(x || 0)).toFixed(1)}%`;
