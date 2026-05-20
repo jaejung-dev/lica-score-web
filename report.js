@@ -1,5 +1,5 @@
 async function main() {
-  const cacheKey = new URLSearchParams(window.location.search).get("v") || "focused-20260520-2326";
+  const cacheKey = new URLSearchParams(window.location.search).get("v") || "bucket-delta-20260520-2330";
   const data = await fetch(`report-data.json?v=${encodeURIComponent(cacheKey)}`).then((r) => r.json());
   const variants = Object.fromEntries(data.variants.map((v) => [v.id, v]));
   const fmt = (x, n = 4) => (x == null ? "-" : Number(x).toFixed(n));
@@ -151,12 +151,15 @@ async function main() {
     const rows = orderedModels().map((model) => {
       const base = variants[model.base_variant];
       const best = variants[model.best_variant];
-      const bucketCells = ["simple", "medium", "complex"]
-        .map((bucket) => `<td><b>${pct(bucketPairwiseAcc(model.best_variant, bucket))}</b></td>`)
-        .join("");
       if (model.is_baseline) {
+        const bucketCells = ["simple", "medium", "complex"]
+          .map((bucket) => `<td><b>${pct(bucketPairwiseAcc(model.best_variant, bucket))}</b></td>`)
+          .join("");
         return `<tr><td>${displayName(model)}</td><td><b>${pct(best.summary.accuracy)}</b></td><td><b>${fmt(best.metrics.mrr, 3)}</b></td><td><b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td><b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td>${bucketCells}</tr>`;
       }
+      const bucketCells = ["simple", "medium", "complex"]
+        .map((bucket) => `<td>${pct(bucketPairwiseAcc(model.base_variant, bucket))} → <b>${pct(bucketPairwiseAcc(model.best_variant, bucket))}</b></td>`)
+        .join("");
       return `<tr><td>${displayName(model)}</td><td>${pct(base.summary.accuracy)} → <b>${pct(best.summary.accuracy)}</b></td><td>${fmt(base.metrics.mrr, 3)} → <b>${fmt(best.metrics.mrr, 3)}</b></td><td>${fmt(base.metrics.hit_at_1, 3)} → <b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td>${fmt(base.metrics.pairwise_accuracy, 3)} → <b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td>${bucketCells}</tr>`;
     }).join("");
     const bucketHeaders = ["simple", "medium", "complex"].map((bucket) => `<th>${bucketLabel(bucket)} pairwise acc.</th>`).join("");
