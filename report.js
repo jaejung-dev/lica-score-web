@@ -102,13 +102,11 @@ async function main() {
       if (model.is_baseline) {
         return [
           stat(pct(best.summary.accuracy), `${modelName} GT-vs-AI accuracy`),
-          stat(fmt(best.metrics.mrr, 3), `${modelName} MRR`),
         ].join("");
       }
       return [
         stat(pct(best.summary.accuracy), `${modelName} best GT-vs-AI accuracy`),
         stat(pct(base.summary.accuracy), `${modelName} base GT-vs-AI accuracy`),
-        stat(fmt(best.metrics.mrr, 3), `${modelName} best MRR`),
       ].join("");
     }).join("");
     document.getElementById("overview").innerHTML = `<div class="grid stats">${cards}</div>`;
