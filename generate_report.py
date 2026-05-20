@@ -267,7 +267,9 @@ def build_group_payload(
             record["group_id"],
             {
                 "group_id": record["group_id"],
-                "bucket": record.get("bucket", ""),
+                "bucket": record.get("bucket")
+                or record.get("positive", {}).get("bucket")
+                or record.get("negative", {}).get("bucket", ""),
                 "prompt": record["condition"]["text_prompt"],
                 "candidates": {},
             },

@@ -20,11 +20,25 @@ async function main() {
     String(name || "")
       .replace("Qwen3-VL-Embedding-", "Qwen-")
       .replace("Qwen/Qwen3-VL-Embedding-", "Qwen-");
+  const displayName = (modelOrName) => {
+    const name = typeof modelOrName === "string" ? modelOrName : modelOrName?.name;
+    const id = typeof modelOrName === "string" ? null : modelOrName?.id;
+    const labels = {
+      imscore_pickscore: "pickscore",
+      imscore_hpsv21: "hpsv21",
+      imscore_mpsv1: "mpsv1",
+      imscore_imagereward: "imreward",
+      imscore_laion_aesthetic: "laion-aesthetic",
+      imscore_clipscore: "clipscore",
+      imscore_hpsv3: "hpsv3",
+    };
+    return labels[id] || shortModelName(name);
+  };
   const shortVariantLabel = (variantOrId) => {
     const variant = typeof variantOrId === "string" ? variants[variantOrId] : variantOrId;
     if (!variant) return "-";
     const model = data.models.find((m) => m.id === variant.model_id);
-    const name = shortModelName(model?.name || variant.label);
+    const name = displayName(model || variant.label);
     if (model?.is_baseline) return name;
     return variant.epoch === 0 ? `${name} Base` : `${name} Epoch ${variant.epoch}`;
   };
@@ -34,11 +48,16 @@ async function main() {
     return model ? model[kind] : null;
   };
   const trainedModelIds = () => ["qwen8b", "qwen2b"].filter((id) => modelById(id));
-  const baselineModelIds = () =>
-    data.models
-      .filter((model) => model.is_baseline)
-      .sort((a, b) => shortModelName(a.name).localeCompare(shortModelName(b.name)))
-      .map((model) => model.id);
+  const selectedBaselineIds = [
+    "imscore_pickscore",
+    "imscore_hpsv21",
+    "imscore_mpsv1",
+    "imscore_imagereward",
+    "imscore_laion_aesthetic",
+    "imscore_clipscore",
+    "imscore_hpsv3",
+  ];
+  const baselineModelIds = () => selectedBaselineIds.filter((id) => modelById(id));
   const orderedModelIds = () => [...trainedModelIds(), ...baselineModelIds()];
   const orderedModels = () => orderedModelIds().map(modelById);
   const orderedComparisonVariantIds = () => [
@@ -61,6 +80,25 @@ async function main() {
   };
   const stat = (value, label) =>
     `<div class="card stat"><div class="value">${value}</div><div class="label">${label}</div></div>`;
+  const bucketLabel = (bucket) => ({
+    simple: "Simple",
+    medium: "Medium",
+    complex: "Complex",
+  })[bucket] || bucket || "-";
+  const bucketPairwiseAcc = (variantId, bucket) => {
+    let correct = 0;
+    let total = 0;
+    data.groups.filter((g) => g.bucket === bucket).forEach((group) => {
+      const gt = group.entries.find((entry) => entry.source === "gt");
+      if (!gt || gt.scores[variantId] == null) return;
+      group.entries.filter((entry) => entry.source !== "gt").forEach((entry) => {
+        if (entry.scores[variantId] == null) return;
+        correct += Number(gt.scores[variantId] > entry.scores[variantId]);
+        total += 1;
+      });
+    });
+    return total ? correct / total : null;
+  };
 
   function lineChart(title, rows, series, yLabel) {
     const w = 680;
@@ -92,15 +130,10 @@ async function main() {
   }
 
   function renderOverview() {
-    const cards = orderedModels().map((model) => {
+    const cards = trainedModelIds().map(modelById).map((model) => {
       const base = variants[model.base_variant];
       const best = variants[model.best_variant];
-      const modelName = shortModelName(model.name);
-      if (model.is_baseline) {
-        return [
-          stat(pct(best.summary.accuracy), `${modelName} GT-vs-AI accuracy`),
-        ].join("");
-      }
+      const modelName = displayName(model);
       return [
         stat(pct(best.summary.accuracy), `${modelName} best GT-vs-AI accuracy`),
         stat(pct(base.summary.accuracy), `${modelName} base GT-vs-AI accuracy`),
@@ -118,12 +151,16 @@ async function main() {
     const rows = orderedModels().map((model) => {
       const base = variants[model.base_variant];
       const best = variants[model.best_variant];
+      const bucketCells = ["simple", "medium", "complex"]
+        .map((bucket) => `<td><b>${pct(bucketPairwiseAcc(model.best_variant, bucket))}</b></td>`)
+        .join("");
       if (model.is_baseline) {
-        return `<tr><td>${shortModelName(model.name)}</td><td>-</td><td>-</td><td><b>${pct(best.summary.accuracy)}</b></td><td><b>${fmt(best.metrics.mrr, 3)}</b></td><td><b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td><b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td></tr>`;
+        return `<tr><td>${displayName(model)}</td><td><b>${pct(best.summary.accuracy)}</b></td><td><b>${fmt(best.metrics.mrr, 3)}</b></td><td><b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td><b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td>${bucketCells}</tr>`;
       }
-      return `<tr><td>${shortModelName(model.name)}</td><td>${model.embedding_dim}</td><td>${model.best_epoch}</td><td>${pct(base.summary.accuracy)} → <b>${pct(best.summary.accuracy)}</b></td><td>${fmt(base.metrics.mrr, 3)} → <b>${fmt(best.metrics.mrr, 3)}</b></td><td>${fmt(base.metrics.hit_at_1, 3)} → <b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td>${fmt(base.metrics.pairwise_accuracy, 3)} → <b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td></tr>`;
+      return `<tr><td>${displayName(model)}</td><td>${pct(base.summary.accuracy)} → <b>${pct(best.summary.accuracy)}</b></td><td>${fmt(base.metrics.mrr, 3)} → <b>${fmt(best.metrics.mrr, 3)}</b></td><td>${fmt(base.metrics.hit_at_1, 3)} → <b>${fmt(best.metrics.hit_at_1, 3)}</b></td><td>${fmt(base.metrics.pairwise_accuracy, 3)} → <b>${fmt(best.metrics.pairwise_accuracy, 3)}</b></td>${bucketCells}</tr>`;
     }).join("");
-    document.getElementById("modelcompare").innerHTML = `<h2>Lica vs imscore Baselines Summary</h2><table><tbody><tr><th>Model</th><th>Embedding dim</th><th>Best epoch</th><th>GT-vs-AI accuracy</th><th>MRR</th><th>Hit@1</th><th>Pairwise acc.</th></tr>${rows}</tbody></table>`;
+    const bucketHeaders = ["simple", "medium", "complex"].map((bucket) => `<th>${bucketLabel(bucket)} pairwise acc.</th>`).join("");
+    document.getElementById("modelcompare").innerHTML = `<h2>Lica vs imscore Baselines Summary</h2><table><tbody><tr><th>Model</th><th>GT-vs-AI accuracy</th><th>MRR</th><th>Hit@1</th><th>Pairwise acc.</th>${bucketHeaders}</tr>${rows}</tbody></table>`;
   }
 
   function confusionCard(variant) {
