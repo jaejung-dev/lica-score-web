@@ -1,5 +1,5 @@
 async function main() {
-  const cacheKey = new URLSearchParams(window.location.search).get("v") || "imscore-20260520";
+  const cacheKey = new URLSearchParams(window.location.search).get("v") || "focused-20260520-2326";
   const data = await fetch(`report-data.json?v=${encodeURIComponent(cacheKey)}`).then((r) => r.json());
   const variants = Object.fromEntries(data.variants.map((v) => [v.id, v]));
   const fmt = (x, n = 4) => (x == null ? "-" : Number(x).toFixed(n));
